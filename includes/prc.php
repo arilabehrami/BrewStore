@@ -11,6 +11,7 @@
 
         function printList($title, $array) {
             echo "<div class='sort-box'>";
+            echo "<ul>";
             foreach ($array as $k => $v) {
                 if (is_numeric($k)) {
                     echo "<li>$v</li>";
