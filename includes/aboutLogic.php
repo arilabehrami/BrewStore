@@ -14,7 +14,7 @@ $lokacionet = [
 
 //Funksioni qe shfaq te dhenat e kompanise (vitin e themelimit, si dhe nje mesazh mireseardhje)
 function shfaqCompInfo() {
-    echo "<h1  style='margin: 20px; font-weight: bold; text-align: center; color: white;>Welcome to " . coffeeShopName . "! Here's all you need to know about us.</h1>";
+    echo "<h1  style='margin: 20px; font-weight: bold; text-align: center; color: white;'>Welcome to " . coffeeShopName . "! Here's all you need to know about us.</h1>";
     echo "<p >Founded in " . foundedYear . ", our mission is: " . $GLOBALS['misioniKafenese'] . "</p>";
 }
 //Funksioni qe shfaq team members
@@ -37,7 +37,7 @@ function shfaqLokacionet($locations) {
 }
 
 //Kushtezimet qe kontrollojne nese kafeneja eshte nje kompani e re
-if(date("Y") - foundedYear < 5) {
+if(date("Y") - (int)foundedYear < 5) {
     echo "<p>We are a new Coffee Shop, but we are passionate about all types of coffee!</p>";
 } else {
     echo "<p>With years of experience, we know how to serve the best coffee to our customers!</p>";
