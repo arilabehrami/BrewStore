@@ -131,30 +131,10 @@
         <div class="about-text">
             <a href="#company-timeline" class="btn">Rreth nesh!</a>
             <p>Kafe-ja jonë ka filluar si një ëndërr e vogël për të sjellë shije të freskëta dhe të veçanta në zemër të qytetit. Që nga viti 2020, kemi ofruar një përvojë unike për çdo klient që hap derën tonë.</p>
-            <ol>
-                <li> Hyr në llogari
-                    <ul class="custom-bullet">
-                        <li>Shkruaj emrin e përdoruesit</li>
-                        <li>Shkruaj fjalëkalimin</li>
-                    </ul>
-                </li>
-                <li> Zgjidh produktin
-                    <ul class="custom-bullet">
-                        <li>Shfleto kategoritë</li>
-                        <li>Shiko detajet e produktit</li>
-                    </ul>
-                </li>
-                <li> Paguaj dhe përfundoni porosinë</li>
-            </ol>
-            
+        
             
         </div>
     </section>
-
-
-    <button id="hide-btn">Fsheh menaxherin:</button>
-    <button id="show-btn">Shfaq menaxherin:</button>
-    <p id="text"><i><b>Menaxhere: Aril&#235; Behrami</b></i></p>
 
     <section id="company-timeline">
         <h2 style="text-align: center;"><i>Historia Jonë</i></h2>
