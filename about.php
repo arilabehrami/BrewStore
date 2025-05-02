@@ -3,56 +3,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Us</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/style.css">
     <link rel="icon" href="images/logo1.png" type="image/png">
     <link href="https://cdn.jsdelivr.net/npm/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
    
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script> 
-    <script src="./script.js" defer></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
-    <style>
-        p{
-            text-transform: none;
-        }
-        i{
-            text-transform: none;
-        }
-        .highlight {
-            color: rgb(255, 200, 0);
-            font-weight: bold;
-            background: transparent;
-        }
-        ol {
-            font-family: Arial, sans-serif;
-            font-size: 1rem;
-            margin-left: 20px;
-        }
-
-        .custom-bullet {
-            list-style-type: square; 
-            margin-left: 20px;  
-        }
-
-        .custom-bullet li {
-            font-size: 0.9rem; 
-            color: #555; 
-        }
-
-    </style>
-
-    <script>
-    $(document).ready(function() {
-    $('#hide-btn').click(function() {
-    $('#text').hide();  // Fshihet paragrafi
-    });
-    $('#show-btn').click(function() {
-        $('#text').show();  // Shfaqet paragrafi
-    });
-
-});
-</script>
+    <script src="js/script.js"></script>
 </head>
 <body>
     <header>
