@@ -45,8 +45,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 }
 ?>
-
-
 <!DOCTYPE html>
 <html lang="sq">
 <head>
@@ -54,56 +52,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Faqja e kontaktit për kafenin tuaj. Na kontaktoni për informacione të mëtejshme.">
     <title>Contact Us</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/style.css">
     <link rel="icon" href="images/logo1.png" type="image/png">
     <link href="https://cdn.jsdelivr.net/npm/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
-    <script src="./script.js" defer></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
-
-    <style>
-        a {
-            color: #007bff; /* Ngjyrë blu për lidhjet */
-            text-decoration: none;
-        }
-
-        a:hover {
-            color: #0056b3; /* Ngjyrë blu më e errët kur është mbi */
-        }
-        
-    </style>
-
-    <!-- <script>
-        
-function kontrollo(){
-    try {
-        let name = document.getElementById("name").value;
-        let email = document.getElementById("email").value;
-        let subject = document.getElementById("subject").value;
-        let message = document.getElementById("message").value;
-        let age = document.getElementById("age").value;
-
-        if (!name) throw "Ju lutem shkruani emrin tuaj!";
-        if (!/^[A-Za-z\s]+$/.test(name)) throw "Emri duhet të përmbajë vetëm shkronja!";
-        if (!email) throw "Ju lutem shkruani adresën tuaj të emailit!";
-        if (!subject) throw "Ju lutem shkruani subjektin!";
-        if (!message) throw "Ju lutem shkruani mesazhin!";
-        if (age && (age < 18 || age > 99)) throw "Mosha duhet të jetë midis 18 dhe 99!";
-
-        return true;
-    } catch (error) {
-        alert(`Gabim: ${error}`);
-        return false;
-    }
-}
- catch (error) {
-        alert(`Gabim: ${error}`);
-    }
-        
-        
-    </script> -->
+    <script src="js/script.js"></script>
 </head>
 <body>
     <header>
@@ -172,9 +127,6 @@ function kontrollo(){
             </form>
         </div> 
     </header>
-
-    
-    
 
     <section id="contact">
         <div class="PlaceOfCoffee">
@@ -267,7 +219,7 @@ function kontrollo(){
                         <li><a href="https://www.twitter.com/" aria-label="Twitter"><i class='bx bxl-twitter'></i></a></li>
                         <li><a href="https://www.youtube.com/" aria-label="Youtube"><i class='bx bxl-youtube'></i></a></li>
                     </ul>
-                    </div>
+                </div>
             </div>
         </div>
     </footer>
