@@ -148,7 +148,7 @@
         echo '</div>';
         echo '</div>';
     }
-    include 'includes/prc.php';
+    // include 'includes/prc.php';
     ?>
 </div>
 </section>
