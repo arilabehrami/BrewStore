@@ -5,38 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Café Delight</title>
     <link rel="icon" href="images/logo1.png" type="image/png">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/style.css">
     <link href="https://cdn.jsdelivr.net/npm/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js">
     </script><script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="script.js" defer ></script>
-    
-
-    <style>
-        .home .home-text h1 {
-            font-size: 50px;
-            color:white;
-            text-align: left;
-            font-weight: bold;
-        }
-        .home .home-text a{
-            color:black;
-        }
-    </style>
-    <script>
-        $(document).ready(function() {
-        $('#message').text('Faleminderit për besimin dhe mbështetjen tuaj!');
-        $('#click-btn').click(function() {
-        $('#response').text('Butoni u klikua!');
-        });
-    });
-    </script>
+    <script src="js/script.js"></script>
 </head>
-
-
-
 <body>
     <header>
         <a href="index.php" class="logo">
