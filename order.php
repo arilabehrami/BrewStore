@@ -243,11 +243,11 @@ console.log(`Email i përditësuar: ${updatedEmail}`);
                 
                 </div>
 
-                <div class="form-group">
+                <!-- <div class="form-group">
                     <label for="order-date">Data e Porosisë</label>
                     <input type="date" id="order-date" name="order-date" readonly>
                 </div>
-                
+                 -->
                 <p id="total-price">Çmimi total: $0.00</p>
 
                
