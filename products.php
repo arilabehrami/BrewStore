@@ -4,39 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Products</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/style.css">
     <link rel="icon" href="images/logo1.png" type="image/png">
     <link href="https://cdn.jsdelivr.net/npm/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
-    <script src="./script.js" defer></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
-    <style>
-    table {
-        width: 100%;
-        border-spacing: 8px; 
-    }
-
-    th, td {
-        text-align: left;
-        padding: 12px; 
-        border: 1px solid #ddd;
-    }
-
-    th {
-        background-color: #f1f1f1; 
-        color: #333; 
-        font-weight: bold; 
-    }
-
-    td {
-        background-color: #ffffff; 
-        color: #555; 
-    }
-    </style>
+    <script src="js/script.js"></script>
 </head>
-<body onload="pershendetje1()">
 
 <header>
     <a href="index.php" class="logo">
@@ -188,7 +163,6 @@
         </div>
     </div>
 </footer>
-
 </body>
 </html>
 
