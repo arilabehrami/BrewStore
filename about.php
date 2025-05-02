@@ -210,9 +210,7 @@
 
     <footer class="footer">
         
-    <?php
-    include 'includes/aboutLogic.php';
-    ?>
+  
 
         <div class="container">
             <div class="row">
