@@ -173,12 +173,7 @@ function kontrollo(){
         </div> 
     </header>
 
-    <section id="audio-player">
-        <audio controls autoplay>
-            <source src="images/audio.m4a" type="audio/mpeg">
-            Muzika nuk mund të gjendet.
-        </audio>
-    </section>
+    
     
 
     <section id="contact">
@@ -223,9 +218,9 @@ function kontrollo(){
 
      <section id="business-hours">
         <div id="drag-container">
-            <h1 id="draggable-title" draggable="true" ondragstart="dragStart(event)"><i> Orari i Punes</i></h1>
-            <div id="dropzone" ondragover="allowDrop(event)" ondrop="drop(event)"></div>
-            <div id="dropzone" ondragover="allowDrop(event)" ondrop="drop(event)"></div>
+            <h1 ><i> Orari i Punes</i></h1>
+            <!-- <div id="dropzone" ondragover="allowDrop(event)" ondrop="drop(event)"></div> -->
+            <!-- <div id="dropzone" ondragover="allowDrop(event)" ondrop="drop(event)"></div> -->
             
         </div>
         
