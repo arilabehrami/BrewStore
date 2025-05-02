@@ -18,9 +18,6 @@ document.querySelector('#user-icon').onclick = () => {
     search.classList.remove('active');
     cart.classList.remove('active');
 }
-function pershendetje1() {
-    alert("Shijoni produktet tona!");
-}
 
 function shfaqVerejtje() {
     const warningElement = document.getElementById('warningMessage');
@@ -70,41 +67,41 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 });
 
-function Order(name, email, address, product, payment) {
-    this.name = name;
-    this.email = email;
-    this.address = address;
-    this.product = product;
-    this.payment = payment;
+// function Order(name, email, address, product, payment) {
+//     this.name = name;
+//     this.email = email;
+//     this.address = address;
+//     this.product = product;
+//     this.payment = payment;
 
-    this.displayOrder = function () {
-        return `Porosia nga ${this.name} për produktin ${this.product} me mënyrë pagese ${this.payment}.`;
-    };
-}
+//     this.displayOrder = function () {
+//         return `Porosia nga ${this.name} për produktin ${this.product} me mënyrë pagese ${this.payment}.`;
+//     };
+// }
 
 
-let porosia1 = new Order("Arila", "arila@hotmail.com", "Rruga 123", "Americano", "PayPal");
-let porosia2 = new Order("Beni", "beni@gmail.com", "Rruga 456", "Espresso", "Credit Card");
+// let porosia1 = new Order("Arila", "arila@hotmail.com", "Rruga 123", "Americano", "PayPal");
+// let porosia2 = new Order("Beni", "beni@gmail.com", "Rruga 456", "Espresso", "Credit Card");
  
 
-console.log(porosia1.displayOrder());
-console.log(porosia2.displayOrder());
+// console.log(porosia1.displayOrder());
+// console.log(porosia2.displayOrder());
 
 
-function dragStart(event) {
-    event.dataTransfer.setData("text", event.target.id);
-}
+// function dragStart(event) {
+//     event.dataTransfer.setData("text", event.target.id);
+// }
 
-function allowDrop(event) {
-    event.preventDefault();
-}
+// function allowDrop(event) {
+//     event.preventDefault();
+// }
 
-function drop(event) {
-    event.preventDefault();
-    const data = event.dataTransfer.getData("text");
-    const draggedElement = document.getElementById(data);
-    event.target.appendChild(draggedElement);
-}
+// function drop(event) {
+//     event.preventDefault();
+//     const data = event.dataTransfer.getData("text");
+//     const draggedElement = document.getElementById(data);
+//     event.target.appendChild(draggedElement);
+// }
 
 
 
