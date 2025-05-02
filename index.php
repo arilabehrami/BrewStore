@@ -163,10 +163,6 @@
     <div id="warningMessage" style="color: red;"></div>
     <button onclick="shfaqVerejtje()">Shfaq Vërejtjen</button>
 
-    <div id="message"></div>
-    <button id="click-btn" >Kliko Mua</button>
-    <div id="response"></div>
-
 
 </body>
 </html>
