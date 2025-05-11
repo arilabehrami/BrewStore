@@ -11,36 +11,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $phone = "";
     }
     
-    $message = preg_replace('/\s+/', ' ', $message); // Zëvendëson hapësirat e tepërta me një të vetme
-    $message = trim($message); // Largon hapësirat nga fillimi/fundi
+    $message = preg_replace('/\s+/', ' ', $message); 
+    $message = trim($message); 
 
-    // Validime me regex të ndara dhe të shpjeguara
-    $nameRegex = "/^[a-zA-Z\s]+$/"; // Lejon vetëm shkronja dhe hapësira
-    $emailRegex = "/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/";// Email i thjeshtuar
-    $ageRegex = "/^\d{1,2}$/"; // Lejon vetëm numra 1 deri 2 shifra
+    $nameRegex = "/^[a-zA-Z\s]+$/";
+    $emailRegex = "/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/";
+    $ageRegex = "/^\d{1,2}$/"; 
     $phoneRegex = "/^(\+383|0)[\s\-\/\(\)]*\d{2}[\s\-\/\(\)]*\d{3}[\s\-\/\(\)]*\d{3}$/"; 
-
-    // Emri
     if (!preg_match($nameRegex, $name)) {
         echo "Emri nuk është valid! Vetëm shkronja lejohen.<br />";
-    }
-
-    // Emaili
-    elseif (!preg_match($emailRegex, $email)) {
+    }elseif (!preg_match($emailRegex, $email)) {
         echo "Emaili nuk është valid!<br />";
-    }
-
-    // Mosha
-    elseif (!empty($age) && !preg_match($ageRegex, $age)) {
+    }elseif (!empty($age) && !preg_match($ageRegex, $age)) {
         echo "Mosha nuk është valide. Duhet të jetë një numër 1-99.<br />";
-    }
-    // Numri i telefonit (nëse është futur)
-    elseif (!empty($phone) && !preg_match($phoneRegex, $phone)) {
+    }elseif (!empty($phone) && !preg_match($phoneRegex, $phone)) {
         echo "Numri i telefonit nuk është në format të saktë!<br />";
-    }
-
-    // Nëse të gjitha janë OK
-    else {
+    } else {
         echo "Të dhënat janë të sakta! Mesazhi u dërgua me sukses.<br />";
     }
 }
@@ -52,7 +38,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     <section id="contact">
         <div class="PlaceOfCoffee">
-            <video  autoplay loop muted src="images/PlaceOfCoffee.mp4"></video>
+            <video  autoplay loop muted src="assets/images/PlaceOfCoffee.mp4"></video>
         </div>
         <form id="contact-form" method="POST" onsubmit="return kontrollo();">
             <label for="name">Emri:</label>
@@ -93,8 +79,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
      <section id="business-hours">
         <div id="drag-container">
             <h1 ><i> Orari i Punes</i></h1>
-            <!-- <div id="dropzone" ondragover="allowDrop(event)" ondrop="drop(event)"></div> -->
-            <!-- <div id="dropzone" ondragover="allowDrop(event)" ondrop="drop(event)"></div> -->
             
         </div>
         
