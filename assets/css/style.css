@@ -504,7 +504,7 @@ video{
     align-items: center;
     justify-content: center;
     padding: 20px;
-    background-image: url('../assets/images/aboutUS.jpg'); 
+    background-image: url('../images/aboutUS.jpg'); 
     background-origin: content-box;
     background-size: cover;
     background-position: center;

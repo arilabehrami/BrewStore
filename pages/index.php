@@ -118,7 +118,7 @@
                     <h4>Get help</h4>
                     <ul>
                         <li><a href="#">FAQ</a></li>
-                        <li><a href="pages/products.php" target="_blank" >Shipping</a></li>
+                        <li><a href="pages/products.php" target="_blank">Shipping</a></li>
                         <li><a href="pages/contact.php" target="_blank">Returns</a></li>
                         <li><a href="#">Payment Options</a></li>
                     </ul>
@@ -133,7 +133,6 @@
                         <li><a href="https://www.youtube.com/" aria-label="Youtube"><i class='bx bxl-youtube'></i></a></li>
                     </ul>
                     </div>
-                </div>
             </div>
         </div>
     </footer>
