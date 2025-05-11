@@ -32,11 +32,6 @@ window.addEventListener('DOMContentLoaded', () => {
     }
 });
 
-function shfaqVerejtje() {
-    const warningElement = document.getElementById('warningMessage');
-    warningElement.innerHTML = "Nëse përballeni me ndonjë problem,ju lutem të kontaktoni shërbimin tonë të klientit. Faleminderit për mirëkuptimin tuaj!";
-}
-
 $(document).ready(function(){
     $('.timeline-item p').hover(function() {
         $(this).css('color','blue');
