@@ -1,23 +1,36 @@
-// 1. Aktivizimi dhe çaktivizimi i seksioneve të ndryshme
-let search=document.querySelector('.search-box');
-let cart=document.querySelector('.cart');
-let user=document.querySelector('.user');
-// Funksionet për klikim të ikonave
-document.querySelector('#search-icon').onclick = () => {
-    search.classList.toggle('active');
-    cart.classList.remove('active');
-    user.classList.remove('active');
-}
-document.querySelector('#cart-icon').onclick = () => {
-    cart.classList.toggle('active');
-    search.classList.remove('active');
-    user.classList.remove('active');
-}
-document.querySelector('#user-icon').onclick = () => {
-    user.classList.toggle('active');
-    search.classList.remove('active');
-    cart.classList.remove('active');
-}
+window.addEventListener('DOMContentLoaded', () => {
+    const search = document.querySelector('.search-box');
+    const cart = document.querySelector('.cart');
+    const user = document.querySelector('.user');
+
+    const searchIcon = document.querySelector('#search-icon');
+    const cartIcon = document.querySelector('#cart-icon');
+    const userIcon = document.querySelector('#user-icon');
+
+    if (searchIcon) {
+        searchIcon.onclick = () => {
+            search.classList.toggle('active');
+            cart.classList.remove('active');
+            user.classList.remove('active');
+        };
+    }
+
+    if (cartIcon) {
+        cartIcon.onclick = () => {
+            cart.classList.toggle('active');
+            search.classList.remove('active');
+            user.classList.remove('active');
+        };
+    }
+
+    if (userIcon) {
+        userIcon.onclick = () => {
+            user.classList.toggle('active');
+            search.classList.remove('active');
+            cart.classList.remove('active');
+        };
+    }
+});
 
 function shfaqVerejtje() {
     const warningElement = document.getElementById('warningMessage');
@@ -104,6 +117,18 @@ document.addEventListener("DOMContentLoaded", function() {
 // }
 
 
+
+// document.addEventListener("DOMContentLoaded", function () {
+//     const currentDate = new Date();
+//     const formattedDate = currentDate.toISOString().split('T')[0];
+
+//     const orderDateElement = document.getElementById("order-date");
+//     if (orderDateElement) {
+//         orderDateElement.value = formattedDate;
+//     } else {
+//         console.log("Elementi me ID 'order-date' nuk u gjet!");
+//     }
+// });
 
 document.addEventListener("DOMContentLoaded", function () {
     const currentDate = new Date();
