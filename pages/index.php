@@ -4,14 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Café Delight</title>
-    <link rel="icon" href="assets/images/logo1.png" type="image/png">
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="icon" href="../assets/images/logo1.png" type="image/png">
+    <link rel="stylesheet" href="../assets/css/style.css">
     <link href="https://cdn.jsdelivr.net/npm/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js">
     </script><script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="assets/js/script.js"></script>
+    <script src="../assets/js/script.js"></script>
 </head>
 <body>
     <header>
