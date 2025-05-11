@@ -1,7 +1,14 @@
 <?php include 'includes/header.php'; ?>
-
-
-    
+ <?php
+session_start();
+if (isset($_SESSION['visits'])) {
+    $_SESSION['visits']++;
+} else {
+    $_SESSION['visits'] = 1;
+}
+echo "Kjo është vizita juaj nr. " . $_SESSION['visits'];
+?>
+ 
     <section id="audio-player">
         <audio controls autoplay loop>
             <source src="assets/images/videoplayback.weba" type="audio/mpeg">
