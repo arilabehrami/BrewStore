@@ -40,7 +40,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <div class="PlaceOfCoffee">
             <video  autoplay loop muted src="assets/images/PlaceOfCoffee.mp4"></video>
         </div>
-        <form id="contact-form" method="POST" onsubmit="return kontrollo();">
+         <form id="contact-form" method="POST" action="cookies_contact.php">
             <label for="name">Emri:</label>
             <input type="text" id="name" name="name" required placeholder="Shkruani emrin tuaj" autocomplete="on">
     
