@@ -15,16 +15,16 @@
 </head>
 <body>
     <header>
-     <a href="../pages/index.php" class="logo">
+     <a href="index.php" class="logo">
         <img src="assets/images/logo1.png" alt="Logo" loading="lazy">
     </a>
 
     <ul class="navbar">
-        <li><a href="../pages/index.php">Home</a></li>
-        <li><a href="../pages/order.php">Order Now</a></li>
-        <li><a href="../pages/about.php"class="active">About</a></li>
-        <li><a href="../pages/products.php" >Products</a></li>
-        <li><a href="../pages/contact.php">Contact</a></li>
+        <li><a href="index.php">Home</a></li>
+        <li><a href="order.php">Order Now</a></li>
+        <li><a href="about.php"class="active">About</a></li>
+        <li><a href="products.php" >Products</a></li>
+        <li><a href="contact.php">Contact</a></li>
     </ul>
 
         <div class="header-icon">
@@ -154,18 +154,18 @@
                 <div class="footer-col">
                     <h4>Company</h4>
                     <ul>
-                        <li><a href="pages/about.php">About Us</a></li>
-                        <li><a href="pages/products.php">Our Services</a></li>
-                        <li><a href="pages/contact.php">Privacy Policy</a></li>
-                        <li><a href="pages/order.php">Order Now</a></li>
+                        <li><a href="about.php">About Us</a></li>
+                        <li><a href="products.php">Our Services</a></li>
+                        <li><a href="contact.php">Privacy Policy</a></li>
+                        <li><a href="order.php">Order Now</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
                     <h4>Get help</h4>
                     <ul>
                         <li><a href="#">FAQ</a></li>
-                        <li><a href="pages/products.php" target="_blank" >Shipping</a></li>
-                        <li><a href="pages/contact.php" target="_blank">Returns</a></li>
+                        <li><a href="products.php" target="_blank" >Shipping</a></li>
+                        <li><a href="contact.php" target="_blank">Returns</a></li>
                         <li><a href="#">Payment Options</a></li>
                     </ul>
                 </div>

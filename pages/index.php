@@ -15,16 +15,16 @@
 </head>
 <body>
     <header>
-        <a href="pages/index.php" class="logo">
+        <a href="index.php" class="logo">
         <img src="assets/images/logo1.png" alt="Logo" loading="lazy">
     </a>
 
     <ul class="navbar">
-        <li><a href="pages/index.php"class="active">Home</a></li>
-        <li><a href="pages/order.php">Order Now</a></li>
-        <li><a href="pages/about.php">About</a></li>
-        <li><a href="pages/products.php" >Products</a></li>
-        <li><a href="pages/contact.php">Contact</a></li>
+        <li><a href="index.php"class="active">Home</a></li>
+        <li><a href="order.php">Order Now</a></li>
+        <li><a href="about.php">About</a></li>
+        <li><a href="products.php" >Products</a></li>
+        <li><a href="contact.php">Contact</a></li>
     </ul>
     
         <div class="header-icon">
