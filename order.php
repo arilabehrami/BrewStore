@@ -83,7 +83,7 @@ $coffees = [
     new SpecialtyCoffee("Americano", "USA", "Light", "Smooth, Mellow")
 ];
 
-echo "<div style='margin: 20px; font-weight: bold; text-align: center; color: white;'>";
+echo "<br><br><div style='margin: 20px; font-weight: bold; text-align: center; color: white;<br/><br/>'>";
 echo "<h2 style='margin-bottom: 30px;'>“You can't buy happiness, but you can buy coffee, and that's pretty close.” ☕</h2>";
 
 foreach ($coffees as $coffee) {
