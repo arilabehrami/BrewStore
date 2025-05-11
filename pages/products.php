@@ -13,7 +13,7 @@
 </head>
 <body>
     <header>
-    <a href="index.php" class="logo">
+    <a href="pages/index.php" class="logo">
         <img src="assets/images/logo1.png" alt="Logo" loading="lazy">
     </a>
 
