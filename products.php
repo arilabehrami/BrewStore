@@ -20,18 +20,18 @@
     }
 
     $products = [
-        new Product("Americano", 25, "images/menu-1.png"),
-        new Product("Espresso", 20, "images/menu-2.png"),
-        new Product("Cappuccino", 25, "images/menu-3.png"),
-        new Product("Latte", 30, "images/menu-4.png"),
-        new Product("Macchiato", 25, "images/menu-5.png"),
-        new Product("Mocha", 15, "images/menu-6.png"),
-        new Product("Cortado", 20, "images/menu-7.png"),
-        new Product("Ristretto", 20, "images/menu-8.png"),
-        new Product("Affogato", 30, "images/menu-9.png"),
-        new Product("Turkish Coffee", 35, "images/cart-item1.png"),
-        new Product("Coffee!", 25, "images/cart-item2.png"),
-        new Product("Coffee#", 25, "images/cart-item3.png")
+        new Product("Americano", 25, "assets/images/menu-1.png"),
+        new Product("Espresso", 20, "assets/images/menu-2.png"),
+        new Product("Cappuccino", 25, "assets/images/menu-3.png"),
+        new Product("Latte", 30, "assets/images/menu-4.png"),
+        new Product("Macchiato", 25, "assets/images/menu-5.png"),
+        new Product("Mocha", 15, "assets/images/menu-6.png"),
+        new Product("Cortado", 20, "assets/images/menu-7.png"),
+        new Product("Ristretto", 20, "assets/images/menu-8.png"),
+        new Product("Affogato", 30, "assets/images/menu-9.png"),
+        new Product("Turkish Coffee", 35, "assets/images/cart-item1.png"),
+        new Product("Coffee!", 25, "assets/images/cart-item2.png"),
+        new Product("Coffee#", 25, "assets/images/cart-item3.png")
     ];
 
     usort($products, function($a, $b) {
