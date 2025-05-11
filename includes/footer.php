@@ -34,7 +34,7 @@
             </div>
         </div>
     </footer>
-    <div id="warningMessage" style="color: red;"></div>
+    <!-- <div id="warningMessage" style="color: red;"></div> -->
 
 
 </body>
