@@ -1,8 +1,5 @@
 
 <?php include 'includes/header.php'; ?>
-
-
-    
     <section id="about">
         <h1>Reth nesh</h1>
         <div class="about-text">
