@@ -3,7 +3,7 @@
 
     <section id="order-now">
         <div class="order-image">
-            <img src="images/about.jpg" alt="Order Image" >
+            <img src="assets/images/about.jpg" alt="Order Image" >
         </div>
         <div class="container">
             <h1>Porosit tani!</h1>
@@ -61,11 +61,6 @@
                 
                 </div>
 
-                <!-- <div class="form-group">
-                    <label for="order-date">Data e Porosisë</label>
-                    <input type="date" id="order-date" name="order-date" readonly>
-                </div>
-                 -->
                 <p id="total-price">Çmimi total: $0.00</p>
 
                
