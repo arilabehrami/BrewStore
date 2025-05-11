@@ -3,20 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Us</title>
-    <link rel="stylesheet" href="../assets/css/style.css">
-    <link rel="icon" href="assets/images/logo1.png" type="image/png">
+    <link rel="stylesheet" href="/UEB25_CoffeeWebsite_/assets/css/style.css">
+    <link rel="icon" href="/UEB25_CoffeeWebsite_/assets/images/logo1.png" type="image/png">
     <link href="https://cdn.jsdelivr.net/npm/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
-   
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script> 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="../assets/js/script.js"></script>
+    <script src="/UEB25_CoffeeWebsite_/assets/js/script.js"></script>
 </head>
 <body>
     <header>
-     <a href="../pages/index.php" class="logo">
-        <img src="assets/images/logo1.png" alt="Logo" loading="lazy">
+     <a href="/UEB25_CoffeeWebsite_/index.php" class="logo">
+        <img src="/UEB25_CoffeeWebsite_/assets/images/logo1.png" alt="Logo" loading="lazy">
     </a>
 
     <ul class="navbar">
