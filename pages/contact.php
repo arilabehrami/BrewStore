@@ -63,7 +63,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </head>
 <body>
     <header>
-    <a href="index.php" class="logo">
+    <a href="pages/index.php" class="logo">
         <img src="assets/images/logo1.png" alt="Logo" loading="lazy">
     </a>
 
@@ -71,8 +71,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <li><a href="pages/index.php">Home</a></li>
         <li><a href="pages/order.php">Order Now</a></li>
         <li><a href="pages/about.php">About</a></li>
-        <li><a href="pages/products.php" class="active">Products</a></li>
-        <li><a href="pages/contact.php">Contact</a></li>
+        <li><a href="pages/products.php" >Products</a></li>
+        <li><a href="pages/contact.php"class="active">Contact</a></li>
     </ul>
 
         <div class="header-icon">
