@@ -89,7 +89,7 @@
         <div class="about-text">
             <a href="#company-timeline" class="btn">Rreth nesh!</a>
             <p>Kafe-ja jonë ka filluar si një ëndërr e vogël për të sjellë shije të freskëta dhe të veçanta në zemër të qytetit. Që nga viti 2020, kemi ofruar një përvojë unike për çdo klient që hap derën tonë.</p>
-        
+
             
         </div>
     </section>
