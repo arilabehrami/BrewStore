@@ -1,3 +1,6 @@
+<?php
+$currentPage = basename($_SERVER['PHP_SELF']);
+?>
 
 <html lang="en">
 <head>
@@ -17,13 +20,15 @@
         <img src="/UEB25_CoffeeWebsite_/assets/images/logo1.png" alt="Logo" loading="lazy">
     </a>
 
+    
     <ul class="navbar">
-        <li><a href="index.php">Home</a></li>
-        <li><a href="order.php">Order Now</a></li>
-        <li><a href="about.php">About</a></li>
-        <li><a href="products.php" >Products</a></li>
-        <li><a href="contact.php">Contact</a></li>
+    <li><a href="index.php" class="<?= $currentPage == 'index.php' ? 'active' : '' ?>">Home</a></li>
+    <li><a href="order.php" class="<?= $currentPage == 'order.php' ? 'active' : '' ?>">Order Now</a></li>
+    <li><a href="about.php" class="<?= $currentPage == 'about.php' ? 'active' : '' ?>">About</a></li>
+    <li><a href="products.php" class="<?= $currentPage == 'products.php' ? 'active' : '' ?>">Products</a></li>
+    <li><a href="contact.php" class="<?= $currentPage == 'contact.php' ? 'active' : '' ?>">Contact</a></li>
     </ul>
+
 
         <div class="header-icon">
             <i class='bx bx-cart'id="cart-icon"></i>
