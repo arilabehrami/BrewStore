@@ -182,24 +182,23 @@ foreach ($coffees as $coffee) {
 
 echo "</div>";
 ?>
-
         <div class="container">
             <div class="row">
                 <div class="footer-col">
                     <h4>Company</h4>
                     <ul>
-                        <li><a href="about.php">About Us</a></li>
-                        <li><a href="products.php">Our Services</a></li>
-                        <li><a href="contact.php">Privacy Policy</a></li>
-                        <li><a href="order.php">Order Now</a></li>
+                        <li><a href="pages/about.php">About Us</a></li>
+                        <li><a href="pages/products.php">Our Services</a></li>
+                        <li><a href="pages/contact.php">Privacy Policy</a></li>
+                        <li><a href="pages/order.php">Order Now</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
                     <h4>Get help</h4>
                     <ul>
                         <li><a href="#">FAQ</a></li>
-                        <li><a href="products.php" target="_blank">Shipping</a></li>
-                        <li><a href="contact.php" target="_blank">Returns</a></li>
+                        <li><a href="pages/products.php" target="_blank" >Shipping</a></li>
+                        <li><a href="pages/contact.php" target="_blank">Returns</a></li>
                         <li><a href="#">Payment Options</a></li>
                     </ul>
                 </div>
@@ -212,6 +211,7 @@ echo "</div>";
                         <li><a href="https://www.twitter.com/" aria-label="Twitter"><i class='bx bxl-twitter'></i></a></li>
                         <li><a href="https://www.youtube.com/" aria-label="Youtube"><i class='bx bxl-youtube'></i></a></li>
                     </ul>
+                    </div>
                 </div>
             </div>
         </div>
