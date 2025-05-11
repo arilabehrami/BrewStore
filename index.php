@@ -4,7 +4,7 @@
     
     <section id="audio-player">
         <audio controls autoplay loop>
-            <source src="images/videoplayback.weba" type="audio/mpeg">
+            <source src="assets/images/videoplayback.weba" type="audio/mpeg">
             video of coffee
         </audio>
     </section>
