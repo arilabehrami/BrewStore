@@ -15,7 +15,7 @@
             <a href="products.php" class="btn" >Shop Now</a>
         </div>
         <div class="home-video">
-            <video  autoplay loop muted src="images/coffee.mp4"></video>
+            <video  autoplay loop muted src="assets/images/coffee.mp4"></video>
         </div>
     </section>  
 
