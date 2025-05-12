@@ -32,11 +32,11 @@
             </div>
         </div>
     </div>
-    <div class="copyright">
+    
+</footer>
+<div class="copyright">
         <p>&copy; <?php echo date('Y'); ?> Coffee Shop. All Rights Reserved.</p>
     </div>
-</footer>
-
 <script src="<?php echo $base_url; ?>assets/js/script.js"></script>
 </body>
 </html>
