@@ -902,3 +902,84 @@ address ul li a:hover {
         margin: 5px 0;
     }
 }
+
+/* Stilizimi i faqes së regjistrimit - mund të përdorë të njëjtin stil si login */
+.register-page {
+    background-image: url('../images/login-background.avif');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.register-page::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.register-box {
+    background-color: rgba(255, 255, 255, 0.85);
+    padding: 40px;
+    border-radius: 15px;
+    width: 100%;
+    max-width: 450px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.register-box h2 {
+    color: #2c1a0a;
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 28px;
+}
+
+/* Mund të ripërdorim klasat e login-it pasi janë të njëjta */
+.register-page .form-group,
+.register-page .form-group input,
+.register-page .form-group input:focus,
+.register-page .login-btn,
+.register-page .login-btn:hover,
+.register-page .login-links,
+.register-page .login-links a,
+.register-page .login-links a:hover {
+    /* Të njëjtat stilime si për login */
+}
+
+/* Për mesazhet e suksesit/gabimit */
+.success {
+    color: #2e7d32;
+    background-color: #e8f5e9;
+    padding: 10px;
+    border-radius: 4px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.error {
+    color: #c62828;
+    background-color: #ffebee;
+    padding: 10px;
+    border-radius: 4px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .register-box {
+        padding: 30px 20px;
+        margin: 20px;
+    }
+}
