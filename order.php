@@ -8,7 +8,7 @@
         <h1>Porosit tani!</h1>
         
         <!-- Formulari me metodën POST -->
-        <form id="order-form" action="process_order.php" method="POST">
+        <form id="order-form" action="sessions_cookies/process_order.php" method="POST">
             <div class="form-group">
                 <label for="name">Emri</label>
                 <input type="text" id="name" name="name" placeholder="Shkruani emrin tuaj" required>
