@@ -1,27 +1,26 @@
+<?php include '../includes/header.php'; ?>
 
-
-<div class="login-container">
-    <h2>Login Now</h2>
-    <form action="admin/login.php" method="POST">
-        <div class="form-group">
-            <label for="email">Email</label>
-            <input type="email" id="email" name="email" placeholder="Your Email..." required>
-        </div>
-        <div class="form-group">
-            <label for="password">Password</label>
-            <input type="password" id="password" name="password" placeholder="Password..." required>
-        </div>
-        <div class="form-group">
-            <input type="submit" value="Login" class="login-btn">
-        </div>
-        <div class="login-links">
-            <a href="reset-password.php">Forgot Password?</a>
-            <a href="register.php">Create Account</a>
-            <a href="help.php">Help</a>
-        </div>
-    </form>
+<div class="login-page">
+    <div class="login-box">
+        <h2>Login Now</h2>
+        <form action="login.php" method="POST">
+            <div class="form-group">
+                <input type="email" name="email" placeholder="Your Email..." required>
+            </div>
+            <div class="form-group">
+                <input type="password" name="password" placeholder="Password..." required>
+            </div>
+            <button type="submit" class="login-btn">Login</button>
+            <div class="login-links">
+                <a href="forgot-password.php">Forgot Password?</a>
+                <a href="register.php">Create Account</a>
+                <a href="help.php">Help</a>
+            </div>
+        </form>
+    </div>
 </div>
 
+<?php include '../includes/footer.php'; ?>
 
 <!--
 <!DOCTYPE html>
