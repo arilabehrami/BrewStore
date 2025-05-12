@@ -8,7 +8,7 @@ if (!isset($_SESSION['user_logged_in']) || !$_SESSION['user_logged_in']) {
 include 'includes/header.php';
 
 if (!isset($_SESSION['user_logged_in'])) {
-    header("Location: login.php");
+    header("Location: admin/login.php");
     exit();
 }
 ?>
@@ -18,8 +18,8 @@ if (!isset($_SESSION['user_logged_in'])) {
     <p>Email: <?php echo htmlspecialchars($_SESSION['user_email']); ?></p>
     
     <div class="dashboard-links">
-        <a href="products.php" class="btn">Shop Now</a>
-        <a href="logout.php" class="btn">Logout</a>
+        <a href="admin/products.php" class="btn">Shop Now</a>
+        <a href="admin/logout.php" class="btn">Logout</a>
     </div>
 </div>
 
