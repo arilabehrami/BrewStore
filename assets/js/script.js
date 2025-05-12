@@ -136,4 +136,3 @@ document.addEventListener("DOMContentLoaded", function () {
         console.log("Elementi me ID 'order-date' nuk u gjet!");
     }
 });
-

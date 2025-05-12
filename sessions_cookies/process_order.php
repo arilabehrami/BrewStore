@@ -37,4 +37,3 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     exit(); // Siguron që skripti të ndalojë këtu dhe të mos ekzekutohet më tej
 }
 ?>
-

@@ -1,6 +1,5 @@
 <?php include 'includes/header.php'; ?>
- <?php
-session_start();
+<?php
 if (isset($_SESSION['visits'])) {
     $_SESSION['visits']++;
 } else {

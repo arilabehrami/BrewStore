@@ -1,5 +1,3 @@
-
-
 <section id="thank-you">
     <h1>Faleminderit për mesazhin tuaj!</h1>
     <?php
@@ -17,7 +15,3 @@
     }
     ?>
 </section>
-
-
-
-
