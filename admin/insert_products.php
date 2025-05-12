@@ -12,8 +12,8 @@ $products = [
     ['Ristretto', 20, 'menu-8.png'],
     ['Affogato', 30, 'menu-9.png'],
     ['Turkish Coffee', 35, 'cart-item1.png'],
-    ['Coffee!', 25, 'cart-item2.png'],
-    ['Coffee#', 25, 'cart-item3.png']
+    ['Coffee',25,'cart-item2.png'],
+    ['Black Coffee', 25, 'cart-item3.png']
 ];
 
 $stmt = $conn->prepare("INSERT INTO products (name, price, image) VALUES (?, ?, ?)");
