@@ -1,6 +1,6 @@
 <?php
-include 'includes/header.php';
-include 'includes/db.php';
+// include 'includes/header.php';
+// include 'includes/db.php';
 
 $error = '';
 $success = '';
@@ -52,7 +52,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <?php if ($success): ?>
         <div class="success"><?php echo $success; ?></div>
     <?php endif; ?>
-    <form action="register.php" method="POST">
+    <form action="admin/register.php" method="POST">
         <div class="form-group">
             <label for="name">Full Name</label>
             <input type="text" id="name" name="name" placeholder="Your Name..." required>
@@ -81,4 +81,4 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     </form>
 </div>
 
-<?php include 'includes/footer.php'; ?>
+<!-- <?php include 'includes/footer.php'; ?> -->
