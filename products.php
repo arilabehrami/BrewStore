@@ -30,8 +30,8 @@
         new Product("Ristretto", 20, "assets/images/menu-8.png"),
         new Product("Affogato", 30, "assets/images/menu-9.png"),
         new Product("Turkish Coffee", 35, "assets/images/cart-item1.png"),
-        new Product("Coffee!", 25, "assets/images/cart-item2.png"),
-        new Product("Coffee#", 25, "assets/images/cart-item3.png")
+        new Product("Coffee", 25, "assets/images/cart-item2.png"),
+        new Product("Black Coffee", 25, "assets/images/cart-item3.png")
     ];
 
     usort($products, function($a, $b) {
