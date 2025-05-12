@@ -945,16 +945,65 @@ address ul li a:hover {
     font-size: 28px;
 }
 
-/* Mund të ripërdorim klasat e login-it pasi janë të njëjta */
-.register-page .form-group,
-.register-page .form-group input,
-.register-page .form-group input:focus,
-.register-page .login-btn,
-.register-page .login-btn:hover,
-.register-page .login-links,
-.register-page .login-links a,
+/* Ripërdorim stilet nga login page */
+.register-page .form-group {
+    margin-bottom: 20px;
+}
+
+.register-page .form-group input {
+    width: 100%;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 16px;
+    background-color: rgba(255, 255, 255, 0.8);
+    transition: all 0.3s;
+}
+
+.register-page .form-group input:focus {
+    outline: none;
+    border-color: #c7a17a;
+    box-shadow: 0 0 0 3px rgba(199, 161, 122, 0.2);
+}
+
+.register-page .login-btn {
+    width: 100%;
+    padding: 15px;
+    background-color: #c7a17a;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+    margin-top: 10px;
+}
+
+.register-page .login-btn:hover {
+    background-color: #b08c66;
+    transform: translateY(-2px);
+}
+
+.register-page .login-links {
+    margin-top: 20px;
+    text-align: center;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.register-page .login-links a {
+    color: #2c1a0a;
+    text-decoration: none;
+    font-size: 14px;
+    margin: 5px 0;
+    transition: all 0.3s;
+}
+
 .register-page .login-links a:hover {
-    /* Të njëjtat stilime si për login */
+    color: #c7a17a;
+    text-decoration: underline;
 }
 
 /* Për mesazhet e suksesit/gabimit */
