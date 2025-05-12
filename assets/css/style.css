@@ -765,7 +765,7 @@ address ul li a:hover {
     color: white;
 }
 
-/* Stilizimi i përdoruesit të loguar */
+/* Stilizimi i përdoruesit të loguar 
 .nav-user {
     display: flex;
     gap: 10px;
@@ -782,4 +782,123 @@ address ul li a:hover {
 
 .nav-user a:last-child:hover {
     background-color: #8b0000;
+} */
+
+/* Stilizimi i faqes së login */
+.login-page {
+    background-image: url('../images/login-background.avif'); /* Vendosni emrin e fotos suaj */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.login-page::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5); /* Efekti i errësimit për background */
+}
+
+.login-box {
+    background-color: rgba(255, 255, 255, 0.85); /* Kutia transparente */
+    padding: 40px;
+    border-radius: 15px;
+    width: 100%;
+    max-width: 450px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    backdrop-filter: blur(5px); /* Efekti i blurrit për transparency */
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.login-box h2 {
+    color: #2c1a0a;
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 28px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 16px;
+    background-color: rgba(255, 255, 255, 0.8);
+    transition: all 0.3s;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: #c7a17a;
+    box-shadow: 0 0 0 3px rgba(199, 161, 122, 0.2);
+}
+
+.login-btn {
+    width: 100%;
+    padding: 15px;
+    background-color: #c7a17a;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+    margin-top: 10px;
+}
+
+.login-btn:hover {
+    background-color: #b08c66;
+    transform: translateY(-2px);
+}
+
+.login-links {
+    margin-top: 20px;
+    text-align: center;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.login-links a {
+    color: #2c1a0a;
+    text-decoration: none;
+    font-size: 14px;
+    margin: 5px 0;
+    transition: all 0.3s;
+}
+
+.login-links a:hover {
+    color: #c7a17a;
+    text-decoration: underline;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .login-box {
+        padding: 30px 20px;
+        margin: 20px;
+    }
+    
+    .login-links {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .login-links a {
+        margin: 5px 0;
+    }
 }
