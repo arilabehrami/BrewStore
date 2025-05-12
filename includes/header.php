@@ -33,9 +33,10 @@ $base_url = 'http://' . $_SERVER['HTTP_HOST'] . '/UEB25_CoffeeWebsite_/';
         <div class="header-icon">
             <a href="<?php echo $base_url; ?>cart.php"><i class='bx bx-cart' id="cart-icon"></i></a>
             <i class='bx bx-search' id="search-icon"></i>
-            <a href="<?php echo $base_url; ?>login.php"><i class='bx bx-user' id="user-icon"></i></a>
+             <a href="<?php echo $base_url; ?>admin/login.php"><i class='bx bx-user' id="user-icon"></i></a>
         </div>
 
+       
         <div class="search-box">
             <form action="<?php echo $base_url; ?>search.php" method="GET">
                 <input type="search" id="search" name="query" placeholder="Search Here..." required>
