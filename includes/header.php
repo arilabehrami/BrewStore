@@ -1,4 +1,5 @@
 <?php
+session_start();
 $currentPage = basename($_SERVER['PHP_SELF']);
 ?>
 
@@ -55,30 +56,34 @@ $currentPage = basename($_SERVER['PHP_SELF']);
             </div>
         </div>
 
+         <!-- Login Form for Unauthenticated Users -->
+        <?php if (!isset($_SESSION['user_logged_in']) || $_SESSION['user_logged_in'] !== true): ?>
+            <div class="user-login">
+                <h2>Login Now</h2>
+                <form action="login.php" method="POST">
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" placeholder="Your Email..." required>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" id="password" name="password" placeholder="Password..." required>
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" value="Login" class="login-btn">
+                    </div>
+                    <p>Forgot Password? <a href="/reset-password">Reset Now</a></p>
+                    <p>Don't have an account? <a href="/register">Create One</a></p>
+                </form>
+            </div>
+        <?php else: ?>
+            <!-- If the user is logged in, show a welcome message -->
+            <div class="user-logged-in">
+                <p>Welcome, <?php echo $_SESSION['user_email']; ?>!</p>
+                <a href="logout.php">Logout</a>
+            </div>
+        <?php endif; ?>
 
-        <div class="user">
-            <h2>Login Now</h2>
-            <form action="/login" method="POST">
-                <div class="form-group">
-                    <label for="email">Email</label>
-                    <input type="email" id="email" name="email" placeholder="Your Email..." required>
-                </div>
-        
-               
-                <div class="form-group">
-                    <label for="password">Password</label>
-                    <input type="password" id="password" name="password" placeholder="Password..." required>
-                </div>
-        
-      
-                <div class="form-group">
-                    <input type="submit" value="Login" class="login-btn">
-                </div>
-        
-                <p>Forgot Password? <a href="/reset-password">Reset Now</a></p>
-                <p>Don't have an account? <a href="/register">Create One</a></p>
-            </form>
-        </div>
-        
-    
+
+   </div>
     </header>
