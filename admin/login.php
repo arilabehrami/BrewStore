@@ -1,8 +1,8 @@
-<?php include 'includes/header.php'; ?>
+
 
 <div class="login-container">
     <h2>Login Now</h2>
-    <form action="login.php" method="POST">
+    <form action="admin/login.php" method="POST">
         <div class="form-group">
             <label for="email">Email</label>
             <input type="email" id="email" name="email" placeholder="Your Email..." required>
@@ -22,7 +22,7 @@
     </form>
 </div>
 
-<?php include 'includes/footer.php'; ?>
+
 <!--
 <!DOCTYPE html>
 <html lang="en">
