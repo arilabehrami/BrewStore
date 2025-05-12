@@ -1,30 +1,25 @@
 <?php include 'includes/header.php'; ?>
-<?php
-if (isset($_SESSION['visits'])) {
-    $_SESSION['visits']++;
-} else {
-    $_SESSION['visits'] = 1;
-}
-echo "Kjo është vizita juaj nr. " . $_SESSION['visits'];
-?>
- 
-    <section id="audio-player">
-        <audio controls autoplay loop>
-            <source src="assets/images/videoplayback.weba" type="audio/mpeg">
-            video of coffee
-        </audio>
-    </section>
 
-    <section class="home" id="home">
-        <div class="home-text">
-           <h1> <i>Start your day<br>with coffee</i></h1>
-            <a href="products.php" class="btn" >Shop Now</a>
-        </div>
-        <div class="home-video">
-            <video  autoplay loop muted src="assets/images/coffee.mp4"></video>
-        </div>
-    </section>  
+<section id="audio-player">
+    <audio controls autoplay loop>
+        <source src="assets/images/videoplayback.weba" type="audio/mpeg">
+        video of coffee
+    </audio>
+</section>
 
-    <?php include 'includes/footer.php'; ?>
-    
-   
+<section class="home" id="home">
+    <div class="home-text">
+       <h1><i>Start your day<br>with coffee</i></h1>
+       <?php if (isset($_SESSION['user_logged_in'])): ?>
+           <a href="dashboard.php" class="btn">My Account</a>
+       <?php else: ?>
+           <a href="login.php" class="btn">Login</a>
+       <?php endif; ?>
+       <a href="products.php" class="btn">Shop Now</a>
+    </div>
+    <div class="home-video">
+        <video autoplay loop muted src="assets/images/coffee.mp4"></video>
+    </div>
+</section>  
+
+<?php include 'includes/footer.php'; ?>

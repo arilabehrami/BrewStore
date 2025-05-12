@@ -743,3 +743,43 @@ address ul li a {
 address ul li a:hover {
     color: #0056b3; 
 }
+
+/* Stilizimi i login në navbar */
+.navbar li:last-child {
+    margin-left: auto;
+}
+
+.navbar li a {
+    padding: 8px 15px;
+    border-radius: 4px;
+    transition: all 0.3s;
+}
+
+.navbar li a[href="login.php"] {
+    background-color: #c7a17a;
+    color: #2c1a0a;
+}
+
+.navbar li a[href="login.php"]:hover {
+    background-color: #b08c66;
+    color: white;
+}
+
+/* Stilizimi i përdoruesit të loguar */
+.nav-user {
+    display: flex;
+    gap: 10px;
+}
+
+.nav-user a:first-child {
+    color: #c7a17a;
+}
+
+.nav-user a:last-child {
+    background-color: #a52a2a;
+    color: white;
+}
+
+.nav-user a:last-child:hover {
+    background-color: #8b0000;
+}
