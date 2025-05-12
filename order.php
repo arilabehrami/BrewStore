@@ -1,4 +1,7 @@
-<?php include 'includes/header.php'; ?>
+<?php 
+include 'includes/header.php'; 
+include 'database/db_connection.php'; 
+?>
 
 <section id="order-now">
     <div class="order-image">
@@ -7,7 +10,6 @@
     <div class="container">
         <h1>Porosit tani!</h1>
         
-        <!-- Formulari me metodën POST -->
         <form id="order-form" action="sessions_cookies/process_order.php" method="POST">
             <div class="form-group">
                 <label for="name">Emri</label>
@@ -26,11 +28,20 @@
 
             <div class="form-group">
                 <label for="product">Produkt</label>
-                <select id="product" name="product">
+                <select id="product" name="product" required>
                     <option value="" disabled selected>Zgjidhni nje produkt</option>
-                    <option value="Americano" data-price="20">Americano - $20</option>
-                    <option value="Espresso" data-price="30">Espresso - $30</option>
-                    <option value="Cappuccino" data-price="40">Cappuccino - $40</option>
+                    <?php
+                    $sql = "SELECT * FROM products";
+                    $result = $conn->query($sql);
+
+                    if ($result->num_rows > 0) {
+                        while ($row = $result->fetch_assoc()) {
+                            echo '<option value="' . $row['id'] . '" data-price="' . $row['price'] . '">' . $row['name'] . ' - $' . $row['price'] . '</option>';
+                        }
+                    } else {
+                        echo '<option value="" disabled>Asnjë produkt i disponueshëm</option>';
+                    }
+                    ?>
                 </select>
             </div>
 
@@ -46,7 +57,7 @@
 
             <div class="form-group">
                 <label for="payment-method">Mënyra e Pagesës</label>
-                <select id="payment-method" name="payment-method">
+                <select id="payment-method" name="payment-method" required>
                     <option value="" disabled selected>Zgjidhni një mënyrë pagese</option>
                     <option value="Credit Card">Kartë krediti</option>
                     <option value="PayPal">PayPal</option>
@@ -56,9 +67,8 @@
 
             <div class="form-group">
                 <label>
-                    <input type="checkbox" id="accept-terms" name="accept-terms"> Pranoj kushtet dhe rregullat
+                    <input type="checkbox" id="accept-terms" name="accept-terms" required> Pranoj kushtet dhe rregullat
                 </label>
-                <!-- Ndryshoni në 'submit' për të dërguar formularin -->
                 <button type="submit">Dërgo Porosinë</button>
             </div>
 
@@ -67,24 +77,11 @@
     </div>
 </section>
 
-<?php
-include 'includes/orderOOP.php';
-
-$coffees = [
-    new SpecialtyCoffee("Espresso", "Italy", "Dark", "Bold, Smooth"),
-    new SpecialtyCoffee("Latte", "France", "Medium", "Creamy, Mild"),
-    new SpecialtyCoffee("Cappuccino", "Brazil", "Medium-Dark", "Frothy, Rich"),
-    new SpecialtyCoffee("Americano", "USA", "Light", "Smooth, Mellow")
-];
-
-echo "<br><br><div style='margin: 20px; font-weight: bold; text-align: center; color: white;'><br/><br/>";
-echo "<h2 style='margin-bottom: 30px;'>“You can't buy happiness, but you can buy coffee, and that's pretty close.” ☕</h2>";
-
-foreach ($coffees as $coffee) {
-    echo "<div style='margin-bottom: 10px;'>" . $coffee->displayInfo() . "</div>";
-}
-
-echo "</div>";
-?>
+<script>
+document.getElementById("product").addEventListener("change", function() {
+    var price = this.options[this.selectedIndex].getAttribute('data-price');
+    document.getElementById("total-price").innerText = "Çmimi total: $" + price;
+});
+</script>
 
 <?php include 'includes/footer.php'; ?>
