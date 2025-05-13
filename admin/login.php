@@ -1,8 +1,6 @@
 <?php
-// Debug - shfaq të dhënat e sesionit
-echo "<pre>";
-print_r($_SESSION);
-echo "</pre>";
+include '../includes/header.php';
+include '../database/db_connection.php';
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $email = $_POST['email'];
@@ -29,8 +27,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $error = "Email not found!";
     }
 }
-
-include '../includes/header.php';
 ?>
 
 <div class="login-page">
@@ -56,49 +52,4 @@ include '../includes/header.php';
     </div>
 </div>
 
-<?php
-// Në login.php, pas verifikimit të suksesshëm
-$_SESSION['logged_in'] = true;
-$_SESSION['user_id'] = $row['id'];
-$_SESSION['user_name'] = $row['name'];
-
-// Ridrejto me header dhe exit
-header("Location: ../index.php");
-exit();
-
-include '../includes/footer.php';
-?>
-
-<!--
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/UEB25_CoffeeWebsite_/assets/css/style.css">
-    <title>Login</title>
-</head>
-<body>
-    <div class="user">
-        <h2>Login Now</h2>
-        <form action="login.php" method="POST">
-            <div class="form-group">
-                <label for="email">Email</label>
-                <input type="email" id="email" name="email" placeholder="Your Email..." required>
-            </div>
-
-            <div class="form-group">
-                <label for="password">Password</label>
-                <input type="password" id="password" name="password" placeholder="Password..." required>
-            </div>
-
-            <div class="form-group">
-                <input type="submit" value="Login" class="login-btn">
-            </div>
-
-            <p>Forgot Password? <a href="/reset-password">Reset Now</a></p>
-            <p>Don't have an account? <a href="/register">Create One</a></p>
-        </form>
-    </div>
-</body>
-</html> -->
+<?php include '../includes/footer.php'; ?>
