@@ -1032,3 +1032,11 @@ address ul li a:hover {
         margin: 20px;
     }
 }
+
+.welcome-message {
+    text-shadow: 1px 1px 3px rgba(255, 255, 255, 0.6);
+    text-transform: uppercase;
+    font-weight: 500;
+    color: #f9f9f9;
+    font-style: italic;
+}

@@ -11,7 +11,7 @@
     <div class="home-text">
        <h1><i>Start your day with coffee</i></h1>
        <?php if (isset($_SESSION['user_name'])): ?>
-           <p style="text-shadow: 1px 1px 3px rgba(255, 255, 255, 0.6);text-transform: uppercase;font-weight: 500;color: #f9f9f9;">Welcome back, <?php echo htmlspecialchars($_SESSION['user_name']); ?>!</p>
+           <p class="welcome-message">Welcome back, <?php echo htmlspecialchars($_SESSION['user_name']); ?>!</p>
        <?php endif; ?>
        <div style="display: flex; justify-content: center;">
            <a href="products.php" class="btn">Shop Now</a>
