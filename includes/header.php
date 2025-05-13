@@ -27,28 +27,20 @@ $base_url = 'http://' . $_SERVER['HTTP_HOST'] . '/UEB25_CoffeeWebsite_/';
             <li><a href="<?php echo $base_url; ?>about.php" class="<?= $currentPage == 'about.php' ? 'active' : '' ?>">About</a></li>
             <li><a href="<?php echo $base_url; ?>products.php" class="<?= $currentPage == 'products.php' ? 'active' : '' ?>">Products</a></li>
             <li><a href="<?php echo $base_url; ?>contact.php" class="<?= $currentPage == 'contact.php' ? 'active' : '' ?>">Contact</a></li>
-            <li><a href="<?php echo $base_url; ?>admin/login.php" class="<?= ($currentPage == 'login.php' || $currentPage == 'register.php' || $currentPage == 'forgot-password.php') ? 'active' : '' ?>">Login</a></li>
+            <?php if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true): ?>
+                <li><a href="<?php echo $base_url; ?>admin/logout.php" class="<?= $currentPage == 'logout.php' ? 'active' : '' ?>">Logout</a></li>
+            <?php else: ?>
+                <li><a href="<?php echo $base_url; ?>admin/login.php" class="<?= $currentPage == 'login.php' ? 'active' : '' ?>">Login</a></li>
+            <?php endif; ?>
         </ul>
 
         <div class="header-icon">
             <a href="<?php echo $base_url; ?>cart.php"><i class='bx bx-cart' id="cart-icon"></i></a>
             <i class='bx bx-search' id="search-icon"></i>
-            <a href="<?php echo $base_url; ?>admin/login.php"><i class='bx bx-user' id="user-icon"></i></a>
-        </div>
-
-        <div class="search-box">
-            <form action="<?php echo $base_url; ?>search.php" method="GET">
-                <input type="search" id="search" name="query" placeholder="Search Here..." required>
-                <button type="submit">Search</button>
-            </form>
-        </div>
-
-        <div class="cart" id="cart">
-            <h2>Shporta</h2>
-            <ul id="cart-items" aria-live="polite"></ul>
-            <div class="cart-actions">
-                <button id="checkout">Checkout</button>
-                <button id="clear-cart">Pastro</button>
-            </div>
+            <?php if (isset($_SESSION['logged_in']) && $_SESSION['logged_in']): ?>
+                <a href="<?php echo $base_url; ?>admin/logout.php"><i class='bx bx-log-out' id="user-icon"></i></a>
+            <?php else: ?>
+                <a href="<?php echo $base_url; ?>admin/login.php"><i class='bx bx-user' id="user-icon"></i></a>
+            <?php endif; ?>
         </div>
     </header>

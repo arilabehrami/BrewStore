@@ -10,7 +10,10 @@
 <section class="home" id="home">
     <div class="home-text">
        <h1><i>Start your day with coffee</i></h1>
-       <div style="display: flex; justify-content: center;"> <!-- Vetëm kjo rresht është shtuar -->
+       <?php if (isset($_SESSION['user_name'])): ?>
+           <p>Welcome back, <?php echo htmlspecialchars($_SESSION['user_name']); ?>!</p>
+       <?php endif; ?>
+       <div style="display: flex; justify-content: center;">
            <a href="products.php" class="btn">Shop Now</a>
        </div>
     </div>

@@ -5,7 +5,7 @@ session_destroy(); // Shkatërron sesionin
 header("Location: index.php"); // Ridrejtimi pas logout-it
 exit();*/
 
-include 'includes/header.php';
+/*include 'includes/header.php';
 
 $_SESSION = array();
 
@@ -19,5 +19,11 @@ if (ini_get("session.use_cookies")) {
 
 session_destroy();
 header("Location: index.php");
+exit();*/
+
+session_start();
+session_unset();
+session_destroy();
+header("Location: ../index.php");
 exit();
 ?>
