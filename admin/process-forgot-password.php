@@ -1,6 +1,6 @@
 <?php
 session_start();
-include '../includes/db_connection.php';
+include '../database/db_connection.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = trim($_POST["email"]);
