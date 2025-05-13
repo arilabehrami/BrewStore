@@ -2,22 +2,30 @@
 include '../includes/header.php';
 include '../database/db_connection.php';
 
+if (!$conn) {
+    die("Database connection failed: " . mysqli_connect_error());
+}
+
 $error = '';
 $success = '';
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $name = $_POST['name'];
-    $email = $_POST['email'];
+    $name = trim($_POST['name']);
+    $email = trim($_POST['email']);
     $password = $_POST['password'];
     $confirm_password = $_POST['confirm_password'];
 
-    // Validimi
+    // Validation
     if (empty($name) || empty($email) || empty($password)) {
         $error = "Ju lutem plotësoni të gjitha fushat!";
+    } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        $error = "Ju lutem shkruani një email valid!";
+    } elseif (strlen($password) < 8) {
+        $error = "Password-i duhet të ketë të paktën 8 karaktere!";
     } elseif ($password !== $confirm_password) {
         $error = "Password-et nuk përputhen!";
     } else {
-        // Kontrollo nëse email ekziston
+        // Check if email exists
         $query = "SELECT id FROM users WHERE email = ?";
         $stmt = mysqli_prepare($conn, $query);
         mysqli_stmt_bind_param($stmt, 's', $email);
@@ -27,17 +35,18 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         if (mysqli_stmt_num_rows($stmt) > 0) {
             $error = "Ky email është i regjistruar tashmë!";
         } else {
-            // Regjistro perdoruesin
+            // Register user
             $hashed_password = password_hash($password, PASSWORD_DEFAULT);
             $query = "INSERT INTO users (name, email, password) VALUES (?, ?, ?)";
             $stmt = mysqli_prepare($conn, $query);
             mysqli_stmt_bind_param($stmt, 'sss', $name, $email, $hashed_password);
             
             if (mysqli_stmt_execute($stmt)) {
-                $success = "Regjistrimi u krye me sukses! Tani mund të hyni.";
-                header("Refresh: 2; url=login.php");
+                $_SESSION['success'] = "Regjistrimi u krye me sukses! Tani mund të hyni.";
+                header("Location: login.php");
+                exit();
             } else {
-                $error = "Gabim në regjistrim. Ju lutem provoni përsëri!";
+                $error = "Gabim në regjistrim: " . mysqli_error($conn);
             }
         }
     }
