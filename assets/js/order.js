@@ -14,57 +14,57 @@ function kontrolloPorosine() {
         validateAddress(address);
         validateQuantity(quantity);
 
-        if (!product) throw "Ju lutem zgjidhni një produkt!";
-        if (!payment) throw "Ju lutem zgjidhni mënyrën e pagesës!";
-        if (!isChecked) throw "Ju duhet të pranoni kushtet dhe rregullat!";
+        if (!product) throw "Please select a product!";
+        if (!payment) throw "Please select a payment method!";
+        if (!isChecked) throw "You must accept the terms and conditions!";
 
         // Përdorimi i objekteve dhe metodave për manipulim me data dhe numra
         let currentDate = new Date(); // Përdorim objektin Date
         let currentYear = currentDate.getFullYear();
-        let dateString = `Data e porosisë: ${currentDate.toLocaleString()}`;
+        let dateString = `Order date: ${currentDate.toLocaleString()}`;
         console.log(dateString);
 
         // Manipulimi i numrave
         let maxPayment = 999999.99;
         let minPayment = 0.01;
-        console.log(`Vlera maksimale e pagesës: ${maxPayment.toExponential()}`);
-        console.log(`Vlera minimale e pagesës: ${minPayment.toString()}`);
-        console.log(`Vlera e pagesës: ${payment}`);
-        console.log(`Vlera e pagesës është NaN: ${isNaN(payment)}`);
+        console.log(`Maximum payment value: ${maxPayment.toExponential()}`);
+        console.log(`Minimum payment value: ${minPayment.toString()}`);
+        console.log(`Payment value: ${payment}`);
+        console.log(`Payment value is NaN: ${isNaN(payment)}`);
 
        
 
         setTimeout(function() {
-            alert("Porosia u dërgua me sukses!");
+            alert("Order submitted successfully!");
         }, 3000);
     } catch (error) {
-        alert(`Gabim: ${error}`);
+        alert(`Error: ${error}`);
     }
 }
 function validateQuantity(quantity) {
     if (!quantity || quantity <= 0) {
-        throw "Ju lutem shkruani një sasi të vlefshme!";
+        throw "Please enter a valid quantity!";
     }
 }
 // Funksionet për validimin e të dhënave
 function validateName(name) {
-    if (!name) throw "Emri është i detyrueshëm!";
+    if (!name) throw "Name is required!";
 }
 
 function validateEmail(email) {
     const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailPattern.test(email)) throw "Email-i nuk është valid!";
+    if (!emailPattern.test(email)) throw "Email is not valid!";
 }
 
 function validateAddress(address) {
-    if (!address) throw "Adresa është e detyrueshme!";
+    if (!address) throw "Address is required!";
 }
 
 function Product(name, price) {
     this.name = name;
     this.price = price;
     this.displayInfo = function() {
-        return `Produkti: ${this.name}, Çmimi: ${this.price}`;
+        return `Product: ${this.name}, Price: ${this.price}`;
     };
 }
 
@@ -80,10 +80,10 @@ console.log(product3.displayInfo());
 let emailExample = "arila@example.com";
 let emailMatch = emailExample.match(/^[^\s@]+@[^\s@]+\.[^\s@]+$/);
 if (emailMatch) {
-    console.log("Emaili është i vlefshëm");
+    console.log("Email is valid");
 } else {
-    console.log("Emaili është i pavlefshëm");
+    console.log("Email is invalid");
 }
 
 let updatedEmail = emailExample.replace("example.com", "gmail.com");
-console.log(`Email i përditësuar: ${updatedEmail}`);
+console.log(`Updated email: ${updatedEmail}`);

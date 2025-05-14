@@ -17,13 +17,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     // Validation
     if (empty($name) || empty($email) || empty($password)) {
-        $error = "Ju lutem plotësoni të gjitha fushat!";
+        $error = "Please fill in all fields!";
     } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-        $error = "Ju lutem shkruani një email valid!";
+        $error = "Please enter a valid email!";
     } elseif (strlen($password) < 8) {
-        $error = "Password-i duhet të ketë të paktën 8 karaktere!";
+        $error = "Password must be at least 8 characters long!";
     } elseif ($password !== $confirm_password) {
-        $error = "Password-et nuk përputhen!";
+        $error = "Passwords do not match!";
     } else {
         // Check if email exists
         $query = "SELECT id FROM users WHERE email = ?";
@@ -33,7 +33,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         mysqli_stmt_store_result($stmt);
         
         if (mysqli_stmt_num_rows($stmt) > 0) {
-            $error = "Ky email është i regjistruar tashmë!";
+            $error = "This email is already registered!";
         } else {
             // Register user
             $hashed_password = password_hash($password, PASSWORD_DEFAULT);
@@ -42,11 +42,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             mysqli_stmt_bind_param($stmt, 'sss', $name, $email, $hashed_password);
             
             if (mysqli_stmt_execute($stmt)) {
-                $_SESSION['success'] = "Regjistrimi u krye me sukses! Tani mund të hyni.";
+                $_SESSION['success'] = "Registration completed successfully! You can now log in.";
                 header("Location: login.php");
                 exit();
             } else {
-                $error = "Gabim në regjistrim: " . mysqli_error($conn);
+                $error = "Registration error: " . mysqli_error($conn);
             }
         }
     }

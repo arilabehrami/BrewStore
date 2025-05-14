@@ -1,65 +1,64 @@
 <?php include 'includes/header.php'; ?>
     <section id="about">
-        <h1>Reth nesh</h1>
+        <h1>About Us</h1>
         <div class="about-text">
-            <a href="#company-timeline" class="btn">Rreth nesh!</a>
-            <p>Kafe-ja jonë ka filluar si një ëndërr e vogël për të sjellë shije të freskëta dhe të veçanta në zemër të qytetit. Që nga viti 2020, kemi ofruar një përvojë unike për çdo klient që hap derën tonë.</p>
+            <a href="#company-timeline" class="btn">About Us!</a>
+            <p>Our café started as a small dream to bring fresh and unique flavors to the heart of the city. Since 2020, we have provided a unique experience for every customer who walks through our doors.</p>
 
             
         </div>
     </section>
 
     <section id="company-timeline">
-        <h2 style="text-align: center;"><i>Historia Jonë</i></h2>
+        <h2 style="text-align: center;"><i>Our Story</i></h2>
         <div class="timeline">
             <div class="timeline-item">
-                <h3><abbr title="Filluam">2020</abbr></h3>
-                <p><i>Filluam të ofrojmë shërbime online dhe të mundësojmë blerjet më të lehta për klientët tanë.
-                    Kafeneja jonë është e lindur në vitin 2020, një vit që ndryshoi gjithçka për të gjithë ne. Ndërsa bota po kalonte një periudhë të pasigurtë dhe të vështirë, ne e pamë mundësinë për të krijuar një vend ku komuniteti mund të ndihej sërish i lidhur, i qetë dhe i mbështetur.
-                    Në mes të sfidave të pandemisë, vendosëm të hapim një hapësirë ku çdo filxhan kafeje do të ishte një shenjë shprese dhe kujdesi për klientët tanë. Për ne, çdo kafe është më shumë se një pije – është një mundësi për t’u larguar nga stresi dhe për të krijuar momente të paharrueshme, qoftë përmes një takimi me miqtë apo një pushimi të shkurtër gjatë ditës.
-                    Kjo kafene është një vend ku mund të ndiheni në shtëpi, ku mund të <span style="font-weight: bold;">shijoni kafenë tuaj </span>të preferuar, të shoqëruar me një atmosferë ngrohtë dhe të ngushëlluar. Kemi menduar gjithçka – nga zgjedhja e kafeve të cilësisë më të lartë deri tek krijimi i një ambienti që e bën çdo vizitë të veçantë.
-                    Edhe pse fillimi ynë u ndikua nga ndryshimet dhe pasiguria që solli pandemia, qëllimi ynë ishte dhe mbetet i qartë: të krijojmë një hapësirë të sigurt dhe mikpritëse për të gjithë ata që duan të ndajnë një moment të thjeshtë kënaqësie në një botë gjithnjë e më të ngutshme.
-                </i>
-            </p>
+                <h3><abbr title="We started">2020</abbr></h3>
+                <p><i>
+                    We began offering online services and making shopping easier for our customers.  
+                    Our café was born in 2020, a year that changed everything for all of us. While the world was going through an uncertain and difficult period, we saw an opportunity to create a place where the community could feel connected, calm, and supported again.  
+                    Amid the challenges of the pandemic, we decided to open a space where every cup of coffee would be a sign of hope and care for our customers. For us, every coffee is more than just a drink—it's a chance to escape stress and create unforgettable moments, whether through a meeting with friends or a short break during the day.  
+                    This café is a place where you can feel at home, where you can <span style="font-weight: bold;">enjoy your favorite coffee</span>, accompanied by a warm and comforting atmosphere. We’ve thought of everything—from selecting the highest-quality coffee to creating an environment that makes every visit special.  
+                    Even though our beginning was influenced by the changes and uncertainty brought by the pandemic, our goal was and remains clear: to create a safe and welcoming space for everyone who wants to share a simple moment of joy in an increasingly fast-paced world.
+                </i></p>
             </div>
             <div class="timeline-item">
-                <h3><abbr title="Gjatë procesit...">2022</abbr></h3>
-                <p><i>Hapëm filialin tonë <mark class="highlight"> të parë ndërkombëtar </mark> për të ofruar shërbime në më shumë shtete.
-                    Kafeneja jonë ka nisur në vitin 2020, kur bota ishte përballur me sfida të papara. Pas një periudhe të vështirë, në vitin 2022, ne rifilluam me entuziazëm dhe vendosmëri, duke ofruar një vend ku mund të riktheheshin lidhjet sociale dhe shijet e preferuara të kafes. Ky vit ishte një periudhë rikuperimi, ku përkushtimi ynë ndaj cilësisë dhe mikpritjes u theksua edhe më shumë.
-                    Në vitin 2022, ne ndihmuam klientët të gjenin ngushëllim dhe qetësi në mes të pasigurisë që kishte sjellë pandemia. Hapësira jonë u bë një vend ku mund të shijoheshin momente të thjeshta, por të rëndësishme – një filxhan kafeje i mirë, një bisedë e ngrohtë dhe një ambient që ofronte një frymë të re.
-                    Edhe pse vitet ishin të vështira, ne qëndruam të fokusuar në krijimin e një hapësire mikpritëse dhe të sigurt. Ne besojmë që kafeja ka fuqinë të bashkojë dhe të krijojë kujtime të bukura, dhe kjo është ajo që e ka bërë këtë vit të paharrueshëm për ne.
-                </i>
-            </p>
+                <h3><abbr title="During the process...">2022</abbr></h3>
+                <p><i>
+                    We opened our <mark class="highlight">first international branch</mark> to serve more countries.  
+                    Our café started in 2020, when the world faced unprecedented challenges. After a difficult period, in 2022, we restarted with enthusiasm and determination, offering a place where social connections and favorite coffee tastes could return. This year was a period of recovery, where our commitment to quality and hospitality stood out even more.  
+                    In 2022, we helped customers find comfort and peace amid the uncertainty brought by the pandemic. Our space became a place where simple but meaningful moments could be enjoyed—a good cup of coffee, a warm conversation, and an environment that offered a breath of fresh air.  
+                    Even though the years were tough, we remained focused on creating a welcoming and safe space. We believe coffee has the power to unite and create beautiful memories, and that’s what made this year unforgettable for us.
+                </i></p>
             </div>
             <div class="timeline-item">
-                <h3><abbr title="Sukseset tona!">2024</abbr></h3>
-                <p ><i>Pas suksesit të vazhdueshëm, jemi gati të zgjerim operacionet tona dhe të sjellim produkte të reja inovative.
-                    Në vitin 2024, kafeneja jonë është më shumë se një vend ku shijohen kafe dhe pije të tjera. Pas kaq shumë sfidash dhe momentesh ndryshimi që kemi kaluar që nga hapja jonë në vitin 2020, ne jemi krenarë që kemi mundur të krijojmë një hapësirë ku çdo vizitor ndjen ngrohtësinë dhe përkushtimin tonë për t’ju ofruar eksperiencën më të mirë.
-                    Viti 2024 është një vit i mbushur me mundësi të reja dhe inovacion. Kafeneja jonë ka evoluar dhe është bërë një vend ku teknologjia dhe tradita bashkohen për të ofruar një eksperiencë të veçantë. Me një koleksion të pasur të kafeve të zgjedhura dhe produkteve lokale, ne po vazhdojmë të krijojmë hapësira ku mund të takoheni, të relaksoheni dhe të ndani momente të paharrueshme me miqtë, kolegët apo familjen.
-                    Në vitin 2024, ne jemi gjithashtu të angazhuar për mjedisin dhe qëndrueshmërinë, duke ofruar mundësi që u përshtaten mënyrës tuaj të jetesës, si dhe mbështesim produkte që janë të mirë për natyrën dhe shëndetin. Ne besojmë që kafeja është një mundësi për të reflektuar dhe për të krijuar lidhje – dhe, duke mbajtur këtë filozofi, po vazhdojmë të krijojmë një komunitet të fortë dhe të qëndrueshëm.
-                    Për ne, kafeja është më shumë se një pije – është një mundësi për t'u ndjerë si pjesë e diçkaje të bukur dhe të domosdoshme. Falë mbështetjes suaj, ne jemi këtu për të ofruar më të mirën dhe për t'ju mbajtur të ngrohtë për shumë vite të tjera!
-                    Këto përshkrime pasqyrojnë një zhvillim dhe rritje të vazhdueshme të kafenes në vitet 2022 dhe 2024, duke u fokusuar në risitë dhe përkushtimin ndaj cilësisë, komunitetit dhe qëndrueshmërisë. Mund t'i personalizoni më tej në varësi të karakteristikave të biznesit tuaj.
-                </i>
-            </p>
+                <h3><abbr title="Our successes!">2024</abbr></h3>
+                <p><i>
+                    After continuous success, we are ready to expand our operations and introduce new innovative products.  
+                    In 2024, our café is more than just a place to enjoy coffee and other beverages. After so many challenges and moments of change since our opening in 2020, we are proud to have created a space where every visitor feels our warmth and dedication to providing the best experience.  
+                    2024 is a year full of new opportunities and innovation. Our café has evolved into a place where technology and tradition come together to offer a unique experience. With a rich selection of carefully chosen coffees and local products, we continue to create spaces where you can meet, relax, and share unforgettable moments with friends, colleagues, or family.  
+                    In 2024, we are also committed to the environment and sustainability, offering options that fit your lifestyle while supporting products that are good for nature and health. We believe coffee is an opportunity to reflect and build connections—and, holding onto this philosophy, we continue to build a strong and sustainable community.  
+                    For us, coffee is more than a drink—it is a chance to feel part of something beautiful and essential. Thanks to your support, we are here to offer the best and keep you warm for many more years!
+                </i></p>
             </div>
         </div>
     </section>
 
     
     <section id="testimonials">
-        <h2><i>Çfarë Thonë Klientët Tanë</i></h2>
+        <h2><i>What Our Customers Say</i></h2>
         <div class="testimonial-container">
             <div class="testimonial">
-                <p>"Shërbimi ishte fantastik! Kisha një përvojë të shkëlqyer dhe do të rikthehem sërish." - Klienti 1</p>
+                <p>"The service was fantastic! I had an excellent experience and will definitely return." – Customer 1</p>
             </div>
             <div class="testimonial">
-                <p>"Produktet që kam blerë janë të shkëlqyera dhe të shpejta për t'u dërguar." - Klienti 2</p>
+                <p>"The products I bought were excellent and shipped quickly." – Customer 2</p>
             </div>
             <div class="testimonial">
-                <p>"Në çdo rast kur kam pasur nevojë për mbështetje, ekipi ishte aty për të ndihmuar." - Klienti 3</p>
+                <p>"Every time I needed support, the team was there to help." – Customer 3</p>
             </div>
         </div>
-    </section> 
+    </section>
 
  
 <?php include 'includes/footer.php'; ?>

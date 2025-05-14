@@ -19,15 +19,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $ageRegex = "/^\d{1,2}$/"; 
     $phoneRegex = "/^(\+383|0)[\s\-\/\(\)]*\d{2}[\s\-\/\(\)]*\d{3}[\s\-\/\(\)]*\d{3}$/"; 
     if (!preg_match($nameRegex, $name)) {
-        echo "Emri nuk është valid! Vetëm shkronja lejohen.<br />";
-    }elseif (!preg_match($emailRegex, $email)) {
-        echo "Emaili nuk është valid!<br />";
-    }elseif (!empty($age) && !preg_match($ageRegex, $age)) {
-        echo "Mosha nuk është valide. Duhet të jetë një numër 1-99.<br />";
-    }elseif (!empty($phone) && !preg_match($phoneRegex, $phone)) {
-        echo "Numri i telefonit nuk është në format të saktë!<br />";
+        echo "Name is not valid! Only letters are allowed.<br />";
+    } elseif (!preg_match($emailRegex, $email)) {
+        echo "Email is not valid!<br />";
+    } elseif (!empty($age) && !preg_match($ageRegex, $age)) {
+        echo "Age is not valid. Must be a number between 1-99.<br />";
+    } elseif (!empty($phone) && !preg_match($phoneRegex, $phone)) {
+        echo "Phone number is not in the correct format!<br />";
     } else {
-        echo "Të dhënat janë të sakta! Mesazhi u dërgua me sukses.<br />";
+        echo "Data is correct! Message sent successfully.<br />";
     }
 }
 
@@ -35,62 +35,58 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 <?php include 'includes/header.php'; ?>
 
-
     <section id="contact">
         <div class="PlaceOfCoffee">
-            <video  autoplay loop muted src="assets/images/PlaceOfCoffee.mp4"></video>
+            <video autoplay loop muted src="assets/images/PlaceOfCoffee.mp4"></video>
         </div>
-         <form id="contact-form" method="POST" action="sessions_cookies/cookies_contact.php">
-            <label for="name">Emri:</label>
-            <input type="text" id="name" name="name" required placeholder="Shkruani emrin tuaj" autocomplete="on">
-    
-            <label for="email">Adresa e emailit:</label>
-            <input type="email" id="email" name="email" required placeholder="Shkruani adresën tuaj të emailit" form="contact-form" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$">
-    
-            <label for="subject">Subjekti:</label>
-            <input type="text" id="subject" name="subject" list="subjects" required placeholder="Subjekti i mesazhit">
+        <form id="contact-form" method="POST" action="sessions_cookies/cookies_contact.php">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required placeholder="Enter your name" autocomplete="on">
+
+            <label for="email">Email address:</label>
+            <input type="email" id="email" name="email" required placeholder="Enter your email address" form="contact-form" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$">
+
+            <label for="subject">Subject:</label>
+            <input type="text" id="subject" name="subject" list="subjects" required placeholder="Message subject">
             <datalist id="subjects">
-                <option value="Informacion">Informacion</option>
-                <option value="Përporosi">Përporosi</option>
+                <option value="Information">Information</option>
+                <option value="Order">Order</option>
             </datalist>
 
-            <label for="message">Mesazhi:</label>
-            <textarea id="message" name="message" required placeholder="Shkruani mesazhin tuaj" rows="2"></textarea>
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" required placeholder="Write your message" rows="2"></textarea>
 
-            <input type="number" id="age" name="age" min="18" max="99" placeholder="Shkruani moshën tuaj">
+            <input type="number" id="age" name="age" min="18" max="99" placeholder="Enter your age">
 
-            <label for="phone">Numri i telefonit:</label>
-            <input type="text" id="phone" name="phone" placeholder="Numri i telefonit:">
+            <label for="phone">Phone number:</label>
+            <input type="text" id="phone" name="phone" placeholder="Phone number:">
 
-
-            <button type="submit">Dërgo Mesazhin</button>
+            <button type="submit">Send Message</button>
         </form>
 
-
-    <address>
-     <ul>
-        <li>Email: <a href="mailto:info@shembull.com">coffeeshop@hotmail.com</a></li>
-        <li>Telefon: +123 456 789</li>
-    </ul>
-    <a href="mailto:email@example.com">Dërgo një email</a>
-    </address>
+        <address>
+            <ul>
+                <li>Email: <a href="mailto:info@shembull.com">coffeeshop@hotmail.com</a></li>
+                <li>Phone: +123 456 789</li>
+            </ul>
+            <a href="mailto:email@example.com">Send an email</a>
+        </address>
+    </section>
     
 
-     <section id="business-hours">
+    <section id="business-hours">
         <div id="drag-container">
-            <h1 ><i> Orari i Punes</i></h1>
-            
+            <h1><i>Working Hours</i></h1>
         </div>
         
-        
         <ul>
-            <li><strong>Për të Hënën:</strong> 9:00 AM - 5:00 PM</li>
-            <li><strong>Për të Martën:</strong> 9:00 AM - 5:00 PM</li>
-            <li><strong>Për të Mërkurën:</strong> 9:00 AM - 5:00 PM</li>
-            <li><strong>Për të Enjten:</strong> 9:00 AM - 5:00 PM</li>
-            <li><strong>Për të Premten:</strong> 9:00 AM - 5:00 PM</li>
-            <li><strong>Për të Shtunën:</strong> 10:00 AM - 2:00 PM</li>
-            <li><strong>Për të Dielën:</strong> Mbyllur</li>
+            <li><strong>Monday:</strong> 9:00 AM - 5:00 PM</li>
+            <li><strong>Tuesday:</strong> 9:00 AM - 5:00 PM</li>
+            <li><strong>Wednesday:</strong> 9:00 AM - 5:00 PM</li>
+            <li><strong>Thursday:</strong> 9:00 AM - 5:00 PM</li>
+            <li><strong>Friday:</strong> 9:00 AM - 5:00 PM</li>
+            <li><strong>Saturday:</strong> 10:00 AM - 2:00 PM</li>
+            <li><strong>Sunday:</strong> Closed</li>
         </ul>
     </section>
 

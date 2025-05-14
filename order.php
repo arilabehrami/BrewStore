@@ -8,28 +8,28 @@ include 'database/db_connection.php';
         <img src="assets/images/about.jpg" alt="Order Image">
     </div>
     <div class="container">
-        <h1>Porosit tani!</h1>
+        <h1>Order Now!</h1>
         
         <form id="order-form" action="sessions_cookies/process_order.php" method="POST">
             <div class="form-group">
-                <label for="name">Emri</label>
-                <input type="text" id="name" name="name" placeholder="Shkruani emrin tuaj" required>
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" placeholder="Enter your name" required>
             </div>
 
             <div class="form-group">
                 <label for="email">Email</label>
-                <input type="email" id="email" name="email" placeholder="Shkruani email-in tuaj" required>
+                <input type="email" id="email" name="email" placeholder="Enter your email" required>
             </div>
 
             <div class="form-group">
-                <label for="address">Adresa</label>
-                <input type="text" id="address" name="address" placeholder="Shkruani adresën tuaj" required>
+                <label for="address">Address</label>
+                <input type="text" id="address" name="address" placeholder="Enter your address" required>
             </div>
 
             <div class="form-group">
-                <label for="product">Produkt</label>
+                <label for="product">Product</label>
                 <select id="product" name="product" required>
-                    <option value="" disabled selected>Zgjidhni nje produkt</option>
+                    <option value="" disabled selected>Select a product</option>
                     <?php
                     $sql = "SELECT * FROM products";
                     $result = $conn->query($sql);
@@ -39,15 +39,15 @@ include 'database/db_connection.php';
                             echo '<option value="' . $row['id'] . '" data-price="' . $row['price'] . '">' . $row['name'] . ' - $' . $row['price'] . '</option>';
                         }
                     } else {
-                        echo '<option value="" disabled>Asnjë produkt i disponueshëm</option>';
+                        echo '<option value="" disabled>No products available</option>';
                     }
                     ?>
                 </select>
             </div>
 
             <div class="form-group">
-                <label for="product-suggestion">Sasia</label>
-                <input list="products" id="product-suggestion" name="product-suggestion" placeholder="Shkruani sasine" required>
+                <label for="product-suggestion">Quantity</label>
+                <input list="products" id="product-suggestion" name="product-suggestion" placeholder="Enter quantity" required>
                 <datalist id="products">
                     <option value="1">
                     <option value="2">
@@ -56,10 +56,10 @@ include 'database/db_connection.php';
             </div>
 
             <div class="form-group">
-                <label for="payment-method">Mënyra e Pagesës</label>
+                <label for="payment-method">Payment Method</label>
                 <select id="payment-method" name="payment-method" required>
-                    <option value="" disabled selected>Zgjidhni një mënyrë pagese</option>
-                    <option value="Credit Card">Kartë krediti</option>
+                    <option value="" disabled selected>Select payment method</option>
+                    <option value="Credit Card">Credit Card</option>
                     <option value="PayPal">PayPal</option>
                     <option value="Cash">Cash</option>
                 </select>
@@ -67,12 +67,12 @@ include 'database/db_connection.php';
 
             <div class="form-group">
                 <label>
-                    <input type="checkbox" id="accept-terms" name="accept-terms" required> Pranoj kushtet dhe rregullat
+                    <input type="checkbox" id="accept-terms" name="accept-terms" required> I accept the terms and conditions
                 </label>
-                <button type="submit">Dërgo Porosinë</button>
+                <button type="submit">Place Order</button>
             </div>
 
-            <p id="total-price">Çmimi total: $0.00</p>
+            <p id="total-price">Total price: $0.00</p>
         </form>
     </div>
 </section>
@@ -80,7 +80,7 @@ include 'database/db_connection.php';
 <script>
 document.getElementById("product").addEventListener("change", function() {
     var price = this.options[this.selectedIndex].getAttribute('data-price');
-    document.getElementById("total-price").innerText = "Çmimi total: $" + price;
+    document.getElementById("total-price").innerText = "Total price: $" + price;
 });
 </script>
 

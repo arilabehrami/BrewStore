@@ -58,13 +58,12 @@ document.addEventListener("DOMContentLoaded", function() {
             let selectedOption = productElement.options[productElement.selectedIndex];
             let price = parseFloat(selectedOption.getAttribute("data-price"));
             let quantity = parseInt(quantityElement.value);
-            
 
             if (price && quantity > 0) {
                 let total = (price * quantity).toFixed(2);
-                totalPriceElement.textContent = `Çmimi total: $${total}`;
+                totalPriceElement.textContent = `Total price: $${total}`;
             } else {
-                totalPriceElement.textContent = "Çmimi total: $0.00";
+                totalPriceElement.textContent = "Total price: $0.00";
             }
         }
 
@@ -83,17 +82,15 @@ document.addEventListener("DOMContentLoaded", function() {
 //     this.payment = payment;
 
 //     this.displayOrder = function () {
-//         return `Porosia nga ${this.name} për produktin ${this.product} me mënyrë pagese ${this.payment}.`;
+//         return `Order from ${this.name} for the product ${this.product} with payment method ${this.payment}.`;
 //     };
 // }
 
+// let order1 = new Order("Arila", "arila@hotmail.com", "Street 123", "Americano", "PayPal");
+// let order2 = new Order("Beni", "beni@gmail.com", "Street 456", "Espresso", "Credit Card");
 
-// let porosia1 = new Order("Arila", "arila@hotmail.com", "Rruga 123", "Americano", "PayPal");
-// let porosia2 = new Order("Beni", "beni@gmail.com", "Rruga 456", "Espresso", "Credit Card");
- 
-
-// console.log(porosia1.displayOrder());
-// console.log(porosia2.displayOrder());
+// console.log(order1.displayOrder());
+// console.log(order2.displayOrder());
 
 
 // function dragStart(event) {
@@ -111,20 +108,6 @@ document.addEventListener("DOMContentLoaded", function() {
 //     event.target.appendChild(draggedElement);
 // }
 
-
-
-// document.addEventListener("DOMContentLoaded", function () {
-//     const currentDate = new Date();
-//     const formattedDate = currentDate.toISOString().split('T')[0];
-
-//     const orderDateElement = document.getElementById("order-date");
-//     if (orderDateElement) {
-//         orderDateElement.value = formattedDate;
-//     } else {
-//         console.log("Elementi me ID 'order-date' nuk u gjet!");
-//     }
-// });
-
 document.addEventListener("DOMContentLoaded", function () {
     const currentDate = new Date();
     const formattedDate = currentDate.toISOString().split('T')[0];
@@ -133,6 +116,6 @@ document.addEventListener("DOMContentLoaded", function () {
     if (orderDateElement) {
         orderDateElement.value = formattedDate;
     } else {
-        console.log("Elementi me ID 'order-date' nuk u gjet!");
+        console.log("Element with ID 'order-date' not found!");
     }
 });
