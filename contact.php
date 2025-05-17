@@ -1,5 +1,5 @@
 <?php
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
+if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["name"])) {
     $name = trim($_POST["name"]);
     $email = trim($_POST["email"]);
     $subject = trim($_POST["subject"]);
@@ -30,65 +30,73 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         echo "Data is correct! Message sent successfully.<br />";
     }
 }
-
 ?>
 
 <?php include 'includes/header.php'; ?>
 
-    <section id="contact">
-        <div class="PlaceOfCoffee">
-            <video autoplay loop muted src="assets/images/PlaceOfCoffee.mp4"></video>
-        </div>
-        <form id="contact-form" method="POST" action="sessions_cookies/cookies_contact.php">
-            <label for="name">Name:</label>
-            <input type="text" id="name" name="name" required placeholder="Enter your name" autocomplete="on">
+<section id="contact">
+    <div class="PlaceOfCoffee">
+        <video autoplay loop muted src="assets/images/PlaceOfCoffee.mp4"></video>
+    </div>
+    <form id="contact-form" method="POST" action="sessions_cookies/cookies_contact.php">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required placeholder="Enter your name" autocomplete="on">
 
-            <label for="email">Email address:</label>
-            <input type="email" id="email" name="email" required placeholder="Enter your email address" form="contact-form" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$">
+        <label for="email">Email address:</label>
+        <input type="email" id="email" name="email" required placeholder="Enter your email address" form="contact-form" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$">
 
-            <label for="subject">Subject:</label>
-            <input type="text" id="subject" name="subject" list="subjects" required placeholder="Message subject">
-            <datalist id="subjects">
-                <option value="Information">Information</option>
-                <option value="Order">Order</option>
-            </datalist>
+        <label for="subject">Subject:</label>
+        <input type="text" id="subject" name="subject" list="subjects" required placeholder="Message subject">
+        <datalist id="subjects">
+            <option value="Information">Information</option>
+            <option value="Order">Order</option>
+        </datalist>
 
-            <label for="message">Message:</label>
-            <textarea id="message" name="message" required placeholder="Write your message" rows="2"></textarea>
+        <label for="message">Message:</label>
+        <textarea id="message" name="message" required placeholder="Write your message" rows="2"></textarea>
 
-            <input type="number" id="age" name="age" min="18" max="99" placeholder="Enter your age">
+        <input type="number" id="age" name="age" min="18" max="99" placeholder="Enter your age">
 
-            <label for="phone">Phone number:</label>
-            <input type="text" id="phone" name="phone" placeholder="Phone number:">
+        <label for="phone">Phone number:</label>
+        <input type="text" id="phone" name="phone" placeholder="Phone number:">
 
-            <button type="submit">Send Message</button>
-        </form>
+        <button type="submit">Send Message</button>
+    </form>
 
-        <address>
-            <ul>
-                <li>Email: <a href="mailto:info@shembull.com">coffeeshop@hotmail.com</a></li>
-                <li>Phone: +123 456 789</li>
-            </ul>
-            <a href="mailto:email@example.com">Send an email</a>
-        </address>
-    </section>
-    
-
-    <section id="business-hours">
-        <div id="drag-container">
-            <h1><i>Working Hours</i></h1>
-        </div>
-        
+    <address>
         <ul>
-            <li><strong>Monday:</strong> 9:00 AM - 5:00 PM</li>
-            <li><strong>Tuesday:</strong> 9:00 AM - 5:00 PM</li>
-            <li><strong>Wednesday:</strong> 9:00 AM - 5:00 PM</li>
-            <li><strong>Thursday:</strong> 9:00 AM - 5:00 PM</li>
-            <li><strong>Friday:</strong> 9:00 AM - 5:00 PM</li>
-            <li><strong>Saturday:</strong> 10:00 AM - 2:00 PM</li>
-            <li><strong>Sunday:</strong> Closed</li>
+            <li>Email our management: <a href="mailto:info@shembull.com">albiikallaba@gmail.com</a></li>
+            <li>Phone: +123 456 789</li>
         </ul>
-    </section>
+    </address>
 
+    <?php
+    if (isset($_POST['send_email_simple'])) {
+       include 'admin/send_mail.php';
+    }
+    ?>
+    <address>
+    <form method="POST" style="text-align: center;">
+        <textarea name="custom_message" rows="4" cols="70"  placeholder="Give your feedback for our shop!" style="color: black;" required></textarea><br>
+        <button type="submit" name="send_email_simple">Send your feedback</button>
+    </form>
+</adress>
+</section>
+
+<section id="business-hours">
+    <div id="drag-container">
+        <h1><i>Working Hours</i></h1>
+    </div>
     
-    <?php include 'includes/footer.php'; ?>  
+    <ul>
+        <li><strong>Monday:</strong> 9:00 AM - 5:00 PM</li>
+        <li><strong>Tuesday:</strong> 9:00 AM - 5:00 PM</li>
+        <li><strong>Wednesday:</strong> 9:00 AM - 5:00 PM</li>
+        <li><strong>Thursday:</strong> 9:00 AM - 5:00 PM</li>
+        <li><strong>Friday:</strong> 9:00 AM - 5:00 PM</li>
+        <li><strong>Saturday:</strong> 10:00 AM - 2:00 PM</li>
+        <li><strong>Sunday:</strong> Closed</li>
+    </ul>
+</section>
+
+<?php include 'includes/footer.php'; ?>
