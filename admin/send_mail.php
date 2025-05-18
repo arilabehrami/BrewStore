@@ -28,7 +28,7 @@ try {
         : 'No message';
 
     $mail->send();
-    echo '<div style="text-align: center; color: green; font-weight: bold; margin-top: 20px;">Emaili u dërgua me sukses.</div>';
+    echo '<div style="text-align: center; color: green; font-weight: bold; margin-top: 20px;">Email was sent successfully.</div>';
 } catch (Exception $e) {
     echo "Dështoi dërgimi i emailit. Error: {$mail->ErrorInfo}";
 }
