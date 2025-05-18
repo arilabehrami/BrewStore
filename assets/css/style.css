@@ -23,6 +23,8 @@
     src: url('fonts/my-coffee-font.ttf') format('truetype');
 }
 body{
+    margin: 0;
+    padding-top: 80px;
     font-family: 'MyCoffeeFont', sans-serif;
     margin-top: 100px;
     overflow-x: hidden;
@@ -54,17 +56,20 @@ section{
 img{
     width:100%;
 }
-header{
+header {
     display: flex;
     position: fixed;
-    background:transparent;
-    width:100%;
-    z-index:999;
+    top: 0;       /* Shto këtë */
+    left: 0;      /* Dhe këtë */
+    background: transparent;
+    width: 100%;
+    z-index: 999;
     justify-content: space-between;
     align-items: center;
-    padding:20px 100px;
-    transition:0.5s linear;
+    padding: 20px 100px;
+    transition: 0.5s linear;
 }
+
 .header-icon{
     font-size:22px;
     cursor: pointer;

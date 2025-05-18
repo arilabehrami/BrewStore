@@ -1,5 +1,7 @@
 <?php
-session_start();
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
 $currentPage = basename($_SERVER['PHP_SELF']);
 $base_url = 'http://' . $_SERVER['HTTP_HOST'] . '/UEB25_CoffeeWebsite_/';
 ?> 
@@ -35,7 +37,7 @@ $base_url = 'http://' . $_SERVER['HTTP_HOST'] . '/UEB25_CoffeeWebsite_/';
         </ul>
 
         <div class="header-icon">
-            <a href="<?php echo $base_url; ?>cart.php"><i class='bx bx-cart' id="cart-icon"></i></a>
+            <a href="order.php"><i class='bx bx-cart' id="cart-icon"></i></a>
             <i class='bx bx-search' id="search-icon"></i>
             <?php if (isset($_SESSION['logged_in']) && $_SESSION['logged_in']): ?>
                 <a href="<?php echo $base_url; ?>admin/logout.php"><i class='bx bx-log-out' id="user-icon"></i></a>

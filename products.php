@@ -13,10 +13,6 @@
             $this->price = $price;
             $this->image = $image;
         }
-
-        public function __destruct() {
-            // Opsionale
-        }
     }
 
     $products = [
@@ -43,12 +39,16 @@
     }
 
     foreach ($products as $product) {
-        echo '<div class="box">';
+        echo '<div class="box" 
+            data-name="' . sanitizeProductName($product->name) . '" 
+            data-price="' . $product->price . '" 
+            data-image="' . $product->image . '">';
         echo '<img src="' . $product->image . '" alt="Kjo eshte ' . sanitizeProductName($product->name) . '">';
         echo '<h3>' . sanitizeProductName($product->name) . '</h3>';
         echo '<div class="content">';
-        echo '<span>' . $product->price . '&euro;</span>';
-        echo '<button class="btn add-to-cart" data-product-id="1" data-product-name="' . sanitizeProductName($product->name) . '" data-product-price="' . $product->price . '">Add to Cart</button>';
+        echo '<span>' . $product->price . '&euro;</span><br>';
+        echo '<button class="btn" onclick="addToCart(this)">Add</button> ';
+        echo '<button class="btn" onclick="removeFromCart(this)">Delete</button>';
         echo '</div>';
         echo '</div>';
     }
@@ -56,5 +56,47 @@
 </div>
 </section>
 
+<script>
+function addToCart(button) {
+    const product = button.closest('.box');
+    const data = {
+        id: product.getAttribute('data-id'),      // Shto këtë linjë për id
+        name: product.getAttribute('data-name'),
+        price: parseFloat(product.getAttribute('data-price')),
+        quantity: 1,
+        image: product.getAttribute('data-image')
+    };
+    fetch('admin/cart_actions.php?action=add', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
+    })
+    .then(res => res.text())
+    .then(msg => {
+        alert(msg);
+        window.location.href = 'order.php';  // Ose rifresko faqen sipas dëshirës
+    })
+    .catch(err => console.error('Gabim:', err));
+}
 
- <?php include 'includes/footer.php'; ?>
+function removeFromCart(index) {
+    fetch('admin/cart_actions.php?action=delete', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ index: index })
+    })
+    .then(res => res.text())
+    .then(data => {
+        console.log(data); // debug mesazh
+        location.reload(); // rifresko faqen pas fshirjes
+    })
+    .catch(error => {
+        console.error('Gabim:', error);
+    });
+}
+
+</script>
+
+<?php include 'includes/footer.php'; ?>
