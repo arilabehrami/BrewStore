@@ -1,4 +1,13 @@
+<?php
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+?>
+
 <?php include 'includes/header.php'; ?>
+
+<!-- FUT KETU cookie_banner.php mbas headerit -->
+<?php include 'includes/cookie_banner.php'; ?>
 
 <section id="audio-player">
     <audio controls autoplay loop>
