@@ -9,7 +9,7 @@ if (!isset($_GET['q']) || empty(trim($_GET['q']))) {
 
 $search = '%' . trim($_GET['q']) . '%';
 
-$stmt = $conn->prepare("SELECT name, price FROM products WHERE name LIKE ?");
+$stmt = $conn->prepare("SELECT DISTINCT name, price FROM products WHERE name LIKE ?");
 $stmt->bind_param("s", $search);
 $stmt->execute();
 $result = $stmt->get_result();
