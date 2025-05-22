@@ -65,7 +65,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["name"])) {
 
     <address>
         <ul>
-            <li>Email our management: <a href="mailto:info@shembull.com">albiikallaba@gmail.com</a></li>
+            <li>Email our management: <a href="mailto:info@shembull.com">coffeeshopborcelle@gmail.com</a></li>
             <li>Phone: +123 456 789</li>
         </ul>
     </address>
@@ -76,11 +76,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["name"])) {
     }
     ?>
     <address>
-    <form method="POST" style="text-align: center;">
-        <textarea name="custom_message" rows="4" cols="70"  placeholder="Give your feedback for our shop!" style="color: black;" required></textarea><br>
-        <button type="submit" name="send_email_simple">Send your feedback</button>
-    </form>
-</adress>
+        <form id="feedback-form" style="text-align: center;">
+            <textarea name="custom_message" rows="4" cols="70" placeholder="Give your feedback for our shop!" style="color: black;" required></textarea><br>
+            <button type="submit" class="btn btn-primary">Send your feedback</button>
+        </form>
+        <div id="feedback-response" style="margin-top: 10px; text-align: center;"></div>
+    </address>
 </section>
 
 <section id="business-hours">

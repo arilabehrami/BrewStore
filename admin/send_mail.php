@@ -13,16 +13,15 @@ try {
     $mail->isSMTP();
     $mail->Host = 'smtp.gmail.com';
     $mail->SMTPAuth = true;
-    $mail->Username = 'albiikallaba@gmail.com';
-    $mail->Password = 'rqft hxrq hyct fpbd'; // vendose këtu app password që e gjenerove
+    $mail->Username = 'coffeeshopborcelle@gmail.com';
+    $mail->Password = 'yxuw dygq clos osne';
     $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
     $mail->Port = 587;
 
-    $mail->setFrom('albiikallaba@gmail.com', 'UEB25_CoffeeWebsite_');
-    $mail->addAddress('albiikallaba@gmail.com'); // mundesh me vendos email tjetër për test
-    $mail->Subject = 'Feedback from costumer';
+    $mail->setFrom('coffeeshopborcelle@gmail.com', 'UEB25 Coffee Shop');
+    $mail->addAddress('coffeeshopborcelle@gmail.com'); // ku e pranon feedback-un
+    $mail->Subject = 'Feedback from Customer';
 
-    // ✅ Custom message from form
     $mail->Body = isset($_POST['custom_message']) && !empty(trim($_POST['custom_message']))
         ? trim($_POST['custom_message'])
         : 'No message';
