@@ -3,7 +3,7 @@
         position: fixed;
         bottom: 0;
         width: 100%;
-        background-color: #222;
+        background-color: rgba(34, 34, 34, 0.85);
         color: white;
         text-align: center;
         padding: 15px;
