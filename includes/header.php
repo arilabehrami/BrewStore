@@ -45,4 +45,8 @@ $base_url = 'http://' . $_SERVER['HTTP_HOST'] . '/UEB25_CoffeeWebsite_/';
                 <a href="<?php echo $base_url; ?>admin/login.php"><i class='bx bx-user' id="user-icon"></i></a>
             <?php endif; ?>
         </div>
+        <div class="search-container">
+            <input type="text" id="search-input" placeholder="Search product..." autocomplete="off">
+            <div id="search-results"></div>
+        </div>
     </header>

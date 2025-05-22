@@ -1045,3 +1045,48 @@ address ul li a:hover {
     color: #f9f9f9;
     font-style: italic;
 }
+
+.search-container {
+    position: absolute;
+    top: 70px;
+    right: 20px;
+    display: block;
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.3s ease;
+    background: white;
+    border: 1px solid #ccc;
+    padding: 10px;
+    border-radius: 5px;
+    width: 250px;
+    box-shadow: 0 0 8px rgba(0,0,0,0.15);
+    z-index: 9999;
+}
+
+.search-container.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.search-container input {
+    width: 100%;
+    padding: 6px 10px;
+    border: 1px solid #aaa;
+    border-radius: 4px;
+}
+
+#search-results {
+    margin-top: 8px;
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+#search-results div {
+    padding: 6px;
+    border-bottom: 1px solid #eee;
+    cursor: pointer;
+}
+
+#search-results div:hover {
+    background-color: #f5f5f5;
+}

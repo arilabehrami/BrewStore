@@ -99,4 +99,36 @@ function removeFromCart(index) {
 
 </script>
 
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const urlParams = new URLSearchParams(window.location.search);
+    const searchQuery = urlParams.get("search");
+
+    if (searchQuery) {
+        const products = document.querySelectorAll(".box");
+
+        let found = false;
+        products.forEach(product => {
+            const name = product.getAttribute("data-name");
+            if (name && name.toLowerCase().includes(searchQuery.toLowerCase())) {
+                product.scrollIntoView({ behavior: "smooth", block: "center" });
+                product.style.outline = "3px solid gold";
+                product.style.borderRadius = "12px";
+                product.style.transition = "outline 0.3s ease";
+
+                setTimeout(() => {
+                    product.style.outline = "none";
+                }, 3000);
+
+                found = true;
+            }
+        });
+
+        if (!found) {
+            console.log("Product not found.");
+        }
+    }
+});
+</script>
+
 <?php include 'includes/footer.php'; ?>
