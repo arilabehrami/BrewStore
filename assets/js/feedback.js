@@ -2,9 +2,10 @@ document.addEventListener("DOMContentLoaded", function () {
     const form = document.getElementById("feedback-form");
     const responseBox = document.getElementById("feedback-response");
 
+    if (!form || !responseBox) return;
+
     form.addEventListener("submit", function (e) {
         e.preventDefault();
-
         responseBox.innerHTML = "<em>Sending...</em> <span class='spinner-border spinner-border-sm'></span>";
         responseBox.style.color = "blue";
 

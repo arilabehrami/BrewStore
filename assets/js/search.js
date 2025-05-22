@@ -32,8 +32,8 @@ document.addEventListener("DOMContentLoaded", () => {
                         data.forEach(product => {
                             const item = document.createElement("div");
                             item.innerHTML = `<a href="products.php?search=${encodeURIComponent(product.name)}">
-                                ${product.name} - ${product.price}€
-                            </a>`;
+                                                ${product.name} - ${product.price}€
+                                              </a>`;
                             item.style.padding = "5px 0";
                             searchResults.appendChild(item);
                         });
@@ -44,13 +44,4 @@ document.addEventListener("DOMContentLoaded", () => {
                 });
         });
     }
-});
-
-data.forEach(product => {
-    const item = document.createElement("div");
-    item.innerHTML = `<a href="products.php?search=${encodeURIComponent(product.name)}">
-                        ${product.name} - ${product.price}€
-                      </a>`;
-    item.style.padding = "5px 0";
-    searchResults.appendChild(item);
 });
