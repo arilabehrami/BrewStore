@@ -6,7 +6,6 @@ if (session_status() === PHP_SESSION_NONE) {
 
 <?php include 'includes/header.php'; ?>
 
-<!-- FUT KETU cookie_banner.php mbas headerit -->
 <?php include 'includes/cookie_banner.php'; ?>
 
 <section id="audio-player">

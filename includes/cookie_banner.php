@@ -1,15 +1,3 @@
-<?php
-// cookie_banner.php
-
-if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['accept_cookies'])) {
-    // Vendos cookie për 30 ditë
-    setcookie('user_cookies', 'accepted', time() + (86400 * 30), "/");
-    // Rifresko faqen
-    header("Location: " . $_SERVER['REQUEST_URI']);
-    exit();
-}
-?>
-
 <?php if (!isset($_COOKIE['user_cookies'])): ?>
     <div id="cookie-banner" style="
         position: fixed;
@@ -21,9 +9,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['accept_cookies'])) {
         padding: 15px;
         z-index: 9999;
     ">
-        <form method="POST">
-            <p>We use cookies to ensure you get the best experience on our website.</p>
-            <button type="submit" name="accept_cookies" class="btn btn-light">Accept All Cookies</button>
-        </form>
+        <p>We use cookies to ensure you get the best experience on our website.</p>
+        <div class="d-flex justify-content-center gap-2 mt-2">
+            <button id="accept-cookies-btn" class="btn btn-success">Accept All</button>
+            <button id="reject-cookies-btn" class="btn btn-danger">Reject All</button>
+        </div>
     </div>
 <?php endif; ?>

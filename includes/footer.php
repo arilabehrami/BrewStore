@@ -38,5 +38,6 @@
         <p>&copy; <?php echo date('Y'); ?> Coffee Shop. All Rights Reserved.</p>
     </div>
 <script src="<?php echo $base_url; ?>assets/js/script.js"></script>
+<script src="<?php echo $base_url; ?>assets/js/ajax_cookie_banner.js"></script>
 </body>
 </html>
