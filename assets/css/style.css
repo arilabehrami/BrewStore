@@ -76,6 +76,7 @@ header {
     z-index: 10;
     display: flex;
     column-gap: 2.5rem;
+    align-items: center;
 }
 .header-icon .bx{
     color:#f1f1f1;
@@ -1047,32 +1048,73 @@ address ul li a:hover {
 }
 
 .search-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+#search-input {
+    border: none;
+    outline: none;
+    box-shadow: none;
+}
+
+#search-results {
     position: absolute;
-    top: 70px;
-    right: 20px;
-    display: block;
-    opacity: 0;
-    pointer-events: none;
-    transition: all 0.3s ease;
-    background: white;
+    top: 100%;
+    left: 0;
+    margin-top: 5px;
+    background-color: white;
     border: 1px solid #ccc;
-    padding: 10px;
-    border-radius: 5px;
-    width: 250px;
-    box-shadow: 0 0 8px rgba(0,0,0,0.15);
-    z-index: 9999;
+    border-radius: 6px;
+    width: 100%;
+    max-height: 200px;
+    overflow-y: auto;
+    z-index: 99;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+#search-results div,
+#search-results a {
+    padding: 8px 12px;
+    border-bottom: 1px solid #eee;
+    display: block;
+    color: #333;
+    text-decoration: none;
+}
+
+#search-results div:hover,
+#search-results a:hover {
+    background-color: #f0f0f0;
 }
 
 .search-container.active {
-    opacity: 1;
-    pointer-events: auto;
+    width: 200px; /* ose 250px sipas dëshirës */
 }
+
+.search-container input:focus {
+    outline: none;
+    border: none;
+    box-shadow: none;
+}
+
+/*.search-container input {
+    border: none;
+    outline: none;
+    background: white;
+}*/
 
 .search-container input {
     width: 100%;
     padding: 6px 10px;
-    border: 1px solid #aaa;
-    border-radius: 4px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.search-container.active input {
+    opacity: 1;
 }
 
 #search-results {
