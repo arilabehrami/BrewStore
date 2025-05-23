@@ -126,14 +126,13 @@ if (!empty($_SESSION['cart'])) {
 </section>
 
 <script>
-// Shtimi në shportë me fetch POST
 document.getElementById('btn-add-to-cart').addEventListener('click', function() {
     const productSelect = document.getElementById('product');
     const selectedOption = productSelect.options[productSelect.selectedIndex];
     const productId = selectedOption.value;
     const productName = selectedOption.getAttribute('data-name');
     const productPrice = parseFloat(selectedOption.getAttribute('data-price'));
-    const productImage = selectedOption.getAttribute('data-image') || 'assets/img/default-product.png';
+    const productImage = selectedOption.getAttribute('data-image') || '/assets/images/products/default-product.png';
     const productQuantity = parseInt(document.getElementById('product-quantity').value);
 
     if (!productId || !productPrice || productQuantity < 1) {
@@ -163,7 +162,6 @@ document.getElementById('btn-add-to-cart').addEventListener('click', function() 
     });
 });
 
-// Përditësimi i sasive në shportë
 function updateQuantity(index, newQuantity) {
     fetch('admin/cart_actions.php?action=update', {
         method: 'POST',
@@ -180,7 +178,6 @@ function updateQuantity(index, newQuantity) {
     });
 }
 
-// Heq produkt nga shporta
 function removeFromCart(index) {
     fetch('admin/cart_actions.php?action=delete', {
         method: 'POST',
@@ -197,7 +194,6 @@ function removeFromCart(index) {
     });
 }
 
-// Llogarit totalin e shportës
 function calculateTotal() {
     let total = 0;
     document.querySelectorAll('.cart-item').forEach(item => {
@@ -210,7 +206,6 @@ function calculateTotal() {
     document.getElementById('total-price').textContent = 'Total price: $' + total.toFixed(2);
 }
 
-// Përditëso totalin kur ndryshon sasia
 document.querySelectorAll('.cart-item-quantity').forEach(input => {
     input.addEventListener('input', calculateTotal);
 });
