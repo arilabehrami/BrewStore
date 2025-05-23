@@ -22,7 +22,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['custom_message'])) {
         $mail->Host       = 'smtp.gmail.com';
         $mail->SMTPAuth   = true;
         $mail->Username   = 'coffeeshopborcelle@gmail.com';
-        $mail->Password   = 'yxuw dygq clos osne'; // App password
+        $mail->Password   = 'yxuw dygq clos osne';
         $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
         $mail->Port       = 587;
 

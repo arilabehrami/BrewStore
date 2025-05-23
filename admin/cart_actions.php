@@ -21,7 +21,6 @@ switch ($action) {
         $quantity = $input['quantity'] ?? 1;
         $image = $input['image'] ?? 'assets/images/default-product.png';
 
-        // Sigurohemi që rruga ka 'assets/images/' nëse mungon
         if (!str_starts_with($image, 'assets/images/') && !str_starts_with($image, 'http')) {
             $image = 'assets/images/' . ltrim($image, '/');
         }

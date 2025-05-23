@@ -6,8 +6,6 @@ include '../includes/header.php';
 <div class="login-page">
     <div class="login-box">
         <h2>Reset Password</h2>
-
-        <!-- Display success or error messages -->
         <?php
         if (isset($_SESSION['error'])) {
             echo "<div class='error'>{$_SESSION['error']}</div>";
