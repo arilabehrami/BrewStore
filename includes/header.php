@@ -39,7 +39,7 @@ $base_url = 'http://' . $_SERVER['HTTP_HOST'] . '/UEB25_CoffeeWebsite_/';
             <?php else: ?>
                 <li><a href="<?php echo $base_url; ?>admin/login.php" class="<?= $currentPage == 'login.php' ? 'active' : '' ?>">Login</a></li>
             <?php endif; ?>
-       
+        </ul>
 
             
         <div class="header-icon">
@@ -54,5 +54,5 @@ $base_url = 'http://' . $_SERVER['HTTP_HOST'] . '/UEB25_CoffeeWebsite_/';
         <div class="search-container">
             <input type="text" id="search-input" placeholder="Search product..." autocomplete="off">
             <div id="search-results"></div>
-        </div> </ul>
+        </div>
     </header> 
