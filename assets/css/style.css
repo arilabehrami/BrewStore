@@ -203,7 +203,7 @@ header {
     background-color: #d2b48c; /* kafte e lehtë */
     color: #fff;
     padding: 12px 36px;
-    border-radius: 3rem;
+    border-radius: 18rem;
     font-weight: 600;
     font-size: 14px;
     letter-spacing: 0.5px;
@@ -318,7 +318,7 @@ button:hover {
 .products-container .box .content span{
     padding: 0.5 2rem;
     color:black;
-    border-radius:5rem;
+    border-radius:18rem;
     font-weight: 100;
     border-bottom: 0.1rem solid #8B6B3E;
     border-top: 0.1rem solid #8B6B3E; 
