@@ -7,8 +7,6 @@ ini_set('display_errors', 1);
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 require __DIR__ . '/../vendor/autoload.php';
-
-// Kontrollo nëse përdoruesi është i kyçur
 if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
     echo json_encode(['success' => false, 'message' => 'You must be logged in to send feedback.']);
     exit();
@@ -32,10 +30,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['custom_message'])) {
         $mail->addAddress('coffeeshopborcelle@gmail.com');
         $mail->Subject = 'Feedback from Customer';
 
-        // Mesazhi nga forma
         $userMessage = trim($_POST['custom_message']) ?: 'No message';
 
-        // (Opsionale) përfshi emrin e përdoruesit në email nëse është i kyçur
         $username = isset($_SESSION['user_name']) ? $_SESSION['user_name'] : 'Unknown user';
 
         $mail->Body = "From: $username\n\n" . $userMessage;

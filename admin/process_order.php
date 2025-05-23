@@ -27,7 +27,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         exit('Database error: ' . $conn->error);
     }
 
-    // Supozoj që paymentMethod është string, productId integer
     $stmt->bind_param("sssis", $name, $email, $address, $productId, $paymentMethod);
 
     if ($stmt->execute()) {

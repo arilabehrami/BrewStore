@@ -1,10 +1,7 @@
 <?php
 session_start();
 header('Content-Type: application/json');
-
-// Marrim veprimin (add, update, delete)
 $action = $_GET['action'] ?? '';
-
 $input = json_decode(file_get_contents('php://input'), true);
 
 if (!$input) {
@@ -12,7 +9,6 @@ if (!$input) {
     exit;
 }
 
-// Inicializojmë shportën nëse nuk ekziston
 if (!isset($_SESSION['cart'])) {
     $_SESSION['cart'] = [];
 }
@@ -30,7 +26,6 @@ switch ($action) {
             exit;
         }
 
-        // Kontrollojmë nëse produkti ekziston në shportë, nëse po, shtojmë sasinë
         $found = false;
         foreach ($_SESSION['cart'] as &$item) {
             if ($item['id'] == $id) {
@@ -41,7 +36,6 @@ switch ($action) {
         }
         unset($item);
 
-        // Nëse nuk u gjet, e shtojmë të ri
         if (!$found) {
             $_SESSION['cart'][] = [
                 'id' => $id,

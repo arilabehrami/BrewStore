@@ -3,7 +3,6 @@ session_start();
 include 'includes/header.php'; 
 include 'database/db_connection.php'; 
 
-// Llogarit totalin e shportës
 $total = 0;
 if (!empty($_SESSION['cart'])) {
     foreach ($_SESSION['cart'] as $index => $item) {
@@ -23,7 +22,6 @@ if (!empty($_SESSION['cart'])) {
     <div class="container">
         <h1>Order Now!</h1>
 
-        <!-- Forma me te dhenat e klientit -->
         <form id="order-form" action="sessions_cookies/process_order.php" method="POST">
 
             <div class="form-group">
@@ -51,7 +49,6 @@ if (!empty($_SESSION['cart'])) {
                 </select>
             </div>
 
-            <!-- Shtimi i produkteve në shporte -->
             <h2>Add Product to Cart</h2>
 
             <div class="form-group">
@@ -83,7 +80,6 @@ if (!empty($_SESSION['cart'])) {
                 <input type="number" id="product-quantity" name="product-quantity" value="1" min="1" required>
             </div>
 
-            <!-- Butoni për shtimin në shportë (jashtë formularit) -->
             <div style="margin-bottom: 30px;">
                 <button type="button" id="btn-add-to-cart">Add Selected Product to Cart</button>
             </div>
