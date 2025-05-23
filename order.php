@@ -197,14 +197,11 @@ function removeFromCart(index) {
         if (data.status === "success") {
             showMessage("Product removed!", "success");
 
-            // Fshi HTML-n e artikullit nga cart pa rifresku faqen
             const item = document.querySelector(`.cart-item[data-index="${index}"]`);
             if (item) item.remove();
 
-            // Rifresko totalin
             calculateTotal();
 
-            // Nëse shporta bëhet bosh, trego mesazhin
             if (document.querySelectorAll('.cart-item').length === 0) {
                 document.getElementById('cart-items').innerHTML = '<p>Your cart is empty.</p>';
                 document.getElementById('total-price').textContent = 'Total price: $0.00';
@@ -279,7 +276,6 @@ function updateCartUI(productId, name, price, quantity, imagePath) {
     cartContainer.appendChild(newItem);
     calculateTotal();
 
-    // Fshije mesazhin "please refresh manually"
     if (cartContainer.innerHTML.includes("Please refresh manually")) {
         cartContainer.innerHTML = '';
         cartContainer.appendChild(newItem);
