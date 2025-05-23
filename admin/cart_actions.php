@@ -26,7 +26,7 @@ switch ($action) {
             $image = 'assets/images/' . ltrim($image, '/');
         }
 
-        if (!$id || !$name) {
+        if ($id === null || $name === null || $name === '') {
             echo json_encode(['status' => 'error', 'message' => 'Invalid product data']);
             exit;
         }

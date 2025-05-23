@@ -41,18 +41,21 @@
     $id = 0;
     foreach ($products as $product) {
         echo '<div class="box" 
-            data-id="' . $id++ . '" 
+            data-id="' . $id . '" 
             data-name="' . sanitizeProductName($product->name) . '" 
             data-price="' . $product->price . '" 
             data-image="' . $product->image . '">';
+
         echo '<img src="' . $product->image . '" alt="Kjo eshte ' . sanitizeProductName($product->name) . '">';
         echo '<h3>' . sanitizeProductName($product->name) . '</h3>';
         echo '<div class="content">';
         echo '<span>' . $product->price . '&euro;</span><br>';
         echo '<button class="btn" onclick="addToCart(this)">Add</button> ';
-        echo '<button class="btn" onclick="removeFromCart(' . ($id - 1) . ')">Delete</button>';
+        echo '<button class="btn" onclick="removeFromCart(' . $id . ')">Delete</button>';
         echo '</div>';
         echo '</div>';
+
+        $id++;
     }
     ?>
 </div>
