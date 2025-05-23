@@ -203,7 +203,7 @@ header {
     background-color: #d2b48c; /* kafte e lehtë */
     color: #fff;
     padding: 12px 36px;
-    border-radius: 3rem;
+    border-radius: 18rem;
     font-weight: 600;
     font-size: 14px;
     letter-spacing: 0.5px;
@@ -211,6 +211,7 @@ header {
     border: none;
     cursor: pointer;
     transition: all 0.3s ease;
+    border-radius: 18rem;
     box-shadow: 0 0 0 rgba(0, 0, 0, 0); /* pa hije fillimisht */
 }
 
@@ -263,9 +264,12 @@ button {
     border: none;
     border-radius: 4px;
     cursor: pointer;
+    border-radius: 18rem;
 }
 button:hover {
+    box-shadow: 0 0 12px 4px rgba(255, 215, 160, 0.8); 
     background-color: #6f4f30;
+    border-radius: 18rem;
 }
 .products-container{
     display: grid;
@@ -314,7 +318,7 @@ button:hover {
 .products-container .box .content span{
     padding: 0.5 2rem;
     color:black;
-    border-radius:5rem;
+    border-radius:18rem;
     font-weight: 100;
     border-bottom: 0.1rem solid #8B6B3E;
     border-top: 0.1rem solid #8B6B3E; 
@@ -662,6 +666,9 @@ audio {
     padding: 40px 20px;
 }
 .footer .container {
+    border-radius: 16px;
+    box-shadow: 0 6px 20px rgb(0, 0, 0);
+    transition: box-shadow 0.3s ease;
     justify-content: space-between;
     flex-wrap: wrap;
     gap: 20px;
@@ -1107,4 +1114,7 @@ address ul li a:hover {
 
 #search-results div a:hover {
     background-color: #f0f0f0;
+}
+.copyright{
+    text-align: center;
 }
