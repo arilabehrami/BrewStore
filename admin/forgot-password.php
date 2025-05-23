@@ -1,9 +1,26 @@
-<?php include '../includes/header.php'; ?>
+<?php 
+session_start();
+include '../includes/header.php'; 
+?>
 
 <div class="login-page">
     <div class="login-box">
         <h2>Reset Password</h2>
-        <form action="process-forgot-password.php" method="POST">
+
+        <!-- Display success or error messages -->
+        <?php
+        if (isset($_SESSION['error'])) {
+            echo "<div class='error'>{$_SESSION['error']}</div>";
+            unset($_SESSION['error']);
+        }
+
+        if (isset($_SESSION['success'])) {
+            echo "<div class='success'>{$_SESSION['success']}</div>";
+            unset($_SESSION['success']);
+        }
+        ?>
+
+        <form action="forgot_password_handler.php" method="POST">
             <div class="form-group">
                 <input type="email" name="email" placeholder="Enter your email..." required>
             </div>
