@@ -40,8 +40,6 @@ $base_url = 'http://' . $_SERVER['HTTP_HOST'] . '/UEB25_CoffeeWebsite_/';
                 <li><a href="<?php echo $base_url; ?>admin/login.php" class="<?= $currentPage == 'login.php' ? 'active' : '' ?>">Login</a></li>
             <?php endif; ?>
         </ul>
-
-            
         <div class="header-icon">
             <a href="<?php echo $base_url; ?>order.php"><i class='bx bx-cart' id="cart-icon"></i></a>
             <i class='bx bx-search' id="search-icon"></i>
@@ -55,4 +53,5 @@ $base_url = 'http://' . $_SERVER['HTTP_HOST'] . '/UEB25_CoffeeWebsite_/';
             <input type="text" id="search-input" placeholder="Search product..." autocomplete="off">
             <div id="search-results"></div>
         </div>
+        
     </header> 
