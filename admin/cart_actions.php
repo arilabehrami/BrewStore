@@ -23,7 +23,12 @@ switch ($action) {
         $name = $input['name'] ?? null;
         $price = $input['price'] ?? 0;
         $quantity = $input['quantity'] ?? 1;
-        $image = $input['image'] ?? '/assets/images/default-product.png';
+        $image = $input['image'] ?? 'assets/images/default-product.png';
+
+        // Sigurohemi që rruga ka 'assets/images/' nëse mungon
+        if (!str_starts_with($image, 'assets/images/') && !str_starts_with($image, 'http')) {
+            $image = 'assets/images/' . ltrim($image, '/');
+        }
 
         if (!$id || !$name) {
             echo json_encode(['status' => 'error', 'message' => 'Invalid product data']);

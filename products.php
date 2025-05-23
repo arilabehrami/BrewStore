@@ -38,8 +38,10 @@
         return htmlspecialchars($name, ENT_QUOTES, 'UTF-8');
     }
 
+    $id = 0;
     foreach ($products as $product) {
         echo '<div class="box" 
+            data-id="' . $id++ . '" 
             data-name="' . sanitizeProductName($product->name) . '" 
             data-price="' . $product->price . '" 
             data-image="' . $product->image . '">';
@@ -73,9 +75,18 @@ function addToCart(button) {
     })
     .then(res => res.text())
     .then(msg => {
-        alert(msg);
-        window.location.href = 'order.php';  // Ose rifresko faqen sipas dëshirës
-    })
+    try {
+        const response = JSON.parse(msg);
+        if (response.status === "success") {
+            window.location.href = 'order.php';
+        } else {
+            console.error("Error:", response.message);
+        }
+    } catch (e) {
+        console.error("Unexpected response:", msg);
+    }
+})
+
     .catch(err => console.error('Gabim:', err));
 }
 
