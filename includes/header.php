@@ -17,6 +17,7 @@ $base_url = 'http://' . $_SERVER['HTTP_HOST'] . '/UEB25_CoffeeWebsite_/';
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="<?php echo $base_url; ?>assets/js/script.js"></script>
     <script src="<?php echo $base_url; ?>assets/js/search.js"></script>
+    <script src="<?php echo $base_url; ?>assets/js/feedback.js"></script>
 </head>
 <body>
     <header>

@@ -25,7 +25,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             } else {
                 $_SESSION['show_welcome'] = false;
             }
-            
+
             header("Location: ../index.php");
             exit();
         } else {
