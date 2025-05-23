@@ -93,7 +93,13 @@ if (!empty($_SESSION['cart'])) {
                     ?>
                     <div class="cart-item" data-index="<?= $index ?>">
                         <div class="cart-item-info">
-                            <img src="<?= htmlspecialchars($item['image']) ?>" alt="<?= htmlspecialchars($item['name']) ?>" width="60" height="60">
+                            <?php
+                                $imagePath = $item['image'];
+                                if (!str_starts_with($imagePath, 'assets/images/') && !str_starts_with($imagePath, 'http')) {
+                                    $imagePath = 'assets/images/' . ltrim($imagePath, '/');
+                                }
+                            ?>
+                            <img src="<?= htmlspecialchars($imagePath) ?>" alt="<?= htmlspecialchars($item['name']) ?>" width="60" height="60">
                             <div>
                                 <div class="cart-item-name"><?= htmlspecialchars($item['name']) ?></div>
                                 <div class="cart-item-price">$<?= number_format($price, 2) ?></div>
