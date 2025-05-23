@@ -65,8 +65,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["name"])) {
 
     <address>
         <ul>
-            <li>Email our management: <a href="mailto:info@shembull.com">coffeeshopborcelle@gmail.com</a></li>
-            <li>Phone: +123 456 789</li>
+            <li>✉️: <a href="mailto:info@shembull.com">coffeeshopborcelle@gmail.com</a></li>
+            <li>📞: +123 456 789</li
         </ul>
     </address>
 
