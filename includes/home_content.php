@@ -15,7 +15,7 @@
                 <p class="welcome-message">Welcome back, <?= htmlspecialchars($_SESSION['user_name']) ?>!</p>
             <?php endif; ?>
         <?php endif; ?>
-        <div class="button-wrapper">
+        <div style="display: flex; justify-content: center;">
             <a href="products.php" class="btn">Shop Now</a>
         </div>
     </div>
