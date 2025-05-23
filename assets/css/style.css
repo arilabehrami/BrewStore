@@ -69,13 +69,12 @@ header {
     padding: 20px 100px;
     transition: 0.5s linear;
 }
-.header-icon{
-    font-size:22px;
-    cursor: pointer;
-    z-index: 10;
+.header-icon {
     display: flex;
-    column-gap: 2.5rem;
+    flex-wrap: nowrap;
+    gap: 1.5rem;
     align-items: center;
+    flex-shrink: 0;
 }
 .header-icon .bx{
     color:#f1f1f1;
@@ -1023,98 +1022,79 @@ address ul li a:hover {
 }
 
 .search-container {
-    /* position: relative; */
     display: flex;
     align-items: center;
+    position: relative;
+    margin-left: 10px;
+    transition: width 0.3s ease;
+    flex-shrink: 0;
+    white-space: nowrap;
 }
 
-#search-input {
-    border: none;
-    outline: none;
-    box-shadow: none;
-}
-
-#search-results {
-    /* position: absolute; */
-    top: 100%;
-    left: 0;
-    margin-top: 5px;
-    background-color: white;
+.search-container input {
+    width: 0;
+    padding: 8px 12px;
     border: 1px solid #ccc;
     border-radius: 6px;
-    width: 100%;
-    max-height: 200px;
-    overflow-y: auto;
-    z-index: 99;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    font-size: 1rem;
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.3s ease;
 }
 
-#search-results div,
-#search-results a {
-    padding: 8px 12px;
-    /* border-bottom: 1px solid #eee; */
-    display: block;
-    color: #333;
-    text-decoration: none;
-}
-
-#search-results div:hover,
-#search-results a:hover {
-    background-color: #f0f0f0;
-}
-
-.search-container.active {
-    width: 200px;
+.search-container.active input {
+    width: 220px;
+    opacity: 1;
+    pointer-events: auto;
 }
 
 .search-container input:focus {
     outline: none;
-    border: none;
-    box-shadow: none;
+    box-shadow: 0 0 0 2px rgba(199, 161, 122, 0.3);
 }
 
-/*.search-container input {
-    border: none;
-    outline: none;
-    background: white;
-}*/
-
-.search-container input {
-    width: 100%;
-    padding: 6px 10px;
-    border: 1px solid #ccc;
-    border-radius: 6px;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-}
-
-.search-container.active input {
-    opacity: 1;
-}
-
+/* Rezultatet e kërkimit */
 #search-results {
-    margin-top: 10px;
-    max-height: 200px;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    width: 100%;
+    max-height: 250px;
     overflow-y: auto;
-    background: #fff;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    padding: 5px 10px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    z-index: 99;
+    padding: 8px 0;
+    margin-top: 8px;
+    font-size: 1rem;
 }
 
-#search-results div a {
-    text-decoration: none;
+/* Stilizimi i secilit rezultat */
+#search-results div,
+#search-results a {
+    padding: 10px 14px;
+    margin: 4px 8px;
+    border-radius: 6px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     color: #333;
-    display: block;
-    padding: 6px;
-    border-radius: 4px;
+    text-decoration: none;
+    background-color: #f9f9f9;
+    font-weight: 500;
     transition: background-color 0.2s ease;
+    cursor: pointer;
 }
 
-#search-results div a:hover {
-    background-color: #f0f0f0;
+#search-results div:hover,
+#search-results a:hover {
+    background-color: #f2e6d9;
+    color: #2c1a0a;
 }
+
 .copyright{
     text-align: center;
 }

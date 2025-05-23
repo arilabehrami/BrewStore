@@ -22,7 +22,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 return;
             }
 
-            fetch("admin/search-products.php?q=" + encodeURIComponent(query))
+            fetch(base_url + "admin/search-products.php?q=" + encodeURIComponent(query))
                 .then(res => res.json())
                 .then(data => {
                     searchResults.innerHTML = "";
@@ -31,9 +31,12 @@ document.addEventListener("DOMContentLoaded", () => {
                     } else {
                         data.forEach(product => {
                             const item = document.createElement("div");
-                            item.innerHTML = `<a href="products.php?search=${encodeURIComponent(product.name)}">
-                                                ${product.name} - ${product.price}€
-                                              </a>`;
+                            item.innerHTML = `
+                            <a href="products.php?search=${encodeURIComponent(product.name)}" style="display: flex; justify-content: space-between; align-items: center; padding: 6px 12px; background-color: #f9f9f9; border-radius: 6px;">
+                                <span style="font-weight: 500; color: #333;">${product.name}</span>
+                                <span style="font-size: 0.9rem; color: #8B6B3E;">${product.price}€</span>
+                            </a>
+                            `;
                             item.style.padding = "5px 0";
                             searchResults.appendChild(item);
                         });
