@@ -1071,17 +1071,25 @@ address ul li a:hover {
 }
 
 #search-results {
-    margin-top: 8px;
+    margin-top: 10px;
     max-height: 200px;
     overflow-y: auto;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 5px 10px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
 }
 
-#search-results div {
+#search-results div a {
+    text-decoration: none;
+    color: #333;
+    display: block;
     padding: 6px;
-    /* border-bottom: 1px solid #eee; */
-    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.2s ease;
 }
 
-#search-results div:hover {
-    background-color: #f5f5f5;
+#search-results div a:hover {
+    background-color: #f0f0f0;
 }

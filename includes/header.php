@@ -16,6 +16,7 @@ $base_url = 'http://' . $_SERVER['HTTP_HOST'] . '/UEB25_CoffeeWebsite_/';
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script> 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="<?php echo $base_url; ?>assets/js/script.js"></script>
+    <script src="<?php echo $base_url; ?>assets/js/search.js"></script>
 </head>
 <body>
     <header>
@@ -37,7 +38,7 @@ $base_url = 'http://' . $_SERVER['HTTP_HOST'] . '/UEB25_CoffeeWebsite_/';
         </ul>
 
         <div class="header-icon">
-            <a href="order.php"><i class='bx bx-cart' id="cart-icon"></i></a>
+            <a href="<?php echo $base_url; ?>order.php"><i class='bx bx-cart' id="cart-icon"></i></a>
             <i class='bx bx-search' id="search-icon"></i>
             <?php if (isset($_SESSION['logged_in']) && $_SESSION['logged_in']): ?>
                 <a href="<?php echo $base_url; ?>admin/logout.php"><i class='bx bx-log-out' id="user-icon"></i></a>
