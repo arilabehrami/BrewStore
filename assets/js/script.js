@@ -74,40 +74,6 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 });
 
-// function Order(name, email, address, product, payment) {
-//     this.name = name;
-//     this.email = email;
-//     this.address = address;
-//     this.product = product;
-//     this.payment = payment;
-
-//     this.displayOrder = function () {
-//         return `Order from ${this.name} for the product ${this.product} with payment method ${this.payment}.`;
-//     };
-// }
-
-// let order1 = new Order("Arila", "arila@hotmail.com", "Street 123", "Americano", "PayPal");
-// let order2 = new Order("Beni", "beni@gmail.com", "Street 456", "Espresso", "Credit Card");
-
-// console.log(order1.displayOrder());
-// console.log(order2.displayOrder());
-
-
-// function dragStart(event) {
-//     event.dataTransfer.setData("text", event.target.id);
-// }
-
-// function allowDrop(event) {
-//     event.preventDefault();
-// }
-
-// function drop(event) {
-//     event.preventDefault();
-//     const data = event.dataTransfer.getData("text");
-//     const draggedElement = document.getElementById(data);
-//     event.target.appendChild(draggedElement);
-// }
-
 document.addEventListener("DOMContentLoaded", function () {
     const currentDate = new Date();
     const formattedDate = currentDate.toISOString().split('T')[0];
