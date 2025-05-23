@@ -15,7 +15,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $password = $_POST['password'];
     $confirm_password = $_POST['confirm_password'];
 
-    // Validation
     if (empty($name) || empty($email) || empty($password)) {
         $error = "Please fill in all fields!";
     } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
@@ -25,7 +24,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     } elseif ($password !== $confirm_password) {
         $error = "Passwords do not match!";
     } else {
-        // Check if email exists
         $query = "SELECT id FROM users WHERE email = ?";
         $stmt = mysqli_prepare($conn, $query);
         mysqli_stmt_bind_param($stmt, 's', $email);
@@ -35,7 +33,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         if (mysqli_stmt_num_rows($stmt) > 0) {
             $error = "This email is already registered!";
         } else {
-            // Register user
             $hashed_password = password_hash($password, PASSWORD_DEFAULT);
             $query = "INSERT INTO users (name, email, password) VALUES (?, ?, ?)";
             $stmt = mysqli_prepare($conn, $query);

@@ -1,5 +1,5 @@
 
-//Tabelat e krijuara ne databaz
+//Tabelat e krijuara ne databaze
 
 CREATE TABLE products(
     id INT AUTO_INCREMENT PRIMARY KEY,

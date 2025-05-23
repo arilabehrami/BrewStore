@@ -18,7 +18,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $_SESSION['user_name'] = $row['name'];
             $_SESSION['logged_in'] = true;
             
-            // Kontrollo nëse është logimi i parë sot
             $cookieName = 'first_login_' . date('Y-m-d') . '_' . $row['id'];
             if (!isset($_COOKIE[$cookieName])) {
                 setcookie($cookieName, '1', strtotime('tomorrow 00:00:00'), "/");

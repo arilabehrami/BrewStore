@@ -3,7 +3,6 @@ session_start();
 include 'includes/header.php'; 
 include 'database/db_connection.php'; 
 
-// Llogarit totalin e shportës
 $total = 0;
 if (!empty($_SESSION['cart'])) {
     foreach ($_SESSION['cart'] as $index => $item) {
@@ -23,7 +22,6 @@ if (!empty($_SESSION['cart'])) {
     <div class="container">
         <h1>Order Now!</h1>
 
-        <!-- Forma me te dhenat e klientit -->
         <form id="order-form" action="sessions_cookies/process_order.php" method="POST">
 
             <div class="form-group">
@@ -51,7 +49,6 @@ if (!empty($_SESSION['cart'])) {
                 </select>
             </div>
 
-            <!-- Shtimi i produkteve në shporte -->
             <h2>Add Product to Cart</h2>
 
             <div class="form-group">
@@ -83,7 +80,6 @@ if (!empty($_SESSION['cart'])) {
                 <input type="number" id="product-quantity" name="product-quantity" value="1" min="1" required>
             </div>
 
-            <!-- Butoni për shtimin në shportë (jashtë formularit) -->
             <div style="margin-bottom: 30px;">
                 <button type="button" id="btn-add-to-cart">Add Selected Product to Cart</button>
             </div>
@@ -132,14 +128,13 @@ if (!empty($_SESSION['cart'])) {
 </section>
 
 <script>
-// Shtimi në shportë me fetch POST
 document.getElementById('btn-add-to-cart').addEventListener('click', function() {
     const productSelect = document.getElementById('product');
     const selectedOption = productSelect.options[productSelect.selectedIndex];
     const productId = selectedOption.value;
     const productName = selectedOption.getAttribute('data-name');
     const productPrice = parseFloat(selectedOption.getAttribute('data-price'));
-    const productImage = selectedOption.getAttribute('data-image') || 'assets/img/default-product.png';
+    const productImage = selectedOption.getAttribute('data-image') || '/assets/images/products/default-product.png';
     const productQuantity = parseInt(document.getElementById('product-quantity').value);
 
     if (!productId || !productPrice || productQuantity < 1) {
@@ -169,7 +164,6 @@ document.getElementById('btn-add-to-cart').addEventListener('click', function() 
     });
 });
 
-// Përditësimi i sasive në shportë
 function updateQuantity(index, newQuantity) {
     fetch('admin/cart_actions.php?action=update', {
         method: 'POST',
@@ -186,7 +180,6 @@ function updateQuantity(index, newQuantity) {
     });
 }
 
-// Heq produkt nga shporta
 function removeFromCart(index) {
     fetch('admin/cart_actions.php?action=delete', {
         method: 'POST',
@@ -203,7 +196,6 @@ function removeFromCart(index) {
     });
 }
 
-// Llogarit totalin e shportës
 function calculateTotal() {
     let total = 0;
     document.querySelectorAll('.cart-item').forEach(item => {
@@ -216,7 +208,6 @@ function calculateTotal() {
     document.getElementById('total-price').textContent = 'Total price: $' + total.toFixed(2);
 }
 
-// Përditëso totalin kur ndryshon sasia
 document.querySelectorAll('.cart-item-quantity').forEach(input => {
     input.addEventListener('input', calculateTotal);
 });

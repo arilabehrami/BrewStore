@@ -18,8 +18,7 @@ function kontrolloPorosine() {
         if (!payment) throw "Please select a payment method!";
         if (!isChecked) throw "You must accept the terms and conditions!";
 
-        // Përdorimi i objekteve dhe metodave për manipulim me data dhe numra
-        let currentDate = new Date(); // Përdorim objektin Date
+        let currentDate = new Date();
         let currentYear = currentDate.getFullYear();
         let dateString = `Order date: ${currentDate.toLocaleString()}`;
         console.log(dateString);
@@ -46,7 +45,6 @@ function validateQuantity(quantity) {
         throw "Please enter a valid quantity!";
     }
 }
-// Funksionet për validimin e të dhënave
 function validateName(name) {
     if (!name) throw "Name is required!";
 }
