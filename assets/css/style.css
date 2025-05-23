@@ -69,7 +69,6 @@ header {
     padding: 20px 100px;
     transition: 0.5s linear;
 }
-
 .header-icon{
     font-size:22px;
     cursor: pointer;
@@ -124,8 +123,6 @@ header {
 }
 .search-box input{
     padding:10px;
-    /* border:none;
-    outline: none; */
     border-radius: 20px;
     width:250px;
     font-size:1rem;
@@ -138,7 +135,6 @@ header {
     font-weight: 500;
 }
 .cart{
-    /* display: none; */
     position:absolute;
     top:110%;
     right: -100%;
@@ -167,7 +163,6 @@ header {
     border-radius: 50%;
 }
 .home{
-    /* width:100%; */
     min-height:100vh;
     background-repeat: no-repeat;
     background-size: cover;
@@ -176,16 +171,13 @@ header {
     grid-template-columns: repeat(auto-fit,minmax(17rem,auto));
     align-items: center;
     gap:1.5rem;
-
 }
 .home .btn {
-    /* background-color: var(--second-color); */
     padding:10px 40px;
     border-radius: 3rem;
     background: transparent;
     font-weight: 500;
     letter-spacing: 0.5px;
-    /* display:inline-block; */
     text-transform: uppercase;
     transition: all 0.3s ease;
     color:white;
@@ -194,7 +186,6 @@ header {
     color:#f1f1f1;
     padding-bottom: .5rem;
     border-radius: 5rem;
-    /* transition:0.2s all linear; */
     border-bottom: .1rem solid #8B6B3E;
 }
 .home-text h1{
@@ -212,21 +203,16 @@ header {
     background-color: var(--main-color);
     padding:10px 40px;
     border-radius: 3rem;
-    /* background: #f9f9f9; */
     color:var(--bg-color);
-    /* font-weight: 500; */
     letter-spacing: 0.5px;
-    /* display:inline-block; */
     text-transform: uppercase;
     transition: all 0.3s ease;
 }
 .btn:hover{
     background: linear-gradient(to right,var(--main-color), var(--second-color));
     letter-spacing: 2px;
-    /* transition: 0.2s; */
     color: #fff;
     transform: scale(1.1);
-    /* box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);  */
 }
 .order-image {
     position: absolute;
@@ -237,8 +223,7 @@ header {
     z-index: -1; 
 }
 .container {
-    /* margin-top: 50px; */
-    position: relative;
+    /* position: relative; */
     z-index: 1; 
     max-width: 600px;
     margin: 20px auto 0;
@@ -283,7 +268,7 @@ button:hover {
     margin-top: 2rem;
 }
 .products-container .box{
-    position: relative;
+    /* position: relative; */
     padding: 10px;
     display: flex;
     flex-direction: column;
@@ -321,10 +306,8 @@ button:hover {
     padding-top: 0.5rem;
 }
 #contact {
-    position: relative;
     padding: 100px;
     border-radius: 8px;
-    /* box-shadow: 0px 4px 6px rgb(0, 0, 0); */
 }
 #contact-form {
     display: flex;
@@ -505,18 +488,21 @@ video{
     transition: 0.2s;
 }
 #about {
+    position: relative;
+    padding-top: 80px; 
     display:flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 20px;
+    padding: 80px 20px 20px 20px;
     background-image: url('../images/aboutUS.jpg'); 
     background-origin: content-box;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    background-attachment: fixed; 
+    /* background-attachment: fixed;  */
     height: 700px; 
+    z-index: 9999;
     width: 100%;  
 } 
 .about-text {
@@ -536,7 +522,8 @@ video{
     line-height: 1.5;
 }
 .about-image {
-    position: absolute;
+    /* position: absolute; */
+    width: 100%;
     top: 0; 
     left: 0;
     width: 100%;
@@ -597,7 +584,6 @@ video{
     font-weight: 100;
     padding: 0.5 2rem;
     background-color:var(--main-color);
-    /* border:2px solid var(--main-color); */
     border-radius:5px;
     text-transform: uppercase;
 }
@@ -637,7 +623,7 @@ video{
     padding: 5px;
 }
 #audio-player {
-    position: fixed;
+    /* position: fixed; */
     bottom: 0;
     left: 0;
     width: 100%;
@@ -659,10 +645,8 @@ audio {
     width: 100%;
     margin-top: auto;
     padding: 40px 20px;
-    /* background-color: #fff; */
 }
 .footer .container {
-    /* display: flex; */
     justify-content: space-between;
     flex-wrap: wrap;
     gap: 20px;
@@ -749,12 +733,9 @@ address ul li a {
 address ul li a:hover {
     color: #0056b3; 
 }
-
-/* Stilizimi i login në navbar */
 .navbar li:last-child {
     margin-left: auto;
 }
-
 .navbar li a {
     padding: 8px 15px;
     border-radius: 4px;
@@ -770,29 +751,8 @@ address ul li a:hover {
     background-color: #b08c66;
     color: white;
 }
-
-/* Stilizimi i përdoruesit të loguar 
-.nav-user {
-    display: flex;
-    gap: 10px;
-}
-
-.nav-user a:first-child {
-    color: #c7a17a;
-}
-
-.nav-user a:last-child {
-    background-color: #a52a2a;
-    color: white;
-}
-
-.nav-user a:last-child:hover {
-    background-color: #8b0000;
-} */
-
-/* Stilizimi i faqes së login */
 .login-page {
-    background-image: url('../images/login-background.avif'); /* Vendosni emrin e fotos suaj */
+    background-image: url('../images/login-background.avif'); 
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -800,28 +760,25 @@ address ul li a:hover {
     display: flex;
     justify-content: center;
     align-items: center;
-    position: relative;
 }
 
 .login-page::before {
     content: '';
-    position: absolute;
+    /* position: absolute; */
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: rgba(0, 0, 0, 0.5); /* Efekti i errësimit për background */
 }
 
 .login-box {
-    background-color: rgba(255, 255, 255, 0.85); /* Kutia transparente */
+    background-color: rgba(255, 255, 255, 0.85);
     padding: 40px;
     border-radius: 15px;
     width: 100%;
     max-width: 450px;
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
     z-index: 1;
-    backdrop-filter: blur(5px); /* Efekti i blurrit për transparency */
     border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
@@ -919,12 +876,12 @@ address ul li a:hover {
     display: flex;
     justify-content: center;
     align-items: center;
-    position: relative;
+    /* position: relative; */
 }
 
 .register-page::before {
     content: '';
-    position: absolute;
+    /* position: absolute; */
     top: 0;
     left: 0;
     right: 0;
@@ -940,7 +897,6 @@ address ul li a:hover {
     max-width: 450px;
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
     z-index: 1;
-    backdrop-filter: blur(5px);
     border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
@@ -1045,7 +1001,7 @@ address ul li a:hover {
 }
 
 .search-container {
-    position: relative;
+    /* position: relative; */
     display: flex;
     align-items: center;
 }
@@ -1057,7 +1013,7 @@ address ul li a:hover {
 }
 
 #search-results {
-    position: absolute;
+    /* position: absolute; */
     top: 100%;
     left: 0;
     margin-top: 5px;
