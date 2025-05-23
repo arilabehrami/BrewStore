@@ -50,7 +50,7 @@
         echo '<div class="content">';
         echo '<span>' . $product->price . '&euro;</span><br>';
         echo '<button class="btn" onclick="addToCart(this)">Add</button> ';
-        echo '<button class="btn" onclick="removeFromCart(this)">Delete</button>';
+        echo '<button class="btn" onclick="removeFromCart(' . ($id - 1) . ')">Delete</button>';
         echo '</div>';
         echo '</div>';
     }
@@ -62,38 +62,30 @@
 function addToCart(button) {
     const product = button.closest('.box');
     const data = {
-        id: product.getAttribute('data-id'),     
+        id: product.getAttribute('data-id'),
         name: product.getAttribute('data-name'),
         price: parseFloat(product.getAttribute('data-price')),
         quantity: 1,
         image: product.getAttribute('data-image')
     };
+
     fetch('admin/cart_actions.php?action=add', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(data)
     })
-    .then(res => res.text())
-    .then(msg => {
-<<<<<<< HEAD
-    try {
-        const response = JSON.parse(msg);
+    .then(res => res.json())
+    .then(response => {
         if (response.status === "success") {
-            window.location.href = 'order.php';
+            showMessage("Product added to cart!", "success");
         } else {
-            console.error("Error:", response.message);
+            showMessage(response.message || "Error adding product.", "error");
         }
-    } catch (e) {
-        console.error("Unexpected response:", msg);
-    }
-})
-
-=======
-        alert(msg);
-        window.location.href = 'order.php';  
     })
->>>>>>> a0a5572ab1d6fff482584e480877a2e52a0e05a1
-    .catch(err => console.error('Gabim:', err));
+    .catch(err => {
+        console.error('Gabim:', err);
+        showMessage("Something went wrong!", "error");
+    });
 }
 
 function removeFromCart(index) {
@@ -114,6 +106,20 @@ function removeFromCart(index) {
     });
 }
 
+function showMessage(msg, type) {
+    let box = document.getElementById("message-box");
+    if (!box) {
+        box = document.createElement("div");
+        box.id = "message-box";
+        document.body.prepend(box);
+    }
+    box.className = type;
+    box.textContent = msg;
+
+    setTimeout(() => {
+        box.remove();
+    }, 3000);
+}
 </script>
 
 <script>

@@ -22,6 +22,8 @@ if (!empty($_SESSION['cart'])) {
     <div class="container">
         <h1>Order Now!</h1>
 
+        <div id="message-box" style="margin: 10px auto; max-width: 480px;"></div>
+
         <form id="order-form" action="sessions_cookies/process_order.php" method="POST">
 
             <div class="form-group">
@@ -138,7 +140,7 @@ document.getElementById('btn-add-to-cart').addEventListener('click', function() 
     const productQuantity = parseInt(document.getElementById('product-quantity').value);
 
     if (!productId || !productPrice || productQuantity < 1) {
-        alert("Please select a valid product and quantity.");
+        showMessage("Please select a valid product and quantity.", "error");
         return;
     }
 
@@ -153,14 +155,18 @@ document.getElementById('btn-add-to-cart').addEventListener('click', function() 
             image: productImage
         })
     })
-    .then(res => res.text())
-    .then(msg => {
-        alert('Product added to cart!');
-        location.reload();
+    .then(res => res.json())
+    .then(data => {
+        if (data.status === "success") {
+            showMessage("Product added to cart!", "success");
+            updateCartUI(productId, productName, productPrice, productQuantity, productImage);
+        } else {
+            showMessage(data.message, "error");
+        }
     })
     .catch(err => {
         console.error('Error:', err);
-        alert('Could not add product to cart.');
+        showMessage("Could not add product to cart.", "error");
     });
 });
 
@@ -186,13 +192,31 @@ function removeFromCart(index) {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ index: index })
     })
-    .then(res => res.text())
-    .then(msg => {
-        location.reload();
+    .then(res => res.json())
+    .then(data => {
+        if (data.status === "success") {
+            showMessage("Product removed!", "success");
+
+            // Fshi HTML-n e artikullit nga cart pa rifresku faqen
+            const item = document.querySelector(`.cart-item[data-index="${index}"]`);
+            if (item) item.remove();
+
+            // Rifresko totalin
+            calculateTotal();
+
+            // Nëse shporta bëhet bosh, trego mesazhin
+            if (document.querySelectorAll('.cart-item').length === 0) {
+                document.getElementById('cart-items').innerHTML = '<p>Your cart is empty.</p>';
+                document.getElementById('total-price').textContent = 'Total price: $0.00';
+            }
+
+        } else {
+            showMessage(data.message, "error");
+        }
     })
     .catch(err => {
         console.error('Error:', err);
-        alert('Could not remove product.');
+        showMessage("Could not remove product.", "error");
     });
 }
 
@@ -213,6 +237,54 @@ document.querySelectorAll('.cart-item-quantity').forEach(input => {
 });
 
 window.addEventListener('load', calculateTotal);
+
+function showMessage(msg, type) {
+    const box = document.getElementById("message-box") || document.createElement('div');
+    box.id = "message-box";
+    box.className = type;
+    box.textContent = msg;
+    document.querySelector(".container").prepend(box);
+
+    setTimeout(() => {
+        box.remove();
+    }, 3000);
+}
+
+function updateCartUI(productId, name, price, quantity, imagePath) {
+    const cartContainer = document.getElementById("cart-items");
+
+    // Rregullo path-in e fotos
+    if (!imagePath.startsWith('assets/images/') && !imagePath.startsWith('http')) {
+        imagePath = 'assets/images/' + imagePath.replace(/^\/+/, '');
+    }
+
+    const index = document.querySelectorAll('.cart-item').length;
+
+    const newItem = document.createElement('div');
+    newItem.className = 'cart-item';
+    newItem.setAttribute('data-index', index);
+
+    newItem.innerHTML = `
+        <div class="cart-item-info">
+            <img src="${imagePath}" alt="${name}" width="60" height="60">
+            <div>
+                <div class="cart-item-name">${name}</div>
+                <div class="cart-item-price">$${price.toFixed(2)}</div>
+            </div>
+        </div>
+        <input type="number" min="1" class="cart-item-quantity" value="${quantity}" onchange="updateQuantity(${index}, this.value)">
+        <button type="button" class="btn-remove" onclick="removeFromCart(${index})">Remove</button>
+    `;
+
+    cartContainer.appendChild(newItem);
+    calculateTotal();
+
+    // Fshije mesazhin "please refresh manually"
+    if (cartContainer.innerHTML.includes("Please refresh manually")) {
+        cartContainer.innerHTML = '';
+        cartContainer.appendChild(newItem);
+    }
+}
 </script>
 
 <?php include 'includes/footer.php'; ?>
