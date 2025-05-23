@@ -1030,7 +1030,7 @@ address ul li a:hover {
 #search-results div,
 #search-results a {
     padding: 8px 12px;
-    border-bottom: 1px solid #eee;
+    /* border-bottom: 1px solid #eee; */
     display: block;
     color: #333;
     text-decoration: none;
@@ -1078,7 +1078,7 @@ address ul li a:hover {
 
 #search-results div {
     padding: 6px;
-    border-bottom: 1px solid #eee;
+    /* border-bottom: 1px solid #eee; */
     cursor: pointer;
 }
 
