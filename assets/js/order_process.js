@@ -118,7 +118,6 @@ function showMessage(msg, type) {
 function updateCartUI(productId, name, price, quantity, imagePath) {
     const cartContainer = document.getElementById("cart-items");
 
-    // Rregullo path-in e fotos
     if (!imagePath.startsWith('assets/images/') && !imagePath.startsWith('http')) {
         imagePath = 'assets/images/' + imagePath.replace(/^\/+/, '');
     }

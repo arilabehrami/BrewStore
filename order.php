@@ -14,5 +14,5 @@ if (!empty($_SESSION['cart'])) {
 }
 ?>
 <?php include 'includes/order_content.php';?>
-<script src="includes/order_process.js"></script>
+<script src="assets/js/order_process.js"></script>
 <?php include 'includes/footer.php'; ?>
