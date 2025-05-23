@@ -59,8 +59,8 @@ img{
 header {
     display: flex;
     position: fixed;
-    top: 0;       /* Shto këtë */
-    left: 0;      /* Dhe këtë */
+    top: 0;       
+    left: 0;     
     background: transparent;
     width: 100%;
     z-index: 999;
@@ -165,7 +165,6 @@ header {
     object-fit: cover;
     border-radius: 50%;
 }
-/* Mesazhet e suksesit/gabimit */
 .success, .error {
     padding: 8px 12px;
     border-radius: 4px;
@@ -185,25 +184,23 @@ header {
     background-color: #ffebee;
 }
 
-/* Containeri i formularit */
 #order-now {
-    max-width: 480px;  /* Formë shumë më kompakte */
+    max-width: 480px;  
     margin: 25px auto 50px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     color: #333;
     padding: 0 12px;
 }
 #order-now .container {
-    margin-top: 20px; /* ose ndonjë vlerë më të vogël */
+    margin-top: 20px; 
     padding: 20px;
 }
 .order-image {
-    height: 200px; /* ose më pak, nëse është shumë i madh */
+    height: 200px; 
     background-size: cover;
     background-position: center;
 }
 
-/* Tituj */
 h1, h2 {
     text-align: center;
     color: #222;
@@ -212,7 +209,6 @@ h1, h2 {
     letter-spacing: 0.02em;
 }
 
-/* Forma */
 form {
     background: #fff;
     padding: 20px 22px 24px;
@@ -225,12 +221,10 @@ form:hover {
     box-shadow: 0 5px 22px rgba(0,0,0,0.15);
 }
 
-/* Form group */
 .form-group {
     margin-bottom: 14px;
 }
 
-/* Label */
 label {
     display: block;
     font-weight: 600;
@@ -239,7 +233,6 @@ label {
     margin-bottom: 5px;
 }
 
-/* Inputet dhe select */
 input[type="text"],
 input[type="email"],
 select,
@@ -263,7 +256,6 @@ input[type="number"]:focus {
     box-shadow: 0 0 6px rgba(40, 167, 69, 0.35);
 }
 
-/* Sasia - input më i vogël */
 .cart-item-quantity {
     width: 60px;
     padding: 6px 8px;
@@ -280,7 +272,6 @@ input[type="number"]:focus {
     box-shadow: 0 0 6px rgba(40, 167, 69, 0.35);
 }
 
-/* Butoni */
 button[type="submit"] {
     background-color: #28a745;
     color: white;
@@ -352,7 +343,6 @@ button[type="submit"]:hover {
     font-weight: 600;
 }
 
-/* Butoni për heqje */
 .btn-remove {
     background-color: #dc3545;
     border: none;
@@ -371,7 +361,6 @@ button[type="submit"]:hover {
     transform: translateY(-1px);
 }
 
-/* Çmimi total */
 #total-price {
     font-size: 20px;
     font-weight: 700;
@@ -381,7 +370,6 @@ button[type="submit"]:hover {
     letter-spacing: 0.02em;
 }
 
-/* Responsive për mobile */
 @media (max-width: 480px) {
     #order-now {
         max-width: 100%;

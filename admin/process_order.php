@@ -15,10 +15,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         die('Please fill all required fields and accept terms.');
     }
 
-    // Këtu lidhja me DB dhe ruajtja e porosisë
-    // Për shembull (simplifikuar):
-
-    include '../database/db_connection.php'; // sigurohu që rruga është e saktë
+    include '../database/db_connection.php'; 
 
     $stmt = $conn->prepare("INSERT INTO orders (name, email, address, product_id, payment_method) VALUES (?, ?, ?, ?, ?)");
     $stmt->bind_param("sssis", $name, $email, $address, $productId, $paymentMethod);

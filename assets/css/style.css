@@ -59,8 +59,8 @@ img{
 header {
     display: flex;
     position: fixed;
-    top: 0;       /* Shto këtë */
-    left: 0;      /* Dhe këtë */
+    top: 0;       
+    left: 0;    
     background: transparent;
     width: 100%;
     z-index: 999;
@@ -951,7 +951,6 @@ address ul li a:hover {
     font-size: 28px;
 }
 
-/* Ripërdorim stilet nga login page */
 .register-page .form-group {
     margin-bottom: 20px;
 }
@@ -1012,7 +1011,6 @@ address ul li a:hover {
     text-decoration: underline;
 }
 
-/* Për mesazhet e suksesit/gabimit */
 .success {
     color: #2e7d32;
     background-color: #e8f5e9;
@@ -1031,7 +1029,6 @@ address ul li a:hover {
     text-align: center;
 }
 
-/* Responsive design */
 @media (max-width: 768px) {
     .register-box {
         padding: 30px 20px;
@@ -1089,7 +1086,7 @@ address ul li a:hover {
 }
 
 .search-container.active {
-    width: 200px; /* ose 250px sipas dëshirës */
+    width: 200px;
 }
 
 .search-container input:focus {

@@ -19,7 +19,7 @@ try {
     $mail->Port = 587;
 
     $mail->setFrom('coffeeshopborcelle@gmail.com', 'UEB25 Coffee Shop');
-    $mail->addAddress('coffeeshopborcelle@gmail.com'); // ku e pranon feedback-un
+    $mail->addAddress('coffeeshopborcelle@gmail.com'); 
     $mail->Subject = 'Feedback from Customer';
 
     $mail->Body = isset($_POST['custom_message']) && !empty(trim($_POST['custom_message']))

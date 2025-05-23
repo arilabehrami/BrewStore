@@ -2,7 +2,6 @@
 session_start();
 include '../database/db_connection.php';
 
-// PHPMailer includes
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 require '../vendor/autoload.php';
@@ -10,14 +9,12 @@ require '../vendor/autoload.php';
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = trim($_POST["email"]);
 
-    // Validate email
     if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
         $_SESSION['error'] = "Invalid email!";
         header("Location: forgot-password.php");
         exit();
     }
 
-    // Check if email exists
     $stmt = $conn->prepare("SELECT id FROM users WHERE email = ?");
     $stmt->bind_param("s", $email);
     $stmt->execute();
@@ -29,16 +26,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         exit();
     }
 
-    // Generate 4-digit token and expiration
     $token = str_pad(random_int(0, 9999), 4, "0", STR_PAD_LEFT);
     $expires = date("Y-m-d H:i:s", strtotime("+1 hour"));
 
-    // Update token in database
     $stmt = $conn->prepare("UPDATE users SET reset_token_hash = ?, reset_token_expires_at = ? WHERE email = ?");
     $stmt->bind_param("sss", $token, $expires, $email);
     $stmt->execute();
 
-    // Prepare PHPMailer
     $mail = new PHPMailer(true);
 
     try {
@@ -46,7 +40,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $mail->Host       = 'smtp.gmail.com';
         $mail->SMTPAuth   = true;
         $mail->Username   = 'coffeeshopborcelle@gmail.com';
-        $mail->Password   = 'yxuw dygq clos osne'; // App password
+        $mail->Password   = 'yxuw dygq clos osne'; 
         $mail->SMTPSecure = 'tls';
         $mail->Port       = 587;
 
