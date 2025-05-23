@@ -60,7 +60,7 @@
 function addToCart(button) {
     const product = button.closest('.box');
     const data = {
-        id: product.getAttribute('data-id'),      // Shto këtë linjë për id
+        id: product.getAttribute('data-id'),     
         name: product.getAttribute('data-name'),
         price: parseFloat(product.getAttribute('data-price')),
         quantity: 1,
@@ -74,7 +74,7 @@ function addToCart(button) {
     .then(res => res.text())
     .then(msg => {
         alert(msg);
-        window.location.href = 'order.php';  // Ose rifresko faqen sipas dëshirës
+        window.location.href = 'order.php';  
     })
     .catch(err => console.error('Gabim:', err));
 }
@@ -89,8 +89,8 @@ function removeFromCart(index) {
     })
     .then(res => res.text())
     .then(data => {
-        console.log(data); // debug mesazh
-        location.reload(); // rifresko faqen pas fshirjes
+        console.log(data);
+        location.reload(); 
     })
     .catch(error => {
         console.error('Gabim:', error);
