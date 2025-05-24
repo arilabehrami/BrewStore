@@ -1,6 +1,8 @@
+<script>
 document.addEventListener("DOMContentLoaded", function () {
     const acceptBtn = document.getElementById("accept-cookies-btn");
     const rejectBtn = document.getElementById("reject-cookies-btn");
+    const banner = document.getElementById("cookie-banner");
 
     function changeBackground(color) {
         const body = document.body;
@@ -10,7 +12,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         setTimeout(() => {
             body.style.background = originalBackground;
-        }, 3000);  
+        }, 3000);
     }
 
     if (acceptBtn) {
@@ -25,8 +27,10 @@ document.addEventListener("DOMContentLoaded", function () {
             .then(response => response.json())
             .then(data => {
                 if (data.success) {
-                    document.getElementById("cookie-banner").style.display = "none";
-                    changeBackground("green");
+                    changeBackground("#d4edda"); // Light green for Accept All
+                    setTimeout(() => {
+                        banner.style.display = "none";
+                    }, 500);
                 }
             });
         });
@@ -34,8 +38,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
     if (rejectBtn) {
         rejectBtn.addEventListener("click", function () {
-            document.getElementById("cookie-banner").style.display = "none";
-            changeBackground("red");
+            changeBackground("#f8d7da"); // Light red for Reject All
+            setTimeout(() => {
+                banner.style.display = "none";
+            }, 500);
         });
     }
 });
+</script>
