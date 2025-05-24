@@ -3,29 +3,31 @@
 <section id="order-now">
     <div class="order-image"></div>
 
+    <!-- Moti jashtë container-it që kufizon formën -->
+    <div style="position: absolute; top: 120px; left: 50px; z-index: 10;">
+      <?php include 'admin/coffee_api.php'; ?>
+
+    </div>
+
     <div class="container">
         <h1>Order Now!</h1>
 
         <div id="message-box" style="margin: 10px auto; max-width: 480px;"></div>
 
-       <form id="order-form" action="admin/process_order.php" method="POST">
-
-
+        <form id="order-form" action="admin/process_order.php" method="POST">
+            <!-- Kjo është forma që nuk ndryshohet -->
             <div class="form-group">
                 <label for="name">Name</label>
                 <input type="text" id="name" name="name" placeholder="Enter your name" required>
             </div>
-
             <div class="form-group">
                 <label for="email">Email</label>
                 <input type="email" id="email" name="email" placeholder="Enter your email" required>
             </div>
-
             <div class="form-group">
                 <label for="address">Address</label>
                 <input type="text" id="address" name="address" placeholder="Enter your address" required>
             </div>
-
             <div class="form-group">
                 <label for="payment-method">Payment Method</label>
                 <select id="payment-method" name="payment-method" required>
@@ -35,46 +37,32 @@
                     <option value="Cash">Cash</option>
                 </select>
             </div>
-
             <h2>Add Product to Cart</h2>
-
             <div class="form-group">
                 <label for="product">Product</label>
                 <select id="product" name="product" required>
                     <option value="" disabled selected>Select a product</option>
                     <?php
-                    // ✅ Sigurohu që $conn është i përfshirë për këtë query
                     $sql = "SELECT * FROM products";
                     $result = $conn->query($sql);
-
                     if ($result && $result->num_rows > 0) {
                         while ($row = $result->fetch_assoc()) {
-                            echo '<option value="' . $row['id'] . '" ' 
-                               . 'data-price="' . $row['price'] . '" '
-                               . 'data-name="' . htmlspecialchars($row['name']) . '" '
-                               . 'data-image="' . htmlspecialchars($row['image'] ?? 'assets/img/default-product.png') . '" >' 
-                               . htmlspecialchars($row['name']) . ' - $' . number_format($row['price'], 2) 
-                               . '</option>';
+                            echo '<option value="' . $row['id'] . '" data-price="' . $row['price'] . '" data-name="' . htmlspecialchars($row['name']) . '" data-image="' . htmlspecialchars($row['image'] ?? 'assets/img/default-product.png') . '">' . htmlspecialchars($row['name']) . ' - $' . number_format($row['price'], 2) . '</option>';
                         }
                     } else {
                         echo '<option value="" disabled>No products available</option>';
                     }
                     ?>
                 </select>
-                <div id="tax-info" style="display: none; color: #8B6B3E; font-size: 0.9rem; margin-top: 8px;">
-                    Note: Price includes 10% tax.
-                </div>
+                <div id="tax-info" style="display: none; color: #8B6B3E; font-size: 0.9rem; margin-top: 8px;">Note: Price includes 10% tax.</div>
             </div>
-
             <div class="form-group">
                 <label for="product-quantity">Quantity</label>
                 <input type="number" id="product-quantity" name="product-quantity" value="1" min="1" required>
             </div>
-
             <div style="margin-bottom: 30px;">
                 <button type="button" id="btn-add-to-cart">Add Selected Product to Cart</button>
             </div>
-
             <h2>Your Cart</h2>
             <div id="cart-items">
                 <?php if (!empty($_SESSION['cart'])): ?>
@@ -104,16 +92,11 @@
                     <p>Your cart is empty.</p>
                 <?php endif; ?>
             </div>
-
             <p id="total-price">Total price: $<?= number_format($total, 2) ?></p>
-
             <div class="form-group" style="margin-top: 30px;">
-                <label>
-                    <input type="checkbox" id="accept-terms" name="accept-terms" required> I accept the terms and conditions
-                </label>
+                <label><input type="checkbox" id="accept-terms" name="accept-terms" required> I accept the terms and conditions</label>
                 <button type="submit">Place Order</button>
             </div>
-
         </form>
     </div>
 </section>
