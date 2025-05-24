@@ -31,5 +31,13 @@ CREATE TABLE cart (
     price INT NOT NULL,
     image VARCHAR(255) NOT NULL
 );
+CREATE TABLE forgot_password_requests (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    email VARCHAR(255) NOT NULL,
+    request_count INT NOT NULL DEFAULT 1,
+    last_request DATETIME DEFAULT CURRENT_TIMESTAMP,
+    UNIQUE(email)
+);
+
 
 
