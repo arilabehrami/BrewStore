@@ -3,3 +3,4 @@
 <?php include 'includes/cookie_banner.php'; ?>
 <?php include 'includes/home_content.php';?>
 <?php include 'includes/footer.php'; ?>
+<?php include 'assets/js/ajax_cookie_banner.js'; ?>
