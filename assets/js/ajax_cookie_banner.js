@@ -3,12 +3,25 @@ document.addEventListener("DOMContentLoaded", function () {
     const rejectBtn = document.getElementById("reject-cookies-btn");
     const banner = document.getElementById("cookie-banner");
 
+    // Marrim të gjitha cookies si objekt {key: value}
+    const cookies = document.cookie.split(";").reduce((acc, c) => {
+        const [key, val] = c.trim().split("=");
+        acc[key] = val;
+        return acc;
+    }, {});
+
+    // Ndrysho përmbajtjen në bazë të cookie-t
+    if (cookies['user_cookies'] === 'accepted') {
+        document.body.style.backgroundColor = "#e8f5e9"; // e gjelbër e lehtë
+    } else if (cookies['user_cookies'] === 'rejected') {
+        document.body.style.backgroundColor = "#ffebee"; // e kuqe e lehtë
+    }
+
     function changeBannerBackground(color) {
         const originalBackground = banner.style.backgroundColor;
         banner.style.transition = "background-color 0.5s ease";
         banner.style.backgroundColor = color;
 
-        
         setTimeout(() => {
             banner.style.backgroundColor = originalBackground || "rgba(34, 34, 34, 0.85)";
         }, 2000);
@@ -26,7 +39,8 @@ document.addEventListener("DOMContentLoaded", function () {
             .then(response => response.json())
             .then(data => {
                 if (data.success) {
-                    changeBannerBackground("#28a745"); 
+                    changeBannerBackground("#28a745");
+                    document.body.style.backgroundColor = "#e8f5e9"; // ndrysho direkt
                     setTimeout(() => {
                         banner.style.display = "none";
                     }, 2500);
@@ -37,7 +51,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
     if (rejectBtn) {
         rejectBtn.addEventListener("click", function () {
-            changeBannerBackground("#dc3545"); 
+            // Vendos cookie në mënyrë lokale (pasi PHP nuk mundet nga JS për 'rejected')
+            document.cookie = "user_cookies=rejected; path=/; max-age=" + 86400;
+            changeBannerBackground("#dc3545");
+            document.body.style.backgroundColor = "#ffebee"; // ndrysho direkt
             setTimeout(() => {
                 banner.style.display = "none";
             }, 2500);
