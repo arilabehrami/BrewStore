@@ -9,7 +9,7 @@ require __DIR__ . '/../vendor/autoload.php';
 
 $mail = new PHPMailer(true);
 
-try {
+function configureMailer(PHPMailer &$mail, string &$body): void {
     $mail->isSMTP();
     $mail->Host = 'smtp.gmail.com';
     $mail->SMTPAuth = true;
@@ -19,14 +19,19 @@ try {
     $mail->Port = 587;
 
     $mail->setFrom('coffeeshopborcelle@gmail.com', 'UEB25 Coffee Shop');
-    $mail->addAddress('coffeeshopborcelle@gmail.com'); 
+    $mail->addAddress('coffeeshopborcelle@gmail.com');
     $mail->Subject = 'Feedback from Customer';
+    $mail->Body = $body;
+}
 
-    $mail->Body = isset($_POST['custom_message']) && !empty(trim($_POST['custom_message']))
+try {
+    $body = isset($_POST['custom_message']) && !empty(trim($_POST['custom_message']))
         ? trim($_POST['custom_message'])
         : 'No message';
 
+    configureMailer($mail, $body);
     $mail->send();
+
     echo '<div style="text-align: center; color: green; font-weight: bold; margin-top: 20px;">Email was sent successfully.</div>';
 } catch (Exception $e) {
     echo "Email sending failed. Error: {$mail->ErrorInfo}";

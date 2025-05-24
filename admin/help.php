@@ -1,4 +1,10 @@
 <?php
-header("Location: ../contact.php#contact");
-exit(); 
+function &getHelpRedirectURL() {
+    $target = "../contact.php#contact";
+    return $target;
+}
+
+$redirectUrl = &getHelpRedirectURL();
+header("Location: $redirectUrl");
+exit();
 ?>

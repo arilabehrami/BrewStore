@@ -1,41 +1,69 @@
-document.getElementById('btn-add-to-cart').addEventListener('click', function() {
-    const productSelect = document.getElementById('product');
-    const selectedOption = productSelect.options[productSelect.selectedIndex];
-    const productId = selectedOption.value;
-    const productName = selectedOption.getAttribute('data-name');
-    const productPrice = parseFloat(selectedOption.getAttribute('data-price'));
-    const productImage = selectedOption.getAttribute('data-image') || '/assets/images/products/default-product.png';
-    const productQuantity = parseInt(document.getElementById('product-quantity').value);
+document.addEventListener("DOMContentLoaded", function () {
+    const productSelect = document.getElementById("product");
+    const addButton = document.getElementById("btn-add-to-cart");
+    const quantityInput = document.getElementById("product-quantity");
+    const messageBox = document.getElementById("message-box");
 
-    if (!productId || !productPrice || productQuantity < 1) {
-        showMessage("Please select a valid product and quantity.", "error");
-        return;
-    }
+    productSelect.addEventListener('change', function () {
+        const selectedOption = productSelect.selectedOptions[0];
+        const basePrice = parseFloat(selectedOption.getAttribute("data-price")) || 0;
+        const tax = basePrice * 0.10;
+        const totalWithTax = (basePrice + tax).toFixed(2);
 
-    fetch('admin/cart_actions.php?action=add', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-            id: productId,
-            name: productName,
-            price: productPrice,
-            quantity: productQuantity,
-            image: productImage
-        })
-    })
-    .then(res => res.json())
-    .then(data => {
-        if (data.status === "success") {
-            showMessage("Product added to cart!", "success");
-            updateCartUI(productId, productName, productPrice, productQuantity, productImage);
-        } else {
-            showMessage(data.message, "error");
-        }
-    })
-    .catch(err => {
-        console.error('Error:', err);
-        showMessage("Could not add product to cart.", "error");
+        messageBox.innerHTML = `
+            <div style="background:#fff3cd; padding:10px; border-radius:6px; font-weight:bold; color:#856404; margin-top:10px;">
+                Tax included: 10% – Final price: $${totalWithTax}
+            </div>
+        `;
     });
+
+    addButton.addEventListener('click', function () {
+        const selectedOption = productSelect.options[productSelect.selectedIndex];
+        const productId = selectedOption.value;
+        const productName = selectedOption.getAttribute('data-name');
+        let productPrice = parseFloat(selectedOption.getAttribute('data-price'));
+        const productImage = selectedOption.getAttribute('data-image') || '/assets/images/products/default-product.png';
+        const productQuantity = parseInt(quantityInput.value);
+
+        if (!productId || isNaN(productPrice) || productQuantity < 1) {
+            showMessage("Please select a valid product and quantity.", "error");
+            return;
+        }
+
+        const tax = productPrice * 0.10;
+        productPrice = productPrice + tax;
+
+        fetch('admin/cart_actions.php?action=add', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                id: productId,
+                name: productName,
+                price: productPrice,
+                quantity: productQuantity,
+                image: productImage
+            })
+        })
+        .then(res => res.json())
+        .then(data => {
+            if (data.status === "success") {
+                showMessage("Product added to cart with tax included!", "success");
+                updateCartUI(productId, productName, productPrice, productQuantity, productImage);
+            } else {
+                showMessage(data.message, "error");
+            }
+        })
+        .catch(err => {
+            console.error('Error:', err);
+            showMessage("Could not add product to cart.", "error");
+        });
+    });
+
+    document.querySelectorAll('.cart-item-quantity').forEach(input => {
+        input.addEventListener('input', calculateTotal);
+    });
+
+    window.addEventListener('load', calculateTotal);
 });
 
 function updateQuantity(index, newQuantity) {
@@ -97,12 +125,6 @@ function calculateTotal() {
     document.getElementById('total-price').textContent = 'Total price: $' + total.toFixed(2);
 }
 
-document.querySelectorAll('.cart-item-quantity').forEach(input => {
-    input.addEventListener('input', calculateTotal);
-});
-
-window.addEventListener('load', calculateTotal);
-
 function showMessage(msg, type) {
     const box = document.getElementById("message-box") || document.createElement('div');
     box.id = "message-box";
@@ -148,3 +170,18 @@ function updateCartUI(productId, name, price, quantity, imagePath) {
         cartContainer.appendChild(newItem);
     }
 }
+
+document.addEventListener("DOMContentLoaded", function () {
+    const productSelect = document.getElementById("product");
+    const taxInfo = document.getElementById("tax-info");
+
+    if (productSelect && taxInfo) {
+        productSelect.addEventListener("change", () => {
+            if (productSelect.value) {
+                taxInfo.style.display = "block";
+            } else {
+                taxInfo.style.display = "none";
+            }
+        });
+    }
+});

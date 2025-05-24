@@ -1,4 +1,3 @@
-
 <link rel="stylesheet" href="assets/css/order.css">
 
 <section id="order-now">
@@ -60,6 +59,9 @@
                     }
                     ?>
                 </select>
+                <div id="tax-info" style="display: none; color: #8B6B3E; font-size: 0.9rem; margin-top: 8px;">
+                    Note: Price includes 10% tax.
+                </div>
             </div>
 
             <div class="form-group">

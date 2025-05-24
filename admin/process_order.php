@@ -3,10 +3,21 @@ session_start();
 ini_set('display_errors', 1);
 error_reporting(E_ALL);
 
+function processOrderData(string &$name, string &$email, string &$address): void {
+    $name = trim($name);
+    $email = trim($email);
+    $address = trim($address);
+
+    $email = filter_var($email, FILTER_SANITIZE_EMAIL);
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        exit('Invalid email address.');
+    }
+}
+
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $name = trim($_POST['name'] ?? '');
-    $email = trim($_POST['email'] ?? '');
-    $address = trim($_POST['address'] ?? '');
+    $name = $_POST['name'] ?? '';
+    $email = $_POST['email'] ?? '';
+    $address = $_POST['address'] ?? '';
     $productId = $_POST['product'] ?? '';
     $paymentMethod = $_POST['payment-method'] ?? '';
     $acceptTerms = $_POST['accept-terms'] ?? '';
@@ -15,10 +26,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         exit('Please fill all required fields and accept terms.');
     }
 
-    $email = filter_var($email, FILTER_SANITIZE_EMAIL);
-    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-        exit('Invalid email address.');
-    }
+    processOrderData($name, $email, $address);
 
     include '../database/db_connection.php';
 
@@ -38,7 +46,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     $stmt->close();
     $conn->close();
-
 } else {
     echo "Invalid request.";
 }
+?>
