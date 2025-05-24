@@ -1,18 +1,17 @@
-
 document.addEventListener("DOMContentLoaded", function () {
     const acceptBtn = document.getElementById("accept-cookies-btn");
     const rejectBtn = document.getElementById("reject-cookies-btn");
     const banner = document.getElementById("cookie-banner");
 
-    function changeBackground(color) {
-        const body = document.body;
-        const originalBackground = getComputedStyle(body).background;
-        body.style.transition = "background 0.5s ease";
-        body.style.background = color;
+    function changeBannerBackground(color) {
+        const originalBackground = banner.style.backgroundColor;
+        banner.style.transition = "background-color 0.5s ease";
+        banner.style.backgroundColor = color;
 
+        // Ktheje në ngjyrën origjinale para me u zhduk
         setTimeout(() => {
-            body.style.background = originalBackground;
-        }, 3000);
+            banner.style.backgroundColor = originalBackground || "rgba(34, 34, 34, 0.85)";
+        }, 2000);
     }
 
     if (acceptBtn) {
@@ -27,10 +26,10 @@ document.addEventListener("DOMContentLoaded", function () {
             .then(response => response.json())
             .then(data => {
                 if (data.success) {
-                    changeBackground("#d4edda"); // Light green for Accept All
+                    changeBannerBackground("#d4edda"); // e gjelbër e lehtë
                     setTimeout(() => {
                         banner.style.display = "none";
-                    }, 500);
+                    }, 2500);
                 }
             });
         });
@@ -38,10 +37,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
     if (rejectBtn) {
         rejectBtn.addEventListener("click", function () {
-            changeBackground("#f8d7da"); // Light red for Reject All
+            changeBannerBackground("#f8d7da"); // e kuqe e lehtë
             setTimeout(() => {
                 banner.style.display = "none";
-            }, 500);
+            }, 2500);
         });
     }
 });
