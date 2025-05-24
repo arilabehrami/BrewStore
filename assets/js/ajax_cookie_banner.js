@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", function () {
         banner.style.transition = "background-color 0.5s ease";
         banner.style.backgroundColor = color;
 
-        // Ktheje në ngjyrën origjinale para me u zhduk
+        
         setTimeout(() => {
             banner.style.backgroundColor = originalBackground || "rgba(34, 34, 34, 0.85)";
         }, 2000);
@@ -26,7 +26,7 @@ document.addEventListener("DOMContentLoaded", function () {
             .then(response => response.json())
             .then(data => {
                 if (data.success) {
-                    changeBannerBackground("#d4edda"); // e gjelbër e lehtë
+                    changeBannerBackground("#28a745"); 
                     setTimeout(() => {
                         banner.style.display = "none";
                     }, 2500);
@@ -37,7 +37,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     if (rejectBtn) {
         rejectBtn.addEventListener("click", function () {
-            changeBannerBackground("#f8d7da"); // e kuqe e lehtë
+            changeBannerBackground("#dc3545"); 
             setTimeout(() => {
                 banner.style.display = "none";
             }, 2500);
