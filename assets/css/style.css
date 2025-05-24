@@ -1041,6 +1041,46 @@ address ul li a:hover {
     transform: scale(1.2);
 }
 
+#search-results {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    width: 220px;
+    max-height: 250px;
+    overflow-y: auto;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    z-index: 9999;
+    padding: 10px;
+    margin-top: 8px;
+    font-size: 1rem;
+    display: block !important; /* KY E ZGJIDH SHPESH PROBLEMIN */
+}
+
+#search-results div,
+#search-results a {
+    padding: 10px 14px;
+    margin: 4px 8px;
+    border-radius: 6px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #333;
+    text-decoration: none;
+    background-color: #f9f9f9;
+    font-weight: 500;
+    transition: background-color 0.2s ease;
+    cursor: pointer;
+}
+
+#search-results div:hover,
+#search-results a:hover {
+    background-color: #f2e6d9;
+    color: #2c1a0a;
+}
+
 .copyright{
     text-align: center;
 }
