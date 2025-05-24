@@ -1,6 +1,9 @@
 <?php
 session_start();
 header('Content-Type: application/json');
+
+include '../database/db_connection.php'; // përfshi lidhjen me DB
+
 $action = $_GET['action'] ?? '';
 $input = json_decode(file_get_contents('php://input'), true);
 
@@ -16,41 +19,54 @@ if (!isset($_SESSION['cart'])) {
 switch ($action) {
     case 'add':
         $id = $input['id'] ?? null;
-        $name = $input['name'] ?? null;
-        $price = $input['price'] ?? 0;
         $quantity = $input['quantity'] ?? 1;
-        $image = $input['image'] ?? 'assets/images/default-product.png';
 
-        if (!str_starts_with($image, 'assets/images/') && !str_starts_with($image, 'http')) {
-            $image = 'assets/images/' . ltrim($image, '/');
-        }
-
-        if ($id === null || $name === null || $name === '') {
-            echo json_encode(['status' => 'error', 'message' => 'Invalid product data']);
+        if ($id === null) {
+            echo json_encode(['status' => 'error', 'message' => 'Invalid product ID']);
             exit;
         }
 
-        $found = false;
-        foreach ($_SESSION['cart'] as &$item) {
-            if ($item['id'] == $id) {
-                $item['quantity'] += $quantity;
-                $found = true;
-                break;
+        // Kontrollo në DB nëse produkti ekziston
+        $stmt = $conn->prepare("SELECT name, price, image FROM products WHERE id = ?");
+        $stmt->bind_param("i", $id);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        if ($result && $row = $result->fetch_assoc()) {
+            $name = $row['name'];
+            $price = $row['price'];
+            $image = $row['image'] ?? 'assets/images/default-product.png';
+
+            if (!str_starts_with($image, 'assets/images/') && !str_starts_with($image, 'http')) {
+                $image = 'assets/images/' . ltrim($image, '/');
             }
-        }
-        unset($item);
 
-        if (!$found) {
-            $_SESSION['cart'][] = [
-                'id' => $id,
-                'name' => $name,
-                'price' => floatval($price),
-                'quantity' => intval($quantity),
-                'image' => $image
-            ];
+            $found = false;
+            foreach ($_SESSION['cart'] as &$item) {
+                if ($item['id'] == $id) {
+                    $item['quantity'] += $quantity;
+                    $found = true;
+                    break;
+                }
+            }
+            unset($item);
+
+            if (!$found) {
+                $_SESSION['cart'][] = [
+                    'id' => $id,
+                    'name' => $name,
+                    'price' => floatval($price),
+                    'quantity' => intval($quantity),
+                    'image' => $image
+                ];
+            }
+
+            echo json_encode(['status' => 'success', 'message' => 'Product added']);
+        } else {
+            echo json_encode(['status' => 'error', 'message' => 'Product not found']);
         }
 
-        echo json_encode(['status' => 'success', 'message' => 'Product added']);
+        $stmt->close();
         break;
 
     case 'update':

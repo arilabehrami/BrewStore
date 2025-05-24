@@ -3,6 +3,11 @@ session_start();
 ini_set('display_errors', 1);
 error_reporting(E_ALL);
 
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+
+require '../vendor/autoload.php'; // ose ndrysho rrugën nëse ke shkarkuar manualisht PHPMailer
+
 function processOrderData(string &$name, string &$email, string &$address): void {
     $name = trim($name);
     $email = trim($email);
@@ -38,8 +43,50 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $stmt->bind_param("sssis", $name, $email, $address, $productId, $paymentMethod);
 
     if ($stmt->execute()) {
+        // 🎉 Përgatit detajet e porosisë për email
+        $orderDetails = "";
+        $total = 0;
+        if (!empty($_SESSION['cart'])) {
+            foreach ($_SESSION['cart'] as $item) {
+                $productName = htmlspecialchars($item['name']);
+                $price = floatval($item['price']);
+                $quantity = intval($item['quantity']);
+                $subtotal = $price * $quantity;
+                $total += $subtotal;
+                $orderDetails .= "$productName x $quantity = $" . number_format($subtotal, 2) . "\n";
+            }
+        } else {
+            $orderDetails .= "Cart is empty!\n";
+        }
+        $orderDetails .= "\nTotal: $" . number_format($total, 2);
+
+        // 📧 Dergo email me PHPMailer
+        $mail = new PHPMailer(true);
+        try {
+            $mail->isSMTP();
+            $mail->Host = 'smtp.gmail.com';
+            $mail->SMTPAuth = true;
+            $mail->Username = 'coffeeshopborcelle@gmail.com';
+            $mail->Password = 'yxuw dygq clos osne'; // App Password
+            $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+            $mail->Port = 587;
+
+            $mail->setFrom('coffeeshopborcelle@gmail.com', 'Coffee Shop');
+            $mail->addAddress('coffeeshopborcelle@gmail.com', 'Coffee Shop Admin');
+            $mail->addReplyTo($email, $name); // Përdor emailin e klientit
+
+            $mail->isHTML(false);
+            $mail->Subject = "New Order from $name";
+            $mail->Body    = "Name: $name\nEmail: $email\nAddress: $address\nPayment Method: $paymentMethod\n\nOrder Details:\n$orderDetails";
+
+            $mail->send();
+            echo "Order placed successfully! Email sent!";
+        } catch (Exception $e) {
+            echo "Order placed, but failed to send email. Mailer Error: {$mail->ErrorInfo}";
+        }
+
         unset($_SESSION['cart']);
-        echo "Order placed successfully!";
+
     } else {
         echo "Error placing order: " . $stmt->error;
     }

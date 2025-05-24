@@ -8,7 +8,8 @@
 
         <div id="message-box" style="margin: 10px auto; max-width: 480px;"></div>
 
-        <form id="order-form" action="sessions_cookies/process_order.php" method="POST">
+       <form id="order-form" action="admin/process_order.php" method="POST">
+
 
             <div class="form-group">
                 <label for="name">Name</label>
@@ -42,6 +43,7 @@
                 <select id="product" name="product" required>
                     <option value="" disabled selected>Select a product</option>
                     <?php
+                    // ✅ Sigurohu që $conn është i përfshirë për këtë query
                     $sql = "SELECT * FROM products";
                     $result = $conn->query($sql);
 
