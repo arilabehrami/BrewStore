@@ -1,4 +1,4 @@
-<script>
+
 document.addEventListener("DOMContentLoaded", function () {
     const acceptBtn = document.getElementById("accept-cookies-btn");
     const rejectBtn = document.getElementById("reject-cookies-btn");
@@ -45,4 +45,3 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 });
-</script>
