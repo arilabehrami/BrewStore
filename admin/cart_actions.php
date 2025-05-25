@@ -13,7 +13,6 @@ function renderCartHTML() {
     return ob_get_clean();
 }
 
-// Kontroll lidhje DB
 if (!$conn) {
     echo json_encode(['status' => 'error', 'message' => 'Database connection error']);
     exit;
@@ -28,23 +27,19 @@ if (!isset($_SESSION['cart'])) {
     $_SESSION['cart'] = [];
 }
 
-// Funksione ndihmëse për sinkronizim me DB
 function addOrUpdateCartItemInDB($conn, $cartId, $productId, $quantity, $price) {
-    // Kontrollojmë nëse ekziston artikulli për këtë user/cart
     $stmtCheck = $conn->prepare("SELECT quantity FROM cart_items WHERE cart_id = ? AND product_id = ?");
     $stmtCheck->bind_param("ii", $cartId, $productId);
     $stmtCheck->execute();
     $result = $stmtCheck->get_result();
 
     if ($result && $row = $result->fetch_assoc()) {
-        // Update sasi
         $newQuantity = $row['quantity'] + $quantity;
         $stmtUpdate = $conn->prepare("UPDATE cart_items SET quantity = ?, price = ? WHERE cart_id = ? AND product_id = ?");
         $stmtUpdate->bind_param("idii", $newQuantity, $price, $cartId, $productId);
         $stmtUpdate->execute();
         $stmtUpdate->close();
     } else {
-        // Insert produkt te ri
         $stmtInsert = $conn->prepare("INSERT INTO cart_items (cart_id, product_id, quantity, price) VALUES (?, ?, ?, ?)");
         $stmtInsert->bind_param("iiid", $cartId, $productId, $quantity, $price);
         $stmtInsert->execute();
@@ -68,7 +63,17 @@ function deleteCartItemInDB($conn, $cartId, $productId) {
     $stmtDelete->close();
 }
 
-$cartId = $_SESSION['user_id'] ?? 1; // Nëse ke login, përdor ID reale
+function &getCartItemReference($productId) {
+    foreach ($_SESSION['cart'] as &$item) {
+        if ($item['id'] == $productId) {
+            return $item;
+        }
+    }
+    $null = null;
+    return $null;
+}
+
+$cartId = $_SESSION['user_id'] ?? 1;
 
 switch ($action) {
     case 'add':
@@ -80,7 +85,6 @@ switch ($action) {
             exit;
         }
 
-        // Merr të dhënat e produktit nga DB
         $stmt = $conn->prepare("SELECT name, price, image FROM products WHERE id = ?");
         $stmt->bind_param("i", $id);
         $stmt->execute();
@@ -88,25 +92,17 @@ switch ($action) {
 
         if ($result && $row = $result->fetch_assoc()) {
             $name = $row['name'];
-            $price = round($row['price'] * 1.10, 2); // me TVSH
+            $price = round($row['price'] * 1.10, 2);
             $image = $row['image'] ?? 'assets/images/default-product.png';
 
             if (!str_starts_with($image, 'assets/images/') && !str_starts_with($image, 'http')) {
                 $image = 'assets/images/' . ltrim($image, '/');
             }
 
-            // Kontroll në session
-            $found = false;
-            foreach ($_SESSION['cart'] as &$item) {
-                if ($item['id'] == $id) {
-                    $item['quantity'] += $quantity;
-                    $found = true;
-                    break;
-                }
-            }
-            unset($item);
-
-            if (!$found) {
+            $refItem =& getCartItemReference($id);
+            if ($refItem !== null) {
+                $refItem['quantity'] += $quantity;
+            } else {
                 $_SESSION['cart'][] = [
                     'id' => $id,
                     'name' => $name,
@@ -116,7 +112,6 @@ switch ($action) {
                 ];
             }
 
-            // Sinkronizo me DB
             addOrUpdateCartItemInDB($conn, $cartId, $id, $quantity, $price);
 
             echo json_encode([
@@ -142,7 +137,6 @@ switch ($action) {
 
         $_SESSION['cart'][$index]['quantity'] = $quantity;
 
-        // Përditëso në DB
         $productId = $_SESSION['cart'][$index]['id'];
         $price = $_SESSION['cart'][$index]['price'];
         updateCartItemInDB($conn, $cartId, $productId, $quantity, $price);
@@ -164,10 +158,8 @@ switch ($action) {
 
         $productId = $_SESSION['cart'][$index]['id'];
 
-        // Hiq nga session
         array_splice($_SESSION['cart'], $index, 1);
 
-        // Hiq nga DB
         deleteCartItemInDB($conn, $cartId, $productId);
 
         echo json_encode([
@@ -181,3 +173,4 @@ switch ($action) {
         echo json_encode(['status' => 'error', 'message' => 'Invalid action']);
         break;
 }
+?>
