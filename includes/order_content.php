@@ -10,9 +10,7 @@
     <div class="container">
         <h1>Order Now!</h1>
 
-        <!-- Forma -->
         <form id="order-form">
-            <!-- Mesazhet e AJAX vendosen këtu -->
             <div id="message-box" style="margin: 10px auto; max-width: 480px;"></div>
 
             <div class="form-group">
