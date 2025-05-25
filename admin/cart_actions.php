@@ -40,7 +40,7 @@ switch ($action) {
         if ($result && $row = $result->fetch_assoc()) {
             $name = $row['name'];
             $price = $row['price'];
-            $price = round($price * 1.10, 2);
+            $price = round($price * 1.10, 2); // Me TVSH
             $image = $row['image'] ?? 'assets/images/default-product.png';
 
             if (!str_starts_with($image, 'assets/images/') && !str_starts_with($image, 'http')) {
@@ -65,6 +65,17 @@ switch ($action) {
                     'quantity' => intval($quantity),
                     'image' => $image
                 ];
+
+                // ➕ INSERT në DB
+                $cartId = $_SESSION['user_id'] ?? 1; // ose vendos ID-në reale të user-it nëse ke login
+                $productId = $id;
+                $quantityDb = intval($quantity);
+                $priceDb = floatval($price);
+
+                $stmtInsert = $conn->prepare("INSERT INTO cart_items (cart_id, product_id, quantity, price) VALUES (?, ?, ?, ?)");
+                $stmtInsert->bind_param("iiid", $cartId, $productId, $quantityDb, $priceDb);
+                $stmtInsert->execute();
+                $stmtInsert->close();
             }
 
             echo json_encode([
@@ -119,4 +130,4 @@ switch ($action) {
     default:
         echo json_encode(['status' => 'error', 'message' => 'Invalid action']);
         break;
-    }
+}
