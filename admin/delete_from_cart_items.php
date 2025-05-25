@@ -31,7 +31,7 @@ $stmt = $conn->prepare("DELETE FROM cart_items WHERE product_id = ?");
 $stmt->bind_param("i", $productId);
 
 if ($stmt->execute()) {
-    echo json_encode(["status" => "success", "message" => "Product removed from cart and database."]);
+    echo json_encode(["status" => "success", "message" => "Product removed from cart."]);
 } else {
     echo json_encode(["status" => "error", "message" => "Database error while deleting."]);
 }

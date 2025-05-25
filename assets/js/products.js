@@ -36,7 +36,7 @@ function removeFromCart(productId) {
     .then(res => res.json())
     .then(response => {
         if (response.status === 'success') {
-            showMessage("Product deleted from cart and database!", "success");
+            showMessage("Product deleted from cart!", "success");
             document.querySelector(`[data-id='${productId}']`)?.remove();
         } else {
             showMessage(response.message || "Error deleting product.", "error");
@@ -98,8 +98,21 @@ function deleteFromCartItems(productId) {
     .then(res => res.json())
     .then(data => {
         showMessage(data.message, data.status);
+
+        // Vetëm nëse është sukses (do të thotë që ishte në cart), pastaj fshij prej DB
         if (data.status === "success") {
-            document.querySelector(`[data-id='${productId}']`)?.remove();
+            fetch('admin/delete_from_cart_items_db.php', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ id: productId })
+            })
+            .then(res => res.json())
+            .then(response => {
+                // Mundesh me përdor këtë përgjigje nëse don
+                console.log(response.message);
+            });
         }
     })
     .catch(err => {
