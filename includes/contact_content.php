@@ -1,29 +1,26 @@
-
 <section id="contact">
     <div class="PlaceOfCoffee">
         <video autoplay loop muted src="assets/images/PlaceOfCoffee.mp4"></video>
     </div>
-    <form id="contact-form" method="POST" action="sessions_cookies/cookies_contact.php">
+
+    <form id="contact-form" method="POST" action="/UEB25_CoffeeWebsite_/admin/contact_email.php">
         <label for="name">Name:</label>
-        <input type="text" id="name" name="name" required placeholder="Enter your name" autocomplete="on">
+        <input type="text" id="name" name="name" required placeholder="Enter your name">
 
         <label for="email">Email address:</label>
-        <input type="email" id="email" name="email" required placeholder="Enter your email address" form="contact-form" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$">
+        <input type="email" id="email" name="email" required placeholder="Enter your email address">
 
         <label for="subject">Subject:</label>
-        <input type="text" id="subject" name="subject" list="subjects" required placeholder="Message subject">
-        <datalist id="subjects">
-            <option value="Information">Information</option>
-            <option value="Order">Order</option>
-        </datalist>
+        <input type="text" id="subject" name="subject" required placeholder="Message subject">
 
         <label for="message">Message:</label>
-        <textarea id="message" name="message" required placeholder="Write your message" rows="2"></textarea>
+        <textarea id="message" name="message" required placeholder="Write your message"></textarea>
 
-        <input type="number" id="age" name="age" min="18" max="99" placeholder="Enter your age">
+        <label for="age">Age (optional):</label>
+        <input type="number" id="age" name="age" min="1" max="99">
 
-        <label for="phone">Phone number:</label>
-        <input type="text" id="phone" name="phone" placeholder="Phone number:">
+        <label for="phone">Phone (optional):</label>
+        <input type="text" id="phone" name="phone" placeholder="Phone number">
 
         <button type="submit">Send Message</button>
     </form>
@@ -31,45 +28,7 @@
     <address>
         <ul>
             <li>✉️: <a href="mailto:info@shembull.com">coffeeshopborcelle@gmail.com</a></li>
-            <li>📞: +123 456 789</li
+            <li>📞: +123 456 789</li>
         </ul>
     </address>
-
-    <?php
-    if (isset($_POST['send_email_simple'])) {
-       include 'admin/send_mail.php';
-    }
-    ?>
-    <?php if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true): ?>
-        <address>
-            <form id="feedback-form" style="text-align: center;">
-                <textarea name="custom_message" rows="4" cols="70" placeholder="Give your feedback for our shop!" style="color: black;" required></textarea><br>
-                <button type="submit" class="btn btn-primary">Send your feedback</button>
-            </form>
-            <div id="feedback-response" style="margin-top: 10px; text-align: center;"></div>
-        </address>
-    <?php else: ?>
-        <address style="text-align: center; margin-top: 20px;">
-            <p style="color: red; font-weight: bold;">
-                You must be logged in to send feedback.
-            </p>
-            <a href="admin/login.php" class="btn btn-outline-primary">Login here</a>
-        </address>
-    <?php endif; ?>
-</section>
-
-<section id="business-hours">
-    <div id="drag-container">
-        <h1><i>Working Hours</i></h1>
-    </div>
-    
-    <ul>
-        <li><strong>Monday:</strong> 9:00 AM - 5:00 PM</li>
-        <li><strong>Tuesday:</strong> 9:00 AM - 5:00 PM</li>
-        <li><strong>Wednesday:</strong> 9:00 AM - 5:00 PM</li>
-        <li><strong>Thursday:</strong> 9:00 AM - 5:00 PM</li>
-        <li><strong>Friday:</strong> 9:00 AM - 5:00 PM</li>
-        <li><strong>Saturday:</strong> 10:00 AM - 2:00 PM</li>
-        <li><strong>Sunday:</strong> Closed</li>
-    </ul>
 </section>
