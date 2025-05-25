@@ -22,20 +22,20 @@ if (isset($_SESSION['cart']) && !empty($_SESSION['cart'])) {
     }
 }
 
+if (!$found) {
+    echo json_encode(["status" => "error", "message" => "Product not found in cart."]);
+    exit;
+}
+
 $stmt = $conn->prepare("DELETE FROM cart_items WHERE product_id = ?");
 $stmt->bind_param("i", $productId);
 
-if (!$stmt->execute()) {
+if ($stmt->execute()) {
+    echo json_encode(["status" => "success", "message" => "Product removed from cart and database."]);
+} else {
     echo json_encode(["status" => "error", "message" => "Database error while deleting."]);
-    exit;
 }
 
 $stmt->close();
 $conn->close();
-
-if ($found) {
-    echo json_encode(["status" => "success", "message" => "Product removed from cart and database."]);
-} else {
-    echo json_encode(["status" => "success", "message" => "Removed from database. Product wasn't in session cart."]);
-}
 ?>
