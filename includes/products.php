@@ -29,15 +29,15 @@
         new Product("Black Coffee", 25, "assets/images/cart-item3.png")
     ];
 
-    usort($products, function($a, $b) {
-        return $a->price - $b->price;
-    });
+    // usort($products, function($a, $b) {
+    //     return $a->price - $b->price;
+    // });
 
     function sanitizeProductName($name) {
         return htmlspecialchars($name, ENT_QUOTES, 'UTF-8');
     }
 
-    $id = 0;
+    $id = 1;
     foreach ($products as $product) {
         echo '<div class="box" 
             data-id="' . $id . '" 
