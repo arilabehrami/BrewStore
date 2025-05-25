@@ -27,21 +27,84 @@ function addToCart(button) {
     });
 }
 
-function removeFromCart(index) {
-    fetch('admin/cart_actions.php?action=delete', {
+function removeFromCart(productId) {
+    fetch('admin/delete_product_full.php', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ id: productId })
+    })
+    .then(res => res.json())
+    .then(response => {
+        if (response.status === 'success') {
+            showMessage("Product deleted from cart and database!", "success");
+            document.querySelector(`[data-id='${productId}']`)?.remove();
+        } else {
+            showMessage(response.message || "Error deleting product.", "error");
+        }
+    })
+    .catch(error => {
+        console.error('Gabim:', error);
+        showMessage("Something went wrong!", "error");
+    });
+}
+
+function deleteProduct(productId) {
+    fetch('admin/delete_product.php', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify({ index: index })
+        body: JSON.stringify({ id: productId })
     })
-    .then(res => res.text())
+    .then(res => res.json())
     .then(data => {
-        console.log(data);
-        location.reload(); 
+        if (data.status === "success") {
+            showMessage("Product deleted!", "success");
+            document.querySelector(`[data-id='${productId}']`)?.remove();
+        } else {
+            showMessage(data.message, "error");
+        }
     })
-    .catch(error => {
-        console.error('Gabim:', error);
+    .catch(err => {
+        console.error(err);
+        showMessage("Something went wrong!", "error");
+    });
+}
+
+function deleteProductFromCartOnly(productId) {
+    fetch('admin/delete_from_cart_only.php', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ id: productId })
+    })
+    .then(res => res.json())
+    .then(data => {
+        showMessage(data.message, data.status);
+    })
+    .catch(err => {
+        console.error(err);
+        showMessage("Something went wrong!", "error");
+    });
+}
+
+function deleteFromCartItems(productId) {
+    fetch('admin/delete_from_cart_items.php', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ id: productId })
+    })
+    .then(res => res.json())
+    .then(data => {
+        showMessage(data.message, data.status);
+        if (data.status === "success") {
+            document.querySelector(`[data-id='${productId}']`)?.remove();
+        }
+    })
+    .catch(err => {
+        console.error(err);
+        showMessage("Something went wrong!", "error");
     });
 }
 
@@ -59,6 +122,7 @@ function showMessage(msg, type) {
         box.remove();
     }, 3000);
 }
+
 document.addEventListener("DOMContentLoaded", function () {
     const urlParams = new URLSearchParams(window.location.search);
     const searchQuery = urlParams.get("search");
