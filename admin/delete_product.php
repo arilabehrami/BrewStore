@@ -12,13 +12,11 @@ if (!$productId) {
     exit;
 }
 
-// 1. Fshije nga orders (nëse përdoret)
 $stmtOrders = $conn->prepare("DELETE FROM orders WHERE product_id = ?");
 $stmtOrders->bind_param("i", $productId);
 $stmtOrders->execute();
 $stmtOrders->close();
 
-// 2. Fshije nga products
 $stmt = $conn->prepare("DELETE FROM products WHERE id = ?");
 $stmt->bind_param("i", $productId);
 
@@ -30,7 +28,6 @@ if (!$stmt->execute()) {
 }
 $stmt->close();
 
-// 3. Largimi nga session cart nëse ekziston
 if (isset($_SESSION['cart'])) {
     foreach ($_SESSION['cart'] as $index => $item) {
         if ($item['id'] == $productId) {
