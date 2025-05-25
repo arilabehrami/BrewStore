@@ -878,9 +878,7 @@ address ul li a:hover {
     object-fit: cover;
     border-radius: 50%;
 }
-/* Reset bazik */
-/* FONT from Google Fonts - Inter */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
+/* ==== */
 
 * {
   margin: 0;
