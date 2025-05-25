@@ -2,10 +2,16 @@
 session_start();
 header('Content-Type: application/json');
 
-include '../database/db_connection.php'; // përfshi lidhjen me DB
+include '../database/db_connection.php';
 
 $action = $_GET['action'] ?? '';
 $input = json_decode(file_get_contents('php://input'), true);
+
+function renderCartHTML() {
+    ob_start();
+    include '../includes/cart_items_partial.php';
+    return ob_get_clean();
+}
 
 if (!$input) {
     echo json_encode(['status' => 'error', 'message' => 'No data received']);
@@ -26,7 +32,6 @@ switch ($action) {
             exit;
         }
 
-        // Kontrollo në DB nëse produkti ekziston
         $stmt = $conn->prepare("SELECT name, price, image FROM products WHERE id = ?");
         $stmt->bind_param("i", $id);
         $stmt->execute();
@@ -35,6 +40,7 @@ switch ($action) {
         if ($result && $row = $result->fetch_assoc()) {
             $name = $row['name'];
             $price = $row['price'];
+            $price = round($price * 1.10, 2);
             $image = $row['image'] ?? 'assets/images/default-product.png';
 
             if (!str_starts_with($image, 'assets/images/') && !str_starts_with($image, 'http')) {
@@ -61,7 +67,11 @@ switch ($action) {
                 ];
             }
 
-            echo json_encode(['status' => 'success', 'message' => 'Product added']);
+            echo json_encode([
+                'status' => 'success',
+                'message' => 'Product added',
+                'cart_html' => renderCartHTML()
+            ]);
         } else {
             echo json_encode(['status' => 'error', 'message' => 'Product not found']);
         }
@@ -82,7 +92,11 @@ switch ($action) {
 
         $_SESSION['cart'][$index]['quantity'] = intval($quantity);
 
-        echo json_encode(['status' => 'success', 'message' => 'Quantity updated']);
+        echo json_encode([
+            'status' => 'success',
+            'message' => 'Quantity updated',
+            'cart_html' => renderCartHTML()
+        ]);
         break;
 
     case 'delete':
@@ -95,10 +109,14 @@ switch ($action) {
 
         array_splice($_SESSION['cart'], $index, 1);
 
-        echo json_encode(['status' => 'success', 'message' => 'Product removed']);
+        echo json_encode([
+            'status' => 'success',
+            'message' => 'Product removed',
+            'cart_html' => renderCartHTML()
+        ]);
         break;
 
     default:
         echo json_encode(['status' => 'error', 'message' => 'Invalid action']);
         break;
-}
+    }

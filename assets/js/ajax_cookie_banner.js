@@ -20,7 +20,6 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
-    // Vendos sfond sipas statusit të cookie-së
     const cookieData = getCookieData();
     if (cookieData && cookieData.accepted) {
         document.body.style.backgroundColor = "#e8f5e9";

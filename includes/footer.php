@@ -41,5 +41,8 @@
     <script src="<?php echo $base_url; ?>assets/js/ajax_cookie_banner.js"></script>
     <script src="<?php echo $base_url; ?>assets/js/feedback.js"></script>
     <script src="<?php echo $base_url; ?>assets/js/search.js"></script>
+    <?php if (basename($_SERVER['PHP_SELF']) === 'order.php'): ?>
+        <script src="<?php echo $base_url; ?>assets/js/order_process.js"></script>
+    <?php endif; ?>
 </body>
 </html>

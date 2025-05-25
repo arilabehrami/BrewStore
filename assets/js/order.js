@@ -23,7 +23,6 @@ function kontrolloPorosine() {
         let dateString = `Order date: ${currentDate.toLocaleString()}`;
         console.log(dateString);
 
-        // Manipulimi i numrave
         let maxPayment = 999999.99;
         let minPayment = 0.01;
         console.log(`Maximum payment value: ${maxPayment.toExponential()}`);

@@ -3,19 +3,18 @@
 <section id="order-now">
     <div class="order-image"></div>
 
-    <!-- Moti jashtë container-it që kufizon formën -->
     <div style="position: absolute; top: 120px; left: 50px; z-index: 10;">
-      <?php include 'admin/coffee_api.php'; ?>
-
+        <?php include 'admin/coffee_api.php'; ?>
     </div>
 
     <div class="container">
         <h1>Order Now!</h1>
 
-        <div id="message-box" style="margin: 10px auto; max-width: 480px;"></div>
+        <!-- Forma -->
+        <form id="order-form">
+            <!-- Mesazhet e AJAX vendosen këtu -->
+            <div id="message-box" style="margin: 10px auto; max-width: 480px;"></div>
 
-        <form id="order-form" action="admin/process_order.php" method="POST">
-            <!-- Kjo është forma që nuk ndryshohet -->
             <div class="form-group">
                 <label for="name">Name</label>
                 <input type="text" id="name" name="name" placeholder="Enter your name" required>
@@ -37,6 +36,7 @@
                     <option value="Cash">Cash</option>
                 </select>
             </div>
+
             <h2>Add Product to Cart</h2>
             <div class="form-group">
                 <label for="product">Product</label>
@@ -54,7 +54,9 @@
                     }
                     ?>
                 </select>
-                <div id="tax-info" style="display: none; color: #8B6B3E; font-size: 0.9rem; margin-top: 8px;">Note: Price includes 10% tax.</div>
+                <div id="tax-info" style="display: none; color: #8B6B3E; font-size: 0.9rem; margin-top: 8px;">
+                    Note: Price includes 10% tax.
+                </div>
             </div>
             <div class="form-group">
                 <label for="product-quantity">Quantity</label>
@@ -63,6 +65,7 @@
             <div style="margin-bottom: 30px;">
                 <button type="button" id="btn-add-to-cart">Add Selected Product to Cart</button>
             </div>
+
             <h2>Your Cart</h2>
             <div id="cart-items">
                 <?php if (!empty($_SESSION['cart'])): ?>
@@ -92,9 +95,14 @@
                     <p>Your cart is empty.</p>
                 <?php endif; ?>
             </div>
+
             <p id="total-price">Total price: $<?= number_format($total, 2) ?></p>
+
             <div class="form-group" style="margin-top: 30px;">
-                <label><input type="checkbox" id="accept-terms" name="accept-terms" required> I accept the terms and conditions</label>
+                <label>
+                    <input type="checkbox" id="accept-terms" name="accept-terms" required>
+                    I accept the terms and conditions
+                </label>
                 <button type="submit">Place Order</button>
             </div>
         </form>
