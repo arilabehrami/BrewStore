@@ -947,7 +947,7 @@ header .logo img:hover {
   padding: 6px 0;
   transition: color 0.35s ease;
   letter-spacing: 0.03em;
-  user-select: none;
+  /* user-select: none; */
 }
 
 .navbar li a::after {
@@ -983,7 +983,7 @@ header .logo img:hover {
   color: #666;
   cursor: pointer;
   transition: color 0.3s ease;
-  user-select: none;
+  /* user-select: none; */
 }
 
 .header-icon a,
@@ -1105,7 +1105,7 @@ header .logo img:hover {
   cursor: pointer;
   font-size: 28px;
   color: #b35c00;
-  user-select: none;
+  /* user-select: none; */
 }
 
 @media (max-width: 480px) {
