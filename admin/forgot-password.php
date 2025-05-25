@@ -18,7 +18,7 @@ include '../includes/header.php';
         }
         ?>
 
-        <form action="forgot_password_handler.php" method="POST">
+        <form action="process-forgot-password.php" method="POST">
             <div class="form-group">
                 <input type="email" name="email" placeholder="Enter your email..." required>
             </div>

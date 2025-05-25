@@ -17,9 +17,15 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     <div class="login-page">
         <div class="login-box">
             <h2>Reset Your Password</h2>
+
             <?php if (isset($_SESSION['error'])): ?>
                 <div class="alert alert-danger"><?= $_SESSION['error']; unset($_SESSION['error']); ?></div>
             <?php endif; ?>
+
+            <?php if (isset($_SESSION['message'])): ?>
+                <div class="success"><?= $_SESSION['message']; unset($_SESSION['message']); ?></div>
+            <?php endif; ?>
+
             <form method="POST" action="reset-password.php">
                 <div class="form-group">
                     <input type="text" name="reset_code" placeholder="Enter the 4-digit code" required>
