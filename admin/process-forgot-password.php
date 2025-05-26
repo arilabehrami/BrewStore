@@ -47,10 +47,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         exit();
     }
 
-    // Merr dhe përditëso numrin e kërkesave për reset
     $count = getResetRequestCount($conn, $email);
 
-    // Gjenero tokenin dhe skadimin
     $token = str_pad(random_int(0, 9999), 4, "0", STR_PAD_LEFT);
     $expires = date("Y-m-d H:i:s", strtotime("+1 hour"));
 
