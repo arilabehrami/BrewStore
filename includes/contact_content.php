@@ -31,6 +31,23 @@
             <li>📞: +123 456 789</li>
         </ul>
     </address>
+
+    <?php if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true): ?>
+        <address style="text-align: center; margin-top: 40px;">
+            <form id="feedback-form" style="display: inline-block;">
+                <textarea name="custom_message" rows="4" cols="70" placeholder="Give your feedback for our shop!" style="color: black;" required></textarea><br>
+                <button type="submit" class="btn btn-primary">Send your feedback</button>
+            </form>
+            <div id="feedback-response" style="margin-top: 10px; text-align: center;"></div>
+        </address>
+    <?php else: ?>
+        <address style="text-align: center; margin-top: 20px;">
+            <p style="color: red; font-weight: bold;">
+                You must be logged in to send feedback.
+            </p>
+            <a href="admin/login.php" class="btn btn-outline-primary">Login here</a>
+        </address>
+    <?php endif; ?>
 </section>
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
