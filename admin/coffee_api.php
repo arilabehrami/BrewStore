@@ -1,5 +1,5 @@
 <?php
-$url = "https://run.mocky.io/v3/84ea8eb3-ebb2-4143-8dbe-f4e1832a7f46";
+$url = "funfacts.json";
 $response = file_get_contents($url);
 $data = json_decode($response, true);
 
