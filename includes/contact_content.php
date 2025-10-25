@@ -3,7 +3,7 @@
         <video autoplay loop muted src="assets/images/PlaceOfCoffee.mp4"></video>
     </div>
 
-    <form id="contact-form" method="POST" action="/UEB25_CoffeeWebsite_/admin/contact_email.php">
+    <form id="contact-form" method="POST" action="/BrewStore/admin/contact_email.php">
         <label for="name">Name:</label>
         <input type="text" id="name" name="name" required placeholder="Enter your name">
 

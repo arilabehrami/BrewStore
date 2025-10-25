@@ -14,7 +14,7 @@ $(document).ready(function () {
 
         $.ajax({
             type: 'POST',
-            url: '/UEB25_CoffeeWebsite_/admin/contact_email.php',
+            url: '/BrewStore/admin/contact_email.php',
             data: formData,
             dataType: 'json',
             success: function (response) {
